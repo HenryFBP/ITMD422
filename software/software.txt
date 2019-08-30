@@ -1,0 +1,25 @@
+Hi All,
+
+I have listed down the software(s) that will be required as a part of this course. Also, I have attached Oracle installation guide along with this email.
+
+1. MS Access --  https://onthehub.com/download/free-software/office-professional-plus-2016-for-students/
+
+2. MySQL
+
+3.. Oracle
+
+4. SQL Server Management Studio [Backup]
+
+5.Microsoft Visual Studio
+
+Note:
+
+1. Please use the subject line as ITMD 523 - (Summary of your question) so that we don't miss any emails.
+
+2. To Upload your Labs/HW, please navigate to the Blackboard -> Select your Course -> Left hand side there will be Lab Assignment/Homework assignments -> Upload your documents -> Submit.
+
+3. Please check the screenshot which is attached along with the email (Step1 and Step2)
+
+Regards,
+
+Ananth
