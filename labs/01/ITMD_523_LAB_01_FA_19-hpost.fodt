@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <office:document xmlns:office="urn:oasis:names:tc:opendocument:xmlns:office:1.0" xmlns:style="urn:oasis:names:tc:opendocument:xmlns:style:1.0" xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" xmlns:table="urn:oasis:names:tc:opendocument:xmlns:table:1.0" xmlns:draw="urn:oasis:names:tc:opendocument:xmlns:drawing:1.0" xmlns:fo="urn:oasis:names:tc:opendocument:xmlns:xsl-fo-compatible:1.0" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:meta="urn:oasis:names:tc:opendocument:xmlns:meta:1.0" xmlns:number="urn:oasis:names:tc:opendocument:xmlns:datastyle:1.0" xmlns:svg="urn:oasis:names:tc:opendocument:xmlns:svg-compatible:1.0" xmlns:chart="urn:oasis:names:tc:opendocument:xmlns:chart:1.0" xmlns:dr3d="urn:oasis:names:tc:opendocument:xmlns:dr3d:1.0" xmlns:math="http://www.w3.org/1998/Math/MathML" xmlns:form="urn:oasis:names:tc:opendocument:xmlns:form:1.0" xmlns:script="urn:oasis:names:tc:opendocument:xmlns:script:1.0" xmlns:config="urn:oasis:names:tc:opendocument:xmlns:config:1.0" xmlns:ooo="http://openoffice.org/2004/office" xmlns:ooow="http://openoffice.org/2004/writer" xmlns:oooc="http://openoffice.org/2004/calc" xmlns:dom="http://www.w3.org/2001/xml-events" xmlns:xforms="http://www.w3.org/2002/xforms" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:rpt="http://openoffice.org/2005/report" xmlns:of="urn:oasis:names:tc:opendocument:xmlns:of:1.2" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:grddl="http://www.w3.org/2003/g/data-view#" xmlns:officeooo="http://openoffice.org/2009/office" xmlns:tableooo="http://openoffice.org/2009/table" xmlns:drawooo="http://openoffice.org/2010/draw" xmlns:calcext="urn:org:documentfoundation:names:experimental:calc:xmlns:calcext:1.0" xmlns:loext="urn:org:documentfoundation:names:experimental:office:xmlns:loext:1.0" xmlns:field="urn:openoffice:names:experimental:ooo-ms-interop:xmlns:field:1.0" xmlns:formx="urn:openoffice:names:experimental:ooxml-odf-interop:xmlns:form:1.0" xmlns:css3t="http://www.w3.org/TR/css3-text/" office:version="1.2" office:mimetype="application/vnd.oasis.opendocument.text">
- <office:meta><meta:initial-creator>LP</meta:initial-creator><meta:editing-cycles>24</meta:editing-cycles><meta:creation-date>2019-08-18T04:36:00</meta:creation-date><dc:date>2019-09-07T13:03:07.188705751</dc:date><meta:editing-duration>PT2H50M2S</meta:editing-duration><meta:generator>LibreOffice/6.2.4.2$Linux_X86_64 LibreOffice_project/20$Build-2</meta:generator><meta:document-statistic meta:table-count="9" meta:image-count="22" meta:object-count="0" meta:page-count="18" meta:paragraph-count="304" meta:word-count="2342" meta:character-count="14014" meta:non-whitespace-character-count="11374"/><meta:user-defined meta:name="AppVersion">16.0000</meta:user-defined><meta:user-defined meta:name="Company">City Colleges of Chicago</meta:user-defined><meta:user-defined meta:name="DocSecurity" meta:value-type="float">0</meta:user-defined><meta:user-defined meta:name="HyperlinksChanged" meta:value-type="boolean">false</meta:user-defined><meta:user-defined meta:name="LinksUpToDate" meta:value-type="boolean">false</meta:user-defined><meta:user-defined meta:name="ScaleCrop" meta:value-type="boolean">false</meta:user-defined><meta:user-defined meta:name="ShareDoc" meta:value-type="boolean">false</meta:user-defined><meta:template xlink:type="simple" xlink:actuate="onRequest" xlink:title="Normal.dotm" xlink:href=""/></office:meta>
+ <office:meta><meta:initial-creator>LP</meta:initial-creator><meta:editing-cycles>25</meta:editing-cycles><meta:creation-date>2019-08-18T04:36:00</meta:creation-date><dc:date>2019-09-07T17:04:51.875587891</dc:date><meta:editing-duration>PT6H51M46S</meta:editing-duration><meta:generator>LibreOffice/6.2.4.2$Linux_X86_64 LibreOffice_project/20$Build-2</meta:generator><meta:document-statistic meta:table-count="9" meta:image-count="22" meta:object-count="0" meta:page-count="18" meta:paragraph-count="304" meta:word-count="2340" meta:character-count="14007" meta:non-whitespace-character-count="11369"/><meta:user-defined meta:name="AppVersion">16.0000</meta:user-defined><meta:user-defined meta:name="Company">City Colleges of Chicago</meta:user-defined><meta:user-defined meta:name="DocSecurity" meta:value-type="float">0</meta:user-defined><meta:user-defined meta:name="HyperlinksChanged" meta:value-type="boolean">false</meta:user-defined><meta:user-defined meta:name="LinksUpToDate" meta:value-type="boolean">false</meta:user-defined><meta:user-defined meta:name="ScaleCrop" meta:value-type="boolean">false</meta:user-defined><meta:user-defined meta:name="ShareDoc" meta:value-type="boolean">false</meta:user-defined><meta:template xlink:type="simple" xlink:actuate="onRequest" xlink:title="Normal.dotm" xlink:href=""/></office:meta>
  <office:settings>
   <config:config-item-set config:name="ooo:view-settings">
-   <config:config-item config:name="ViewAreaTop" config:type="long">452549</config:config-item>
+   <config:config-item config:name="ViewAreaTop" config:type="long">466131</config:config-item>
    <config:config-item config:name="ViewAreaLeft" config:type="long">0</config:config-item>
-   <config:config-item config:name="ViewAreaWidth" config:type="long">41056</config:config-item>
-   <config:config-item config:name="ViewAreaHeight" config:type="long">18854</config:config-item>
+   <config:config-item config:name="ViewAreaWidth" config:type="long">22535</config:config-item>
+   <config:config-item config:name="ViewAreaHeight" config:type="long">37155</config:config-item>
    <config:config-item config:name="ShowRedlineChanges" config:type="boolean">true</config:config-item>
    <config:config-item config:name="InBrowseMode" config:type="boolean">false</config:config-item>
    <config:config-item-map-indexed config:name="Views">
     <config:config-item-map-entry>
      <config:config-item config:name="ViewId" config:type="string">view2</config:config-item>
-     <config:config-item config:name="ViewLeft" config:type="long">17697</config:config-item>
-     <config:config-item config:name="ViewTop" config:type="long">462208</config:config-item>
+     <config:config-item config:name="ViewLeft" config:type="long">12735</config:config-item>
+     <config:config-item config:name="ViewTop" config:type="long">491714</config:config-item>
      <config:config-item config:name="VisibleLeft" config:type="long">0</config:config-item>
-     <config:config-item config:name="VisibleTop" config:type="long">452549</config:config-item>
-     <config:config-item config:name="VisibleRight" config:type="long">41055</config:config-item>
-     <config:config-item config:name="VisibleBottom" config:type="long">471401</config:config-item>
+     <config:config-item config:name="VisibleTop" config:type="long">466131</config:config-item>
+     <config:config-item config:name="VisibleRight" config:type="long">22534</config:config-item>
+     <config:config-item config:name="VisibleBottom" config:type="long">503283</config:config-item>
      <config:config-item config:name="ZoomType" config:type="short">0</config:config-item>
      <config:config-item config:name="ViewLayoutColumns" config:type="short">1</config:config-item>
      <config:config-item config:name="ViewLayoutBookMode" config:type="boolean">false</config:config-item>
@@ -844,28 +844,23 @@
    <style:paragraph-properties fo:break-before="page"/>
    <style:text-properties style:font-name="Tahoma" fo:font-weight="bold" style:font-weight-asian="bold" style:font-name-complex="Tahoma1"/>
   </style:style>
-  <style:style style:name="P71" style:family="paragraph" style:parent-style-name="No_20_Spacing">
-   <loext:graphic-properties draw:fill="solid" draw:fill-color="#cccccc"/>
-   <style:paragraph-properties fo:break-before="page" fo:background-color="#cccccc"/>
-   <style:text-properties style:font-name="Tahoma" fo:font-weight="bold" style:font-weight-asian="bold" style:font-name-complex="Tahoma1"/>
-  </style:style>
-  <style:style style:name="P72" style:family="paragraph" style:parent-style-name="Standard">
+  <style:style style:name="P71" style:family="paragraph" style:parent-style-name="Standard">
    <style:paragraph-properties fo:margin-top="0in" fo:margin-bottom="0in" loext:contextual-spacing="false" fo:line-height="100%" fo:text-align="center" style:justify-single-word="false" fo:orphans="0" fo:widows="0"/>
    <style:text-properties style:font-name="Arial" fo:font-size="18pt" fo:letter-spacing="0.0138in" fo:font-weight="bold" style:font-name-asian="Times New Roman1" style:font-size-asian="18pt" style:font-weight-asian="bold" style:font-name-complex="Times New Roman1" style:font-size-complex="10pt"/>
   </style:style>
-  <style:style style:name="P73" style:family="paragraph" style:parent-style-name="Standard">
+  <style:style style:name="P72" style:family="paragraph" style:parent-style-name="Standard">
    <style:paragraph-properties fo:margin-top="0in" fo:margin-bottom="0in" loext:contextual-spacing="false" fo:line-height="100%" fo:text-align="center" style:justify-single-word="false" fo:orphans="0" fo:widows="0"/>
    <style:text-properties style:font-name="Arial" fo:font-size="14pt" fo:font-style="italic" style:font-name-asian="Times New Roman1" style:font-size-asian="14pt" style:font-style-asian="italic" style:font-name-complex="Times New Roman1" style:font-size-complex="6pt"/>
   </style:style>
-  <style:style style:name="P74" style:family="paragraph" style:parent-style-name="Standard">
+  <style:style style:name="P73" style:family="paragraph" style:parent-style-name="Standard">
    <style:paragraph-properties fo:margin-top="0in" fo:margin-bottom="0in" loext:contextual-spacing="false" fo:line-height="100%" fo:orphans="0" fo:widows="0"/>
    <style:text-properties style:font-name="Times New Roman" fo:font-size="2pt" fo:font-style="italic" fo:font-weight="bold" style:font-name-asian="Times New Roman1" style:font-size-asian="2pt" style:font-style-asian="italic" style:font-weight-asian="bold" style:font-name-complex="Times New Roman1" style:font-size-complex="10pt"/>
   </style:style>
-  <style:style style:name="P75" style:family="paragraph" style:parent-style-name="Standard">
+  <style:style style:name="P74" style:family="paragraph" style:parent-style-name="Standard">
    <style:paragraph-properties fo:margin-top="0in" fo:margin-bottom="0in" loext:contextual-spacing="false" fo:line-height="100%" fo:text-align="end" style:justify-single-word="false" fo:orphans="0" fo:widows="0"/>
    <style:text-properties style:font-name="Tahoma" fo:font-weight="bold" style:font-name-asian="Times New Roman1" style:font-weight-asian="bold" style:font-name-complex="Times New Roman1" style:font-size-complex="10pt"/>
   </style:style>
-  <style:style style:name="P76" style:family="paragraph" style:parent-style-name="Standard">
+  <style:style style:name="P75" style:family="paragraph" style:parent-style-name="Standard">
    <style:paragraph-properties fo:margin-top="0in" fo:margin-bottom="0in" loext:contextual-spacing="false" fo:line-height="100%" fo:orphans="0" fo:widows="0"/>
    <style:text-properties style:font-name="Tahoma" fo:font-weight="bold" style:font-name-asian="Times New Roman1" style:font-weight-asian="bold" style:font-name-complex="Times New Roman1" style:font-size-complex="10pt"/>
   </style:style>
@@ -959,9 +954,6 @@
   <style:style style:name="T30" style:family="text">
    <style:text-properties style:font-name="Arial" fo:font-size="14pt" fo:font-style="italic" style:font-name-asian="Times New Roman1" style:font-size-asian="14pt" style:font-style-asian="italic" style:font-name-complex="Times New Roman1" style:font-size-complex="6pt"/>
   </style:style>
-  <style:style style:name="T31" style:family="text">
-   <style:text-properties fo:font-size="12pt" style:font-size-asian="12pt"/>
-  </style:style>
   <style:style style:name="fr1" style:family="graphic" style:parent-style-name="Graphics">
    <style:graphic-properties fo:margin-left="0.0209in" fo:margin-right="0.0209in" fo:margin-top="0.0209in" fo:margin-bottom="0.0311in" style:vertical-pos="top" style:vertical-rel="baseline" fo:background-color="transparent" draw:fill="none" draw:fill-color="#ffffff" fo:padding="0in" fo:border="0.26pt solid #000000" style:mirror="none" fo:clip="rect(0in, 0in, 0in, 0in)" draw:luminance="0%" draw:contrast="0%" draw:red="0%" draw:green="0%" draw:blue="0%" draw:gamma="100%" draw:color-inversion="false" draw:image-opacity="100%" draw:color-mode="standard"/>
   </style:style>
@@ -1039,15 +1031,15 @@
      <table:table-row table:style-name="Table8.1">
       <table:table-cell table:style-name="Table8.A1" office:value-type="string">
        <text:p text:style-name="P14"/>
-       <text:p text:style-name="P72">ITMD 523</text:p>
+       <text:p text:style-name="P71">ITMD 523</text:p>
       </table:table-cell>
       <table:table-cell table:style-name="Table8.B1" office:value-type="string">
        <text:p text:style-name="P15"/>
-       <text:p text:style-name="P73">Advanced Database Management</text:p>
+       <text:p text:style-name="P72">Advanced Database Management</text:p>
       </table:table-cell>
       <table:table-cell table:style-name="Table8.C1" office:value-type="string">
        <text:p text:style-name="P14"/>
-       <text:p text:style-name="P72">Lab 1</text:p>
+       <text:p text:style-name="P71">Lab 1</text:p>
       </table:table-cell>
      </table:table-row>
     </table:table>
@@ -1059,13 +1051,13 @@
      <table:table-column table:style-name="Table9.D"/>
      <table:table-row table:style-name="Table9.1">
       <table:table-cell table:style-name="Table9.A1" office:value-type="string">
-       <text:p text:style-name="P75"><text:s/>Student Name</text:p>
+       <text:p text:style-name="P74"><text:s/>Student Name</text:p>
       </table:table-cell>
       <table:table-cell table:style-name="Table9.B1" office:value-type="string">
        <text:p text:style-name="P11">Henry Post</text:p>
       </table:table-cell>
       <table:table-cell table:style-name="Table9.A1" office:value-type="string">
-       <text:p text:style-name="P76">Section <text:s text:c="2"/></text:p>
+       <text:p text:style-name="P75">Section <text:s text:c="2"/></text:p>
       </table:table-cell>
       <table:table-cell table:style-name="Table9.B1" office:value-type="string">
        <text:p text:style-name="P13">422</text:p>
@@ -1098,13 +1090,13 @@
     <table:table-column table:style-name="Table1.D"/>
     <table:table-row table:style-name="Table1.1">
      <table:table-cell table:style-name="Table1.A1" office:value-type="string">
-      <text:p text:style-name="P75">Instructor</text:p>
+      <text:p text:style-name="P74">Instructor</text:p>
      </table:table-cell>
      <table:table-cell table:style-name="Table1.B1" office:value-type="string">
       <text:p text:style-name="P11">Luke Papademas</text:p>
      </table:table-cell>
      <table:table-cell table:style-name="Table1.A1" office:value-type="string">
-      <text:p text:style-name="P76">Due Date <text:s text:c="2"/></text:p>
+      <text:p text:style-name="P75">Due Date <text:s text:c="2"/></text:p>
      </table:table-cell>
      <table:table-cell table:style-name="Table1.B1" office:value-type="string">
       <text:p text:style-name="P12">10/08</text:p>
@@ -7258,7 +7250,8 @@
    <text:p text:style-name="P23"/>
    <text:p text:style-name="P23"/>
    <text:p text:style-name="P23"/>
-   <text:p text:style-name="P71"><text:span text:style-name="T31"><text:s/>PROJECT <text:tab/>Using MS Access to Design a Database Application</text:span></text:p>
+   <text:p text:style-name="P70"/>
+   <text:p text:style-name="P58"><text:s/>PROJECT <text:tab/>Using MS Access to Design a Database Application</text:p>
    <text:p text:style-name="P23"/>
    <text:p text:style-name="No_20_Spacing"><text:span text:style-name="T7">Step 15<text:tab/></text:span><text:span text:style-name="T27">Questions and Reflections Concerning this Database Project</text:span></text:p>
    <text:p text:style-name="P27"/>
@@ -7281,7 +7274,7 @@
    <text:p text:style-name="P27"/>
    <text:p text:style-name="No_20_Spacing"><text:span text:style-name="T10"><text:tab/><text:tab/></text:span><text:span text:style-name="T7">(4)<text:tab/>( Data Queries in MS Access )</text:span></text:p>
    <text:p text:style-name="P39"/>
-   <text:p text:style-name="No_20_Spacing"><text:span text:style-name="T7"><text:tab/><text:tab/><text:tab/></text:span><text:span text:style-name="T10">During this project, you queried the two tables that were included <text:tab/><text:tab/><text:tab/><text:tab/>in your database file. <text:s/>In your first query, which field of the <text:tab/><text:tab/><text:tab/><text:tab/></text:span><text:span text:style-name="T7">Clients</text:span><text:span text:style-name="T10"> table had this criterion setting?<text:tab/>&gt; 1000</text:span></text:p>
+   <text:p text:style-name="No_20_Spacing"><text:span text:style-name="T7"><text:tab/><text:tab/><text:tab/></text:span><text:span text:style-name="T10">During this project, you queried the two tables that were included <text:tab/><text:tab/><text:tab/><text:tab/>in your database file. <text:s/>In your first query, which field of the <text:tab/><text:tab/><text:tab/><text:tab/></text:span><text:span text:style-name="T7">Clients</text:span><text:span text:style-name="T10"> table had this criterion setting?</text:span></text:p>
    <text:p text:style-name="P26"/>
    <text:p text:style-name="No_20_Spacing"><text:span text:style-name="T10"><text:tab/><text:tab/></text:span><text:span text:style-name="T7">(5)<text:tab/>( Report Writing with MS Access )</text:span></text:p>
    <text:p text:style-name="P27"/>
@@ -7291,7 +7284,7 @@
    <text:p text:style-name="P27"/>
    <text:p text:style-name="P48">When using the database documenter, explain how you would <text:tab/><text:tab/><text:tab/>navigate this feature to reveal the following information. <text:tab/></text:p>
    <text:p text:style-name="P48"/>
-   <text:p text:style-name="No_20_Spacing"><draw:frame draw:style-name="fr18" draw:name="Picture 23" text:anchor-type="as-char" svg:width="6in" svg:height="0.752in" draw:z-index="21"><draw:image loext:mime-type="image/png">
+   <text:p text:style-name="No_20_Spacing"><text:soft-page-break/><draw:frame draw:style-name="fr18" draw:name="Picture 23" text:anchor-type="as-char" svg:width="6in" svg:height="0.752in" draw:z-index="21"><draw:image loext:mime-type="image/png">
       <office:binary-data>iVBORw0KGgoAAAANSUhEUgAAA1YAAABrCAIAAAD7MoTSAAAAAXNSR0IArs4c6QAAFLNJREFU
        eF7t3T1S4zwYwHHzniWZHQoOEG4QZoutKClDSwrKrSi3gJaUW1JtwSQ3IAeg2NmBu/Dqw7Il
        27JkxzHG/qfaDbI+fpLtJ5I/Tj4+PhI+CCCAAAIIIIAAAlMS+G9KjaWtCCCAAAIIIIAAAlKA
@@ -7396,7 +7389,7 @@
      </draw:image>
     </draw:frame></text:p>
    <text:p text:style-name="P27"/>
-   <text:p text:style-name="P66"><text:soft-page-break/>(7)<text:tab/>( Enforcement of Referential Integrity )</text:p>
+   <text:p text:style-name="P66">(7)<text:tab/>( Enforcement of Referential Integrity )</text:p>
    <text:p text:style-name="P31"><text:tab/><text:tab/></text:p>
    <text:p text:style-name="P31"><text:tab/><text:tab/><text:tab/>Explain the importance of referential integrity when performing <text:tab/><text:tab/><text:tab/><text:tab/>joins, or any modification of a database. Make sure you first </text:p>
    <text:p text:style-name="P68">define referential integrity.</text:p>
