@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <office:document xmlns:office="urn:oasis:names:tc:opendocument:xmlns:office:1.0" xmlns:style="urn:oasis:names:tc:opendocument:xmlns:style:1.0" xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" xmlns:table="urn:oasis:names:tc:opendocument:xmlns:table:1.0" xmlns:draw="urn:oasis:names:tc:opendocument:xmlns:drawing:1.0" xmlns:fo="urn:oasis:names:tc:opendocument:xmlns:xsl-fo-compatible:1.0" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:meta="urn:oasis:names:tc:opendocument:xmlns:meta:1.0" xmlns:number="urn:oasis:names:tc:opendocument:xmlns:datastyle:1.0" xmlns:svg="urn:oasis:names:tc:opendocument:xmlns:svg-compatible:1.0" xmlns:chart="urn:oasis:names:tc:opendocument:xmlns:chart:1.0" xmlns:dr3d="urn:oasis:names:tc:opendocument:xmlns:dr3d:1.0" xmlns:math="http://www.w3.org/1998/Math/MathML" xmlns:form="urn:oasis:names:tc:opendocument:xmlns:form:1.0" xmlns:script="urn:oasis:names:tc:opendocument:xmlns:script:1.0" xmlns:config="urn:oasis:names:tc:opendocument:xmlns:config:1.0" xmlns:ooo="http://openoffice.org/2004/office" xmlns:ooow="http://openoffice.org/2004/writer" xmlns:oooc="http://openoffice.org/2004/calc" xmlns:dom="http://www.w3.org/2001/xml-events" xmlns:xforms="http://www.w3.org/2002/xforms" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:rpt="http://openoffice.org/2005/report" xmlns:of="urn:oasis:names:tc:opendocument:xmlns:of:1.2" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:grddl="http://www.w3.org/2003/g/data-view#" xmlns:officeooo="http://openoffice.org/2009/office" xmlns:tableooo="http://openoffice.org/2009/table" xmlns:drawooo="http://openoffice.org/2010/draw" xmlns:calcext="urn:org:documentfoundation:names:experimental:calc:xmlns:calcext:1.0" xmlns:loext="urn:org:documentfoundation:names:experimental:office:xmlns:loext:1.0" xmlns:field="urn:openoffice:names:experimental:ooo-ms-interop:xmlns:field:1.0" xmlns:formx="urn:openoffice:names:experimental:ooxml-odf-interop:xmlns:form:1.0" xmlns:css3t="http://www.w3.org/TR/css3-text/" office:version="1.2" office:mimetype="application/vnd.oasis.opendocument.text">
- <office:meta><meta:initial-creator>LP</meta:initial-creator><meta:editing-cycles>18</meta:editing-cycles><meta:creation-date>2019-08-18T04:36:00</meta:creation-date><dc:date>2019-09-07T11:40:06.589850084</dc:date><meta:editing-duration>PT1H27M5S</meta:editing-duration><meta:generator>LibreOffice/6.2.4.2$Linux_X86_64 LibreOffice_project/20$Build-2</meta:generator><meta:document-statistic meta:table-count="9" meta:image-count="22" meta:object-count="0" meta:page-count="17" meta:paragraph-count="304" meta:word-count="2342" meta:character-count="14052" meta:non-whitespace-character-count="11374"/><meta:user-defined meta:name="AppVersion">16.0000</meta:user-defined><meta:user-defined meta:name="Company">City Colleges of Chicago</meta:user-defined><meta:user-defined meta:name="DocSecurity" meta:value-type="float">0</meta:user-defined><meta:user-defined meta:name="HyperlinksChanged" meta:value-type="boolean">false</meta:user-defined><meta:user-defined meta:name="LinksUpToDate" meta:value-type="boolean">false</meta:user-defined><meta:user-defined meta:name="ScaleCrop" meta:value-type="boolean">false</meta:user-defined><meta:user-defined meta:name="ShareDoc" meta:value-type="boolean">false</meta:user-defined><meta:template xlink:type="simple" xlink:actuate="onRequest" xlink:title="Normal.dotm" xlink:href=""/></office:meta>
+ <office:meta><meta:initial-creator>LP</meta:initial-creator><meta:editing-cycles>23</meta:editing-cycles><meta:creation-date>2019-08-18T04:36:00</meta:creation-date><dc:date>2019-09-07T12:27:32.415088655</dc:date><meta:editing-duration>PT2H14M28S</meta:editing-duration><meta:generator>LibreOffice/6.2.4.2$Linux_X86_64 LibreOffice_project/20$Build-2</meta:generator><meta:document-statistic meta:table-count="9" meta:image-count="22" meta:object-count="0" meta:page-count="17" meta:paragraph-count="304" meta:word-count="2342" meta:character-count="14014" meta:non-whitespace-character-count="11374"/><meta:user-defined meta:name="AppVersion">16.0000</meta:user-defined><meta:user-defined meta:name="Company">City Colleges of Chicago</meta:user-defined><meta:user-defined meta:name="DocSecurity" meta:value-type="float">0</meta:user-defined><meta:user-defined meta:name="HyperlinksChanged" meta:value-type="boolean">false</meta:user-defined><meta:user-defined meta:name="LinksUpToDate" meta:value-type="boolean">false</meta:user-defined><meta:user-defined meta:name="ScaleCrop" meta:value-type="boolean">false</meta:user-defined><meta:user-defined meta:name="ShareDoc" meta:value-type="boolean">false</meta:user-defined><meta:template xlink:type="simple" xlink:actuate="onRequest" xlink:title="Normal.dotm" xlink:href=""/></office:meta>
  <office:settings>
   <config:config-item-set config:name="ooo:view-settings">
-   <config:config-item config:name="ViewAreaTop" config:type="long">48442</config:config-item>
+   <config:config-item config:name="ViewAreaTop" config:type="long">380935</config:config-item>
    <config:config-item config:name="ViewAreaLeft" config:type="long">0</config:config-item>
    <config:config-item config:name="ViewAreaWidth" config:type="long">41056</config:config-item>
    <config:config-item config:name="ViewAreaHeight" config:type="long">18854</config:config-item>
@@ -13,12 +13,12 @@
    <config:config-item-map-indexed config:name="Views">
     <config:config-item-map-entry>
      <config:config-item config:name="ViewId" config:type="string">view2</config:config-item>
-     <config:config-item config:name="ViewLeft" config:type="long">12908</config:config-item>
-     <config:config-item config:name="ViewTop" config:type="long">60625</config:config-item>
+     <config:config-item config:name="ViewLeft" config:type="long">14840</config:config-item>
+     <config:config-item config:name="ViewTop" config:type="long">390790</config:config-item>
      <config:config-item config:name="VisibleLeft" config:type="long">0</config:config-item>
-     <config:config-item config:name="VisibleTop" config:type="long">48442</config:config-item>
+     <config:config-item config:name="VisibleTop" config:type="long">380935</config:config-item>
      <config:config-item config:name="VisibleRight" config:type="long">41055</config:config-item>
-     <config:config-item config:name="VisibleBottom" config:type="long">67294</config:config-item>
+     <config:config-item config:name="VisibleBottom" config:type="long">399787</config:config-item>
      <config:config-item config:name="ZoomType" config:type="short">0</config:config-item>
      <config:config-item config:name="ViewLayoutColumns" config:type="short">1</config:config-item>
      <config:config-item config:name="ViewLayoutBookMode" config:type="boolean">false</config:config-item>
@@ -840,23 +840,27 @@
   <style:style style:name="P69" style:family="paragraph" style:parent-style-name="No_20_Spacing">
    <style:paragraph-properties fo:break-before="page"/>
   </style:style>
-  <style:style style:name="P70" style:family="paragraph" style:parent-style-name="Standard">
-   <style:paragraph-properties fo:margin-top="0in" fo:margin-bottom="0in" loext:contextual-spacing="false" fo:line-height="100%" fo:text-align="center" style:justify-single-word="false" fo:orphans="0" fo:widows="0"/>
-   <style:text-properties style:font-name="Arial" fo:font-size="18pt" fo:letter-spacing="0.0138in" fo:font-weight="bold" style:font-name-asian="Times New Roman1" style:font-size-asian="18pt" style:font-weight-asian="bold" style:font-name-complex="Times New Roman1" style:font-size-complex="10pt"/>
+  <style:style style:name="P70" style:family="paragraph" style:parent-style-name="No_20_Spacing">
+   <style:paragraph-properties fo:break-before="page"/>
+   <style:text-properties style:font-name="Tahoma" fo:font-weight="bold" style:font-weight-asian="bold" style:font-name-complex="Tahoma1"/>
   </style:style>
   <style:style style:name="P71" style:family="paragraph" style:parent-style-name="Standard">
    <style:paragraph-properties fo:margin-top="0in" fo:margin-bottom="0in" loext:contextual-spacing="false" fo:line-height="100%" fo:text-align="center" style:justify-single-word="false" fo:orphans="0" fo:widows="0"/>
-   <style:text-properties style:font-name="Arial" fo:font-size="14pt" fo:font-style="italic" style:font-name-asian="Times New Roman1" style:font-size-asian="14pt" style:font-style-asian="italic" style:font-name-complex="Times New Roman1" style:font-size-complex="6pt"/>
+   <style:text-properties style:font-name="Arial" fo:font-size="18pt" fo:letter-spacing="0.0138in" fo:font-weight="bold" style:font-name-asian="Times New Roman1" style:font-size-asian="18pt" style:font-weight-asian="bold" style:font-name-complex="Times New Roman1" style:font-size-complex="10pt"/>
   </style:style>
   <style:style style:name="P72" style:family="paragraph" style:parent-style-name="Standard">
+   <style:paragraph-properties fo:margin-top="0in" fo:margin-bottom="0in" loext:contextual-spacing="false" fo:line-height="100%" fo:text-align="center" style:justify-single-word="false" fo:orphans="0" fo:widows="0"/>
+   <style:text-properties style:font-name="Arial" fo:font-size="14pt" fo:font-style="italic" style:font-name-asian="Times New Roman1" style:font-size-asian="14pt" style:font-style-asian="italic" style:font-name-complex="Times New Roman1" style:font-size-complex="6pt"/>
+  </style:style>
+  <style:style style:name="P73" style:family="paragraph" style:parent-style-name="Standard">
    <style:paragraph-properties fo:margin-top="0in" fo:margin-bottom="0in" loext:contextual-spacing="false" fo:line-height="100%" fo:orphans="0" fo:widows="0"/>
    <style:text-properties style:font-name="Times New Roman" fo:font-size="2pt" fo:font-style="italic" fo:font-weight="bold" style:font-name-asian="Times New Roman1" style:font-size-asian="2pt" style:font-style-asian="italic" style:font-weight-asian="bold" style:font-name-complex="Times New Roman1" style:font-size-complex="10pt"/>
   </style:style>
-  <style:style style:name="P73" style:family="paragraph" style:parent-style-name="Standard">
+  <style:style style:name="P74" style:family="paragraph" style:parent-style-name="Standard">
    <style:paragraph-properties fo:margin-top="0in" fo:margin-bottom="0in" loext:contextual-spacing="false" fo:line-height="100%" fo:text-align="end" style:justify-single-word="false" fo:orphans="0" fo:widows="0"/>
    <style:text-properties style:font-name="Tahoma" fo:font-weight="bold" style:font-name-asian="Times New Roman1" style:font-weight-asian="bold" style:font-name-complex="Times New Roman1" style:font-size-complex="10pt"/>
   </style:style>
-  <style:style style:name="P74" style:family="paragraph" style:parent-style-name="Standard">
+  <style:style style:name="P75" style:family="paragraph" style:parent-style-name="Standard">
    <style:paragraph-properties fo:margin-top="0in" fo:margin-bottom="0in" loext:contextual-spacing="false" fo:line-height="100%" fo:orphans="0" fo:widows="0"/>
    <style:text-properties style:font-name="Tahoma" fo:font-weight="bold" style:font-name-asian="Times New Roman1" style:font-weight-asian="bold" style:font-name-complex="Times New Roman1" style:font-size-complex="10pt"/>
   </style:style>
@@ -1027,15 +1031,15 @@
      <table:table-row table:style-name="Table8.1">
       <table:table-cell table:style-name="Table8.A1" office:value-type="string">
        <text:p text:style-name="P14"/>
-       <text:p text:style-name="P70">ITMD 523</text:p>
+       <text:p text:style-name="P71">ITMD 523</text:p>
       </table:table-cell>
       <table:table-cell table:style-name="Table8.B1" office:value-type="string">
        <text:p text:style-name="P15"/>
-       <text:p text:style-name="P71">Advanced Database Management</text:p>
+       <text:p text:style-name="P72">Advanced Database Management</text:p>
       </table:table-cell>
       <table:table-cell table:style-name="Table8.C1" office:value-type="string">
        <text:p text:style-name="P14"/>
-       <text:p text:style-name="P70">Lab 1</text:p>
+       <text:p text:style-name="P71">Lab 1</text:p>
       </table:table-cell>
      </table:table-row>
     </table:table>
@@ -1047,13 +1051,13 @@
      <table:table-column table:style-name="Table9.D"/>
      <table:table-row table:style-name="Table9.1">
       <table:table-cell table:style-name="Table9.A1" office:value-type="string">
-       <text:p text:style-name="P73"><text:s/>Student Name</text:p>
+       <text:p text:style-name="P74"><text:s/>Student Name</text:p>
       </table:table-cell>
       <table:table-cell table:style-name="Table9.B1" office:value-type="string">
        <text:p text:style-name="P11">Henry Post</text:p>
       </table:table-cell>
       <table:table-cell table:style-name="Table9.A1" office:value-type="string">
-       <text:p text:style-name="P74">Section <text:s text:c="2"/></text:p>
+       <text:p text:style-name="P75">Section <text:s text:c="2"/></text:p>
       </table:table-cell>
       <table:table-cell table:style-name="Table9.B1" office:value-type="string">
        <text:p text:style-name="P13">422</text:p>
@@ -1064,7 +1068,7 @@
     <text:p text:style-name="P4"/>
    </style:header>
    <style:footer>
-    <text:p text:style-name="P5"><text:span text:style-name="T1">© Copyright 2019 by P.E.P.</text:span><text:tab/><text:tab/><text:page-number text:select-page="current">17</text:page-number></text:p>
+    <text:p text:style-name="P5"><text:span text:style-name="T1">© Copyright 2019 by P.E.P.</text:span><text:tab/><text:tab/><text:page-number text:select-page="current">16</text:page-number></text:p>
     <text:p text:style-name="Footer"/>
    </style:footer>
   </style:master-page>
@@ -1086,13 +1090,13 @@
     <table:table-column table:style-name="Table1.D"/>
     <table:table-row table:style-name="Table1.1">
      <table:table-cell table:style-name="Table1.A1" office:value-type="string">
-      <text:p text:style-name="P73">Instructor</text:p>
+      <text:p text:style-name="P74">Instructor</text:p>
      </table:table-cell>
      <table:table-cell table:style-name="Table1.B1" office:value-type="string">
       <text:p text:style-name="P11">Luke Papademas</text:p>
      </table:table-cell>
      <table:table-cell table:style-name="Table1.A1" office:value-type="string">
-      <text:p text:style-name="P74">Due Date <text:s text:c="2"/></text:p>
+      <text:p text:style-name="P75">Due Date <text:s text:c="2"/></text:p>
      </table:table-cell>
      <table:table-cell table:style-name="Table1.B1" office:value-type="string">
       <text:p text:style-name="P12">10/08</text:p>
@@ -4071,13 +4075,14 @@
    <text:p text:style-name="P24"/>
    <text:p text:style-name="No_20_Spacing"><text:span text:style-name="T10"><text:tab/><text:tab/>Using both the </text:span><text:span text:style-name="T7">Consultants</text:span><text:span text:style-name="T10"> and the </text:span><text:span text:style-name="T7">Clients </text:span><text:span text:style-name="T10">tables in your database, <text:tab/><text:tab/><text:tab/>construct a meaningful query, of your own design, that implements both <text:tab/><text:tab/><text:tab/>an AND logical operation and an OR logical operation. </text:span></text:p>
    <text:p text:style-name="P31"/>
-   <text:p text:style-name="No_20_Spacing"><text:span text:style-name="T7">Step 10</text:span><text:span text:style-name="T10"><text:tab/></text:span><text:span text:style-name="T27">Generate an MS Access Database Report</text:span></text:p>
+   <text:p text:style-name="No_20_Spacing"><text:span text:style-name="T7"/></text:p>
+   <text:p text:style-name="P50"><text:span text:style-name="T7">Step 10</text:span><text:span text:style-name="T10"><text:tab/></text:span><text:span text:style-name="T27">Generate an MS Access Database Report</text:span></text:p>
    <text:p text:style-name="P40"/>
    <text:p text:style-name="No_20_Spacing"><text:span text:style-name="T10"><text:tab/><text:tab/>With your database file opened in MS Access, click [ Create ] on the <text:tab/><text:tab/><text:tab/>Ribbon and select the [ Report Wizard ] from the </text:span><text:span text:style-name="T7">Reports</text:span><text:span text:style-name="T10"> group.</text:span></text:p>
    <text:p text:style-name="P31"/>
    <text:p text:style-name="No_20_Spacing"><text:span text:style-name="T10"><text:tab/><text:tab/>The </text:span><text:span text:style-name="T7">Report Wizard</text:span><text:span text:style-name="T10"> dialog box appears.</text:span></text:p>
    <text:p text:style-name="P31"/>
-   <text:p text:style-name="P44"><text:soft-page-break/><draw:frame draw:style-name="fr12" draw:name="Picture 1" text:anchor-type="as-char" svg:width="5.0134in" svg:height="3.8173in" draw:z-index="12"><draw:image loext:mime-type="image/png">
+   <text:p text:style-name="P44"><draw:frame draw:style-name="fr12" draw:name="Picture 1" text:anchor-type="as-char" svg:width="5.0134in" svg:height="3.8173in" draw:z-index="12"><draw:image loext:mime-type="image/png">
       <office:binary-data>iVBORw0KGgoAAAANSUhEUgAAAtIAAAImCAIAAADxC/ryAAAAAXNSR0IArs4c6QAAAAlwSFlz
        AAAWJQAAFiYBYn93MwAAgeNJREFUeF7tvXvYVNWd57t31cvL/apiRBREXhTQJBKJYDptbIck
        gJNg92jOoz2KkzMw8Zw20PMkT2Ta/BEzmNHzDMRzjhk4k5Y4bXoiM41JK5CmbcfujtiNtwS5
@@ -4699,12 +4704,6 @@
       </office:binary-data>
      </draw:image>
     </draw:frame></text:p>
-   <text:p text:style-name="P31"/>
-   <text:p text:style-name="P31"/>
-   <text:p text:style-name="P31"/>
-   <text:p text:style-name="P31"/>
-   <text:p text:style-name="P31"/>
-   <text:p text:style-name="P31"/>
    <text:p text:style-name="P31"><text:s/></text:p>
    <text:p text:style-name="P58"><text:s/>PROJECT <text:tab/>Using MS Access to Design a Database Application</text:p>
    <text:p text:style-name="P31"/>
@@ -4722,34 +4721,34 @@
    <text:p text:style-name="P27"/>
    <text:p text:style-name="No_20_Spacing"><text:span text:style-name="T7">Step 11</text:span><text:span text:style-name="T10"><text:tab/></text:span><text:span text:style-name="T27">Generate Additional MS Access Database Reports</text:span></text:p>
    <text:p text:style-name="P27"/>
-   <text:p text:style-name="P31"><text:tab/><text:tab/>Construct each of the following database reports. <text:s/>Save the reports with <text:tab/><text:tab/><text:tab/>an appropriate name. <text:s/>Ensure that the field names and data columns area <text:tab/><text:tab/>completely visible when preforming a [ Print Preview ] of each report.</text:p>
+   <text:p text:style-name="P31"><text:tab/><text:tab/>Construct each of the following database reports. <text:s/>Save the reports with <text:tab/><text:tab/><text:tab/>an appropriate name. <text:s/>Ensure that the field names <text:soft-page-break/>and data columns area <text:tab/><text:tab/>completely visible when preforming a [ Print Preview ] of each report.</text:p>
    <text:p text:style-name="P26"/>
-   <text:p text:style-name="P31"><text:soft-page-break/><text:tab/><text:tab/>Take a screen snapshot of each of your reports and place them into your <text:tab/><text:tab/><text:tab/>word processing submittal document. <text:s/>Label each report accordingly.<text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/></text:p>
+   <text:p text:style-name="P31"><text:tab/><text:tab/>Take a screen snapshot of each of your reports and place them into your word processing submittal document. <text:s/>Label each report accordingly.<text:tab/><text:tab/><text:tab/><text:tab/><text:tab/></text:p>
    <text:p text:style-name="No_20_Spacing"><text:span text:style-name="T10"><text:tab/><text:tab/></text:span><text:span text:style-name="T7">Report 1<text:tab/>( Report: The Consultants Table )</text:span></text:p>
    <text:p text:style-name="P27"/>
-   <text:p text:style-name="No_20_Spacing"><text:span text:style-name="T10"><text:tab/><text:tab/>In the manner of the prior step, generate a new report of your choice <text:tab/><text:tab/><text:tab/>based on only the </text:span><text:span text:style-name="T7">Consultants</text:span><text:span text:style-name="T10"> table. <text:s/></text:span></text:p>
+   <text:p text:style-name="No_20_Spacing"><text:span text:style-name="T10"><text:tab/><text:tab/>In the manner of the prior step, generate a new report of your choice based on only the </text:span><text:span text:style-name="T7">Consultants</text:span><text:span text:style-name="T10"> table. <text:s/></text:span></text:p>
    <text:p text:style-name="P31"><text:tab/></text:p>
    <text:p text:style-name="No_20_Spacing"><text:span text:style-name="T10"><text:tab/><text:tab/></text:span><text:span text:style-name="T7">Report 2<text:tab/>( Report: ID Fields )</text:span></text:p>
    <text:p text:style-name="P27"/>
-   <text:p text:style-name="No_20_Spacing"><text:span text:style-name="T10"><text:tab/><text:tab/>Create a report that only shows the primary key fields from both the <text:s text:c="2"/><text:tab/><text:tab/><text:tab/></text:span><text:span text:style-name="T7">Consultants</text:span><text:span text:style-name="T10"> table and the </text:span><text:span text:style-name="T7">Clients </text:span><text:span text:style-name="T10">table. <text:s/></text:span></text:p>
+   <text:p text:style-name="No_20_Spacing"><text:span text:style-name="T10"><text:tab/><text:tab/>Create a report that only shows the primary key fields from both the </text:span><text:span text:style-name="T7">Consultants</text:span><text:span text:style-name="T10"> table and the </text:span><text:span text:style-name="T7">Clients </text:span><text:span text:style-name="T10">table. <text:s/></text:span></text:p>
    <text:p text:style-name="P31"><text:tab/><text:tab/></text:p>
    <text:p text:style-name="No_20_Spacing"><text:span text:style-name="T10"><text:tab/><text:tab/></text:span><text:span text:style-name="T7">Report 3<text:tab/>( Report: Based on a Query )</text:span></text:p>
    <text:p text:style-name="P27"/>
-   <text:p text:style-name="P31"><text:tab/><text:tab/>Create a professional report of your own design that is based on one of <text:tab/><text:tab/><text:tab/>the queries that you constructed earlier.</text:p>
+   <text:p text:style-name="P31"><text:tab/><text:tab/>Create a professional report of your own design that is based on one of the queries that you constructed earlier.</text:p>
    <text:p text:style-name="P31"><text:tab/></text:p>
    <text:p text:style-name="No_20_Spacing"><text:span text:style-name="T10"><text:tab/><text:tab/></text:span><text:span text:style-name="T7">Report 4<text:tab/>( Report: Custom )</text:span></text:p>
    <text:p text:style-name="P26"/>
    <text:p text:style-name="No_20_Spacing"><text:span text:style-name="T10"><text:tab/><text:tab/>In the MS Access </text:span><text:span text:style-name="T7">Navigation Pane</text:span><text:span text:style-name="T10">, select one of your tables, click </text:span></text:p>
-   <text:p text:style-name="No_20_Spacing"><text:span text:style-name="T10"><text:tab/><text:tab/>[ Create ] on the menu Ribbon and click [ Report ] in the </text:span><text:span text:style-name="T7">Reports </text:span><text:span text:style-name="T10">group. </text:span><text:span text:style-name="T7"><text:s/><text:tab/><text:tab/></text:span><text:span text:style-name="T10">In the [ Layout View ]</text:span><text:span text:style-name="T7"> </text:span><text:span text:style-name="T10">change the property of the Auto_Time text box <text:tab/><text:tab/><text:tab/>from the default setting to Short Time. <text:tab/><text:tab/></text:span></text:p>
+   <text:p text:style-name="No_20_Spacing"><text:span text:style-name="T10"><text:tab/><text:tab/>[ Create ] on the menu Ribbon and click [ Report ] in the </text:span><text:span text:style-name="T7">Reports </text:span><text:span text:style-name="T10">group. </text:span><text:span text:style-name="T7"><text:s/></text:span><text:span text:style-name="T10">In the [ Layout View ]</text:span><text:span text:style-name="T7"> </text:span><text:span text:style-name="T10">change the property of the Auto_Time text box from the default setting to Short Time. <text:tab/><text:tab/></text:span></text:p>
    <text:p text:style-name="P31"><text:tab/></text:p>
    <text:p text:style-name="No_20_Spacing"><text:span text:style-name="T10"><text:tab/><text:tab/></text:span><text:span text:style-name="T7">Report 5<text:tab/>( Query Report )</text:span></text:p>
    <text:p text:style-name="P27"/>
-   <text:p text:style-name="P31"><text:tab/><text:tab/>Design a report based on one of your queries that you designed earlier.</text:p>
+   <text:p text:style-name="P31">Design a report based on one of your queries that you designed earlier.</text:p>
    <text:p text:style-name="P23"/>
    <text:p text:style-name="P23"/>
    <text:p text:style-name="P23"/>
    <text:p text:style-name="P23"/>
-   <text:p text:style-name="P23"/>
+   <text:p text:style-name="P70"/>
    <text:p text:style-name="P58"><text:s/>PROJECT <text:tab/>Using MS Access to Design a Database Application</text:p>
    <text:p text:style-name="P23"/>
    <text:p text:style-name="No_20_Spacing"><text:span text:style-name="T7">Step 12<text:tab/></text:span><text:span text:style-name="T27">Database Administrative and Management Tasks</text:span></text:p>
@@ -4881,11 +4880,11 @@
      </draw:image>
     </draw:frame></text:p>
    <text:p text:style-name="P31"/>
-   <text:p text:style-name="P31"><text:soft-page-break/><text:tab/><text:tab/>Then, perform each of these administrative tasks. <text:s/>Take a screen <text:tab/><text:tab/><text:tab/><text:tab/>snapshot of each of these tasks and place them into your lab submittal <text:tab/><text:tab/><text:tab/>document, labeling the snapshots accordingly.</text:p>
+   <text:p text:style-name="P31"><text:tab/><text:tab/>Then, perform each of these administrative tasks. <text:s/>Take a screen snapshot of each of these tasks and place them into your lab submittal document, labeling the snapshots accordingly.</text:p>
    <text:p text:style-name="P31"/>
    <text:p text:style-name="No_20_Spacing"><text:span text:style-name="T10"><text:tab/><text:tab/></text:span><text:span text:style-name="T7">Administrative Task 1<text:tab/>( Database Documenter )</text:span></text:p>
    <text:p text:style-name="P24"/>
-   <text:p text:style-name="P65">Open the [ Database Documenter ] and examine the properties of your <text:tab/>current database.</text:p>
+   <text:p text:style-name="P65">Open the [ Database Documenter ] and examine the properties of your current database.</text:p>
    <text:p text:style-name="P31"/>
    <text:p text:style-name="P44"><draw:frame draw:style-name="fr14" draw:name="Picture 14" text:anchor-type="as-char" svg:width="5.4173in" svg:height="2.7484in" draw:z-index="14"><draw:image loext:mime-type="image/png">
       <office:binary-data>iVBORw0KGgoAAAANSUhEUgAAAggAAAEICAIAAAC1dpupAAAAAXNSR0IArs4c6QAAAAlwSFlz
@@ -5407,8 +5406,7 @@
      </draw:image>
     </draw:frame></text:p>
    <text:p text:style-name="P31"/>
-   <text:p text:style-name="P65">Take a snapshot of the date and time that your current database was last <text:tab/>updated.<text:tab/></text:p>
-   <text:p text:style-name="P31"/>
+   <text:p text:style-name="P65">Take a snapshot of the date and time that your current database was last <text:tab/>updated.</text:p>
    <text:p text:style-name="P44"><draw:frame draw:style-name="fr15" draw:name="Picture 11" text:anchor-type="as-char" svg:width="4.9154in" svg:height="0.8571in" draw:z-index="15"><draw:image loext:mime-type="image/png">
       <office:binary-data>iVBORw0KGgoAAAANSUhEUgAAAdgAAABSCAIAAAB451LEAAAAAXNSR0IArs4c6QAAAAlwSFlz
        AAAOxAAADsMB2mqY3AAAFyBJREFUeF7tnTtS40wQx8V3FlxbDnwAcwMoAiKHhHYKASER4QaQ
@@ -5525,14 +5523,14 @@
       </office:binary-data>
      </draw:image>
     </draw:frame></text:p>
-   <text:p text:style-name="P31"/>
+   <text:p text:style-name="P31"><text:soft-page-break/></text:p>
    <text:p text:style-name="P58"><text:s/>PROJECT <text:tab/>Using MS Access to Design a Database Application</text:p>
    <text:p text:style-name="P31"><text:tab/><text:tab/></text:p>
    <text:p text:style-name="No_20_Spacing"><text:span text:style-name="T10"><text:tab/><text:tab/></text:span><text:span text:style-name="T7">Administrative Task 2<text:tab/>( Analyzing Performance )</text:span></text:p>
    <text:p text:style-name="P41"/>
    <text:p text:style-name="No_20_Spacing"><text:span text:style-name="T10"><text:tab/><text:tab/>Open the </text:span><text:span text:style-name="T7">Performance Analyzer</text:span><text:span text:style-name="T10"> and analyze a relationship in your <text:tab/><text:tab/><text:tab/>database application. </text:span></text:p>
    <text:p text:style-name="P27"/>
-   <text:p text:style-name="P44"><text:soft-page-break/><draw:frame draw:style-name="fr14" draw:name="Picture 15" text:anchor-type="as-char" svg:width="5.4173in" svg:height="2.7484in" draw:z-index="16"><draw:image loext:mime-type="image/png">
+   <text:p text:style-name="P44"><draw:frame draw:style-name="fr14" draw:name="Picture 15" text:anchor-type="as-char" svg:width="5.4173in" svg:height="2.7484in" draw:z-index="16"><draw:image loext:mime-type="image/png">
       <office:binary-data>iVBORw0KGgoAAAANSUhEUgAAAggAAAEICAIAAAC1dpupAAAAAXNSR0IArs4c6QAAAAlwSFlz
        AAAOxAAADsQBlSsOGwAAayNJREFUeF7tvQmAVDW2P3yrWRrZml0UWkA2BVRA0FEZUBEFhxmc
        /8giKjgzfIioT5ZRBBoBWRQRhRFQQB/ijD4Qn4MbyCKLoj61tR1WEYplREUBURSkobvrO8lJ
@@ -6391,9 +6389,9 @@
    <text:p text:style-name="No_20_Spacing"><text:span text:style-name="T10"><text:tab/><text:tab/></text:span><text:span text:style-name="T7">Administrative Task 4<text:tab/>( Object Dependencies )</text:span></text:p>
    <text:p text:style-name="P41"/>
    <text:p text:style-name="No_20_Spacing"><text:span text:style-name="T7"><text:tab/><text:tab/></text:span><text:span text:style-name="T10">In the MS Access </text:span><text:span text:style-name="T7">Navigation Pane</text:span><text:span text:style-name="T10">, select one of your queries. <text:s/></text:span></text:p>
-   <text:p text:style-name="No_20_Spacing"><text:span text:style-name="T10"><text:tab/><text:tab/>Open the </text:span><text:span text:style-name="T7">Object Dependencies</text:span><text:span text:style-name="T10"> link and expand all of the database <text:tab/><text:tab/><text:tab/>objects that are visible to reveal all of the dependencies. <text:s/>Take a <text:tab/><text:tab/><text:tab/><text:tab/>snapshot of the object dependencies. <text:s text:c="2"/></text:span></text:p>
+   <text:p text:style-name="No_20_Spacing"><text:span text:style-name="T10"><text:tab/><text:tab/>Open the </text:span><text:span text:style-name="T7">Object Dependencies</text:span><text:span text:style-name="T10"> link and expand all of the database objects that are visible to reveal all of the dependencies. <text:s/>Take a snapshot of the object dependencies. <text:s text:c="2"/></text:span></text:p>
    <text:p text:style-name="P26"/>
-   <text:p text:style-name="P44"><draw:frame draw:style-name="fr16" draw:name="Picture 18" text:anchor-type="as-char" svg:width="2.6209in" svg:height="1.7583in" draw:z-index="18"><draw:image loext:mime-type="image/png">
+   <text:p text:style-name="P44"><text:soft-page-break/><draw:frame draw:style-name="fr16" draw:name="Picture 18" text:anchor-type="as-char" svg:width="2.6209in" svg:height="1.7583in" draw:z-index="18"><draw:image loext:mime-type="image/png">
       <office:binary-data>iVBORw0KGgoAAAANSUhEUgAAAacAAAEcCAIAAADsgOx5AAAAAXNSR0IArs4c6QAAAAlwSFlz
        AAAWJQAAFiYBYn93MwAALxFJREFUeF7tnXtsXdWZ9ldQSwtOW9o0RrZjx3ZLSSFA0XEu9ACB
        zD+oiqIaIsNHW6uajuTOZMLpwAiLUVRoFZVxNTB1mMzU0kw1CoWhbsCjKJU+VWpCKCbXI7Xg
@@ -6626,7 +6624,7 @@
    <text:p text:style-name="P23"/>
    <text:p text:style-name="No_20_Spacing"><text:span text:style-name="T10"><text:tab/><text:tab/></text:span><text:span text:style-name="T7">Administrative Task 5<text:tab/>( Backstage View )</text:span></text:p>
    <text:p text:style-name="P24"/>
-   <text:p text:style-name="P31"><text:soft-page-break/><text:tab/><text:tab/>Open the MS Access main menu and click [File ] to navigate to the <text:line-break/><text:tab/><text:tab/>[ Backstage View ] to create a back - up copy of the database application.</text:p>
+   <text:p text:style-name="P31"><text:tab/><text:tab/>Open the MS Access main menu and click [File ] to navigate to the <text:line-break/><text:tab/><text:tab/>[ Backstage View ] to create a back - up copy of the database application.</text:p>
    <text:p text:style-name="P31"/>
    <text:p text:style-name="P44"><draw:frame draw:style-name="fr1" draw:name="Picture 12" text:anchor-type="as-char" svg:width="5.2291in" svg:height="1.3854in" draw:z-index="19"><draw:image loext:mime-type="image/png">
       <office:binary-data>iVBORw0KGgoAAAANSUhEUgAAAfYAAACFCAIAAAAmSE0wAAAAAXNSR0IArs4c6QAAJfBJREFU
@@ -7241,7 +7239,7 @@
    <text:p text:style-name="P27"/>
    <text:p text:style-name="P31"><text:tab/><text:tab/>Split your database application and take a screen snapshot of the results <text:tab/><text:tab/><text:tab/>of splitting your database in Windows Explorer. </text:p>
    <text:p text:style-name="P31"/>
-   <text:p text:style-name="No_20_Spacing"><text:span text:style-name="T7">Step 14<text:tab/></text:span><text:span text:style-name="T27">Submit Your MS Access Database File</text:span></text:p>
+   <text:p text:style-name="No_20_Spacing"><text:soft-page-break/><text:span text:style-name="T7">Step 14<text:tab/></text:span><text:span text:style-name="T27">Submit Your MS Access Database File</text:span></text:p>
    <text:p text:style-name="P27"/>
    <text:p text:style-name="P31"><text:tab/><text:tab/>Close all the database objects in your file and ensure that the Access </text:p>
    <text:p text:style-name="P31"><text:tab/><text:tab/>[ Navigation Pane ] has all of the objects that you included with this <text:tab/><text:tab/><text:tab/>database application.</text:p>
@@ -7253,7 +7251,7 @@
    <text:p text:style-name="P23"/>
    <text:p text:style-name="P23"/>
    <text:p text:style-name="P23"/>
-   <text:p text:style-name="P23"><text:soft-page-break/></text:p>
+   <text:p text:style-name="P23"/>
    <text:p text:style-name="P23"/>
    <text:p text:style-name="P58"><text:s/>PROJECT <text:tab/>Using MS Access to Design a Database Application</text:p>
    <text:p text:style-name="P23"/>
@@ -7279,7 +7277,7 @@
    <text:p text:style-name="No_20_Spacing"><text:span text:style-name="T10"><text:tab/><text:tab/></text:span><text:span text:style-name="T7">(4)<text:tab/>( Data Queries in MS Access )</text:span></text:p>
    <text:p text:style-name="P39"/>
    <text:p text:style-name="No_20_Spacing"><text:span text:style-name="T7"><text:tab/><text:tab/><text:tab/></text:span><text:span text:style-name="T10">During this project, you queried the two tables that were included <text:tab/><text:tab/><text:tab/><text:tab/>in your database file. <text:s/>In your first query, which field of the <text:tab/><text:tab/><text:tab/><text:tab/></text:span><text:span text:style-name="T7">Clients</text:span><text:span text:style-name="T10"> table had this criterion setting?<text:tab/>&gt; 1000</text:span></text:p>
-   <text:p text:style-name="P26"/>
+   <text:p text:style-name="P26"><text:soft-page-break/></text:p>
    <text:p text:style-name="No_20_Spacing"><text:span text:style-name="T10"><text:tab/><text:tab/></text:span><text:span text:style-name="T7">(5)<text:tab/>( Report Writing with MS Access )</text:span></text:p>
    <text:p text:style-name="P27"/>
    <text:p text:style-name="P47"><text:span text:style-name="T10">When using the </text:span><text:span text:style-name="T7">Report Wizard</text:span><text:span text:style-name="T10"> to create a report for your <text:tab/><text:tab/><text:tab/>tables, <text:tab/>which sort order appears by default: Ascending or <text:tab/><text:tab/><text:tab/><text:tab/>Descending?<text:tab/></text:span></text:p>
@@ -7288,7 +7286,7 @@
    <text:p text:style-name="P27"/>
    <text:p text:style-name="P48">When using the database documenter, explain how you would <text:tab/><text:tab/><text:tab/>navigate this feature to reveal the following information. <text:tab/></text:p>
    <text:p text:style-name="P48"/>
-   <text:p text:style-name="No_20_Spacing"><text:soft-page-break/><draw:frame draw:style-name="fr18" draw:name="Picture 23" text:anchor-type="as-char" svg:width="6in" svg:height="0.752in" draw:z-index="21"><draw:image loext:mime-type="image/png">
+   <text:p text:style-name="No_20_Spacing"><draw:frame draw:style-name="fr18" draw:name="Picture 23" text:anchor-type="as-char" svg:width="6in" svg:height="0.752in" draw:z-index="21"><draw:image loext:mime-type="image/png">
       <office:binary-data>iVBORw0KGgoAAAANSUhEUgAAA1YAAABrCAIAAAD7MoTSAAAAAXNSR0IArs4c6QAAFLNJREFU
        eF7t3T1S4zwYwHHzniWZHQoOEG4QZoutKClDSwrKrSi3gJaUW1JtwSQ3IAeg2NmBu/Dqw7Il
        27JkxzHG/qfaDbI+fpLtJ5I/Tj4+PhI+CCCAAAIIIIAAAlMS+G9KjaWtCCCAAAIIIIAAAlKA
