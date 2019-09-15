@@ -12,5 +12,12 @@ Vagrant.configure('2') do |config|
     v.cpus = 4
 
     v.customize ['modifyvm', :id, '--vram', '128']
+
+    v.customize ["storageattach", :id,
+                 "--storagectl", "IDE Controller", #README May need to change to "IDE" or "IDE Controller!"
+                 "--port", "0", "--device", "1",
+                 "--type", "dvddrive",
+                 "--medium", "emptydrive"]
+
   end
 end
