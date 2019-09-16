@@ -18,6 +18,8 @@ Vagrant.configure('2') do |config|
                  "--port", "0", "--device", "1",
                  "--type", "dvddrive",
                  "--medium", "emptydrive"]
-
   end
+
+  config.vm.provision "shell", path: "scripts/install-choco.ps1"
+
 end
