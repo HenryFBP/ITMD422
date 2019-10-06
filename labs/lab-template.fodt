@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <office:document xmlns:office="urn:oasis:names:tc:opendocument:xmlns:office:1.0" xmlns:style="urn:oasis:names:tc:opendocument:xmlns:style:1.0" xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" xmlns:table="urn:oasis:names:tc:opendocument:xmlns:table:1.0" xmlns:draw="urn:oasis:names:tc:opendocument:xmlns:drawing:1.0" xmlns:fo="urn:oasis:names:tc:opendocument:xmlns:xsl-fo-compatible:1.0" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:meta="urn:oasis:names:tc:opendocument:xmlns:meta:1.0" xmlns:number="urn:oasis:names:tc:opendocument:xmlns:datastyle:1.0" xmlns:svg="urn:oasis:names:tc:opendocument:xmlns:svg-compatible:1.0" xmlns:chart="urn:oasis:names:tc:opendocument:xmlns:chart:1.0" xmlns:dr3d="urn:oasis:names:tc:opendocument:xmlns:dr3d:1.0" xmlns:math="http://www.w3.org/1998/Math/MathML" xmlns:form="urn:oasis:names:tc:opendocument:xmlns:form:1.0" xmlns:script="urn:oasis:names:tc:opendocument:xmlns:script:1.0" xmlns:config="urn:oasis:names:tc:opendocument:xmlns:config:1.0" xmlns:ooo="http://openoffice.org/2004/office" xmlns:ooow="http://openoffice.org/2004/writer" xmlns:oooc="http://openoffice.org/2004/calc" xmlns:dom="http://www.w3.org/2001/xml-events" xmlns:xforms="http://www.w3.org/2002/xforms" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:rpt="http://openoffice.org/2005/report" xmlns:of="urn:oasis:names:tc:opendocument:xmlns:of:1.2" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:grddl="http://www.w3.org/2003/g/data-view#" xmlns:officeooo="http://openoffice.org/2009/office" xmlns:tableooo="http://openoffice.org/2009/table" xmlns:drawooo="http://openoffice.org/2010/draw" xmlns:calcext="urn:org:documentfoundation:names:experimental:calc:xmlns:calcext:1.0" xmlns:loext="urn:org:documentfoundation:names:experimental:office:xmlns:loext:1.0" xmlns:field="urn:openoffice:names:experimental:ooo-ms-interop:xmlns:field:1.0" xmlns:formx="urn:openoffice:names:experimental:ooxml-odf-interop:xmlns:form:1.0" xmlns:css3t="http://www.w3.org/TR/css3-text/" office:version="1.2" office:mimetype="application/vnd.oasis.opendocument.text">
- <office:meta><meta:creation-date>2019-10-05T16:46:26.280391082</meta:creation-date><dc:date>2019-10-05T16:50:03.971111898</dc:date><meta:editing-duration>PT3M37S</meta:editing-duration><meta:editing-cycles>3</meta:editing-cycles><meta:generator>LibreOffice/6.2.7.1$Linux_X86_64 LibreOffice_project/20$Build-1</meta:generator><meta:document-statistic meta:table-count="0" meta:image-count="0" meta:object-count="0" meta:page-count="1" meta:paragraph-count="3" meta:word-count="13" meta:character-count="92" meta:non-whitespace-character-count="81"/></office:meta>
+ <office:meta><meta:creation-date>2019-10-05T16:46:26.280391082</meta:creation-date><dc:date>2019-10-05T16:51:30.898333793</dc:date><meta:editing-duration>PT3M43S</meta:editing-duration><meta:editing-cycles>4</meta:editing-cycles><meta:generator>LibreOffice/6.2.7.1$Linux_X86_64 LibreOffice_project/20$Build-1</meta:generator><meta:document-statistic meta:table-count="0" meta:image-count="0" meta:object-count="0" meta:page-count="1" meta:paragraph-count="3" meta:word-count="16" meta:character-count="112" meta:non-whitespace-character-count="98"/></office:meta>
  <office:settings>
   <config:config-item-set config:name="ooo:view-settings">
    <config:config-item config:name="ViewAreaTop" config:type="long">0</config:config-item>
    <config:config-item config:name="ViewAreaLeft" config:type="long">0</config:config-item>
-   <config:config-item config:name="ViewAreaWidth" config:type="long">36033</config:config-item>
+   <config:config-item config:name="ViewAreaWidth" config:type="long">44789</config:config-item>
    <config:config-item config:name="ViewAreaHeight" config:type="long">19629</config:config-item>
    <config:config-item config:name="ShowRedlineChanges" config:type="boolean">true</config:config-item>
    <config:config-item config:name="InBrowseMode" config:type="boolean">false</config:config-item>
    <config:config-item-map-indexed config:name="Views">
     <config:config-item-map-entry>
      <config:config-item config:name="ViewId" config:type="string">view2</config:config-item>
-     <config:config-item config:name="ViewLeft" config:type="long">12345</config:config-item>
-     <config:config-item config:name="ViewTop" config:type="long">3974</config:config-item>
+     <config:config-item config:name="ViewLeft" config:type="long">20211</config:config-item>
+     <config:config-item config:name="ViewTop" config:type="long">2988</config:config-item>
      <config:config-item config:name="VisibleLeft" config:type="long">0</config:config-item>
      <config:config-item config:name="VisibleTop" config:type="long">0</config:config-item>
-     <config:config-item config:name="VisibleRight" config:type="long">36031</config:config-item>
+     <config:config-item config:name="VisibleRight" config:type="long">44787</config:config-item>
      <config:config-item config:name="VisibleBottom" config:type="long">19627</config:config-item>
      <config:config-item config:name="ZoomType" config:type="short">0</config:config-item>
      <config:config-item config:name="ViewLayoutColumns" config:type="short">1</config:config-item>
@@ -72,7 +72,7 @@
    <config:config-item config:name="InvertBorderSpacing" config:type="boolean">false</config:config-item>
    <config:config-item config:name="SaveGlobalDocumentLinks" config:type="boolean">false</config:config-item>
    <config:config-item config:name="TabsRelativeToIndent" config:type="boolean">true</config:config-item>
-   <config:config-item config:name="Rsid" config:type="int">837561</config:config-item>
+   <config:config-item config:name="Rsid" config:type="int">873616</config:config-item>
    <config:config-item config:name="EmbeddedDatabaseName" config:type="string"/>
    <config:config-item config:name="SaveThumbnail" config:type="boolean">true</config:config-item>
    <config:config-item config:name="PrintProspectRTL" config:type="boolean">false</config:config-item>
@@ -263,10 +263,7 @@
    </style:paragraph-properties>
    <style:text-properties officeooo:rsid="000cc7b9" officeooo:paragraph-rsid="000cc7b9"/>
   </style:style>
-  <style:style style:name="P3" style:family="paragraph" style:parent-style-name="Standard">
-   <style:text-properties officeooo:rsid="000cc7b9" officeooo:paragraph-rsid="000cc7b9"/>
-  </style:style>
-  <style:style style:name="P4" style:family="paragraph" style:parent-style-name="Header">
+  <style:style style:name="P3" style:family="paragraph" style:parent-style-name="Header">
    <style:paragraph-properties>
     <style:tab-stops>
      <style:tab-stop style:position="3.4626in" style:type="center"/>
@@ -275,7 +272,7 @@
    </style:paragraph-properties>
    <style:text-properties officeooo:rsid="000cc7b9" officeooo:paragraph-rsid="000cc7b9"/>
   </style:style>
-  <style:style style:name="P5" style:family="paragraph" style:parent-style-name="Header" style:master-page-name="">
+  <style:style style:name="P4" style:family="paragraph" style:parent-style-name="Header" style:master-page-name="">
    <loext:graphic-properties draw:fill="none"/>
    <style:paragraph-properties fo:margin-left="0in" fo:margin-right="0in" fo:text-indent="0in" style:auto-text-indent="false" style:page-number="auto" fo:background-color="transparent" text:number-lines="false" text:line-number="0">
     <style:tab-stops>
@@ -285,13 +282,22 @@
    </style:paragraph-properties>
    <style:text-properties officeooo:rsid="000cc7b9" officeooo:paragraph-rsid="000cc7b9"/>
   </style:style>
+  <style:style style:name="P5" style:family="paragraph" style:parent-style-name="Standard">
+   <style:text-properties officeooo:rsid="000cc7b9" officeooo:paragraph-rsid="000cc7b9"/>
+  </style:style>
   <style:style style:name="T1" style:family="text"/>
+  <style:style style:name="T2" style:family="text">
+   <style:text-properties officeooo:rsid="000d5490"/>
+  </style:style>
+  <style:style style:name="T3" style:family="text">
+   <style:text-properties officeooo:rsid="000d5490"/>
+  </style:style>
   <style:page-layout style:name="pm1">
-   <style:page-layout-properties fo:page-width="8.5in" fo:page-height="11in" style:num-format="1" style:print-orientation="portrait" fo:margin-top="0.7874in" fo:margin-bottom="0.7874in" fo:margin-left="0.7874in" fo:margin-right="0.7874in" style:writing-mode="lr-tb" style:footnote-max-height="0in">
+   <style:page-layout-properties fo:page-width="8.5in" fo:page-height="11in" style:num-format="1" style:print-orientation="portrait" fo:margin-top="0.7874in" fo:margin-bottom="0.7874in" fo:margin-left="0.7874in" fo:margin-right="0.7874in" style:writing-mode="lr-tb" style:layout-grid-color="#c0c0c0" style:layout-grid-lines="20" style:layout-grid-base-height="0.278in" style:layout-grid-ruby-height="0.139in" style:layout-grid-mode="none" style:layout-grid-ruby-below="false" style:layout-grid-print="false" style:layout-grid-display="false" style:footnote-max-height="0in">
     <style:footnote-sep style:width="0.0071in" style:distance-before-sep="0.0398in" style:distance-after-sep="0.0398in" style:line-style="solid" style:adjustment="left" style:rel-width="25%" style:color="#000000"/>
    </style:page-layout-properties>
    <style:header-style>
-    <style:header-footer-properties fo:min-height="0in" fo:margin-bottom="0.1965in"/>
+    <style:header-footer-properties fo:min-height="0in" fo:margin-left="0in" fo:margin-right="0in" fo:margin-bottom="0.1965in"/>
    </style:header-style>
    <style:footer-style/>
   </style:page-layout>
@@ -300,7 +306,7 @@
   <style:master-page style:name="Standard" style:page-layout-name="pm1">
    <style:header>
     <text:p text:style-name="P1">Henry Post, <text:a xlink:type="simple" xlink:href="mailto:hpost@hawk.iit.edu" text:style-name="Internet_20_link" text:visited-style-name="Visited_20_Internet_20_Link">hpost@hawk.iit.edu</text:a>, <text:a xlink:type="simple" xlink:href="http://henryfbp.me/" text:style-name="Internet_20_link" text:visited-style-name="Visited_20_Internet_20_Link">http://henryfbp.me/</text:a><text:tab/>Page <text:page-number text:select-page="current">1</text:page-number></text:p>
-    <text:p text:style-name="P2">ITMD422 at IIT</text:p>
+    <text:p text:style-name="P2">ITMD422 at IIT <text:span text:style-name="T2">with Luke Papademas</text:span></text:p>
    </style:header>
   </style:master-page>
  </office:master-styles>
@@ -314,7 +320,7 @@
     <text:sequence-decl text:display-outline-level="0" text:name="Drawing"/>
     <text:sequence-decl text:display-outline-level="0" text:name="Figure"/>
    </text:sequence-decls>
-   <text:p text:style-name="P3">Content go here :^) </text:p>
+   <text:p text:style-name="P5">Content go here :^) </text:p>
   </office:text>
  </office:body>
 </office:document>
