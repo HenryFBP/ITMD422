@@ -52,7 +52,7 @@ COMMENT = 'This table represents a single movie store at one address.';
 DROP TABLE IF EXISTS `genre` ;
 
 CREATE TABLE IF NOT EXISTS `genre` (
-  `id` INT NOT NULL,
+  `id` INT,
   `name` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB
@@ -65,31 +65,40 @@ COMMENT = 'This table represents a movie genre.';
 DROP TABLE IF EXISTS `customer` ;
 
 CREATE TABLE IF NOT EXISTS `customer` (
-    `id` INT NOT NULL,
-    `rentalCard_id` INT NULL,
-    `preferredMovieStore_id` INT NULL,
-    `fullname` VARCHAR(45) NOT NULL,
-    `address` VARCHAR(45) NOT NULL,
-    `preferred_genre_id_1` INT NOT NULL,
-    `preferred_genre_id_2` INT NOT NULL,
-    PRIMARY KEY (`id` , `rentalCard_id` , `preferred_genre_id_1` , `preferred_genre_id_2`),
-    INDEX `fk_customer_rentalCard1_idx` (`rentalCard_id` ASC),
-    INDEX `fk_customer_movieStore1_idx` (`preferredMovieStore_id` ASC),
-    INDEX `fk_customer_genre1_idx` (`preferred_genre_id_1` ASC),
-    INDEX `fk_customer_genre2_idx` (`preferred_genre_id_2` ASC),
-    CONSTRAINT `fk_customer_rentalCard1` FOREIGN KEY (`rentalCard_id`)
-        REFERENCES `rentalCard` (`id`)
-        ON DELETE NO ACTION ON UPDATE NO ACTION,
-    CONSTRAINT `fk_customer_movieStore1` FOREIGN KEY (`preferredMovieStore_id`)
-        REFERENCES `movieStore` (`id`)
-        ON DELETE NO ACTION ON UPDATE NO ACTION,
-    CONSTRAINT `fk_customer_genre1` FOREIGN KEY (`preferred_genre_id_1`)
-        REFERENCES `genre` (`id`)
-        ON DELETE NO ACTION ON UPDATE NO ACTION,
-    CONSTRAINT `fk_customer_genre2` FOREIGN KEY (`preferred_genre_id_2`)
-        REFERENCES `genre` (`id`)
-        ON DELETE NO ACTION ON UPDATE NO ACTION
-)  ENGINE=INNODB COMMENT='This table represents a single customer.';
+  `id` INT NOT NULL,
+  `rentalCard_id` INT NULL,
+  `preferredMovieStore_id` INT NULL,
+  `fullname` VARCHAR(45) NOT NULL,
+  `address` VARCHAR(45) NOT NULL,
+  `preferred_genre_id_1` INT NOT NULL,
+  `preferred_genre_id_2` INT NOT NULL,
+  PRIMARY KEY (`id`, `rentalCard_id`, `preferred_genre_id_1`, `preferred_genre_id_2`),
+  INDEX `fk_customer_rentalCard1_idx` (`rentalCard_id` ASC) ,
+  INDEX `fk_customer_movieStore1_idx` (`preferredMovieStore_id` ASC) ,
+  INDEX `fk_customer_genre1_idx` (`preferred_genre_id_1` ASC) ,
+  INDEX `fk_customer_genre2_idx` (`preferred_genre_id_2` ASC) ,
+  CONSTRAINT `fk_customer_rentalCard1`
+    FOREIGN KEY (`rentalCard_id`)
+    REFERENCES `rentalCard` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_customer_movieStore1`
+    FOREIGN KEY (`preferredMovieStore_id`)
+    REFERENCES `movieStore` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_customer_genre1`
+    FOREIGN KEY (`preferred_genre_id_1`)
+    REFERENCES `genre` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_customer_genre2`
+    FOREIGN KEY (`preferred_genre_id_2`)
+    REFERENCES `genre` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+COMMENT = 'This table represents a single customer.';
 
 
 -- -----------------------------------------------------
