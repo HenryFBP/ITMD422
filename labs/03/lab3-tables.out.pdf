@@ -1,0 +1,4702 @@
+%!PS-Adobe-3.0
+%%BoundingBox: 18 36 594 756
+%%Title: Enscript Output
+%%Creator: GNU Enscript 1.6.5.90
+%%CreationDate: Sat Oct  5 23:13:39 2019
+%%Orientation: Portrait
+%%Pages: (atend)
+%%DocumentMedia: Letter 612 792 0 () ()
+%%DocumentNeededResources: (atend)
+%%EndComments
+%%BeginProlog
+%%BeginResource: procset Enscript-Prolog 1.6.5 90
+%
+% Procedures.
+%
+
+/_S {	% save current state
+  /_s save def
+} def
+/_R {	% restore from saved state
+  _s restore
+} def
+
+/S {	% showpage protecting gstate
+  gsave
+  showpage
+  grestore
+} bind def
+
+/MF {	% fontname newfontname -> -	make a new encoded font
+  /newfontname exch def
+  /fontname exch def
+
+  /fontdict fontname findfont def
+  /newfont fontdict maxlength dict def
+
+  fontdict {
+    exch
+    dup /FID eq {
+      % skip FID pair
+      pop pop
+    } {
+      % copy to the new font dictionary
+      exch newfont 3 1 roll put
+    } ifelse
+  } forall
+
+  newfont /FontName newfontname put
+
+  % insert only valid encoding vectors
+  encoding_vector length 256 eq {
+    newfont /Encoding encoding_vector put
+  } if
+
+  newfontname newfont definefont pop
+} def
+
+/MF_PS { % fontname newfontname -> -	make a new font preserving its enc
+  /newfontname exch def
+  /fontname exch def
+
+  /fontdict fontname findfont def
+  /newfont fontdict maxlength dict def
+
+  fontdict {
+    exch
+    dup /FID eq {
+      % skip FID pair
+      pop pop
+    } {
+      % copy to the new font dictionary
+      exch newfont 3 1 roll put
+    } ifelse
+  } forall
+
+  newfont /FontName newfontname put
+
+  newfontname newfont definefont pop
+} def
+
+/SF { % fontname width height -> -	set a new font
+  /height exch def
+  /width exch def
+
+  findfont
+  [width 0 0 height 0 0] makefont setfont
+} def
+
+/SUF { % fontname width height -> -	set a new user font
+  /height exch def
+  /width exch def
+
+  /F-gs-user-font MF
+  /F-gs-user-font width height SF
+} def
+
+/SUF_PS { % fontname width height -> -	set a new user font preserving its enc
+  /height exch def
+  /width exch def
+
+  /F-gs-user-font MF_PS
+  /F-gs-user-font width height SF
+} def
+
+/M {moveto} bind def
+/s {show} bind def
+
+/Box {	% x y w h -> -			define box path
+  /d_h exch def /d_w exch def /d_y exch def /d_x exch def
+  d_x d_y  moveto
+  d_w 0 rlineto
+  0 d_h rlineto
+  d_w neg 0 rlineto
+  closepath
+} def
+
+/bgs {	% x y height blskip gray str -> -	show string with bg color
+  /str exch def
+  /gray exch def
+  /blskip exch def
+  /height exch def
+  /y exch def
+  /x exch def
+
+  gsave
+    x y blskip sub str stringwidth pop height Box
+    gray setgray
+    fill
+  grestore
+  x y M str s
+} def
+
+/bgcs { % x y height blskip red green blue str -> -  show string with bg color
+  /str exch def
+  /blue exch def
+  /green exch def
+  /red exch def
+  /blskip exch def
+  /height exch def
+  /y exch def
+  /x exch def
+
+  gsave
+    x y blskip sub str stringwidth pop height Box
+    red green blue setrgbcolor
+    fill
+  grestore
+  x y M str s
+} def
+
+% Highlight bars.
+/highlight_bars {	% nlines lineheight output_y_margin gray -> -
+  gsave
+    setgray
+    /ymarg exch def
+    /lineheight exch def
+    /nlines exch def
+
+    % This 2 is just a magic number to sync highlight lines to text.
+    0 d_header_y ymarg sub 2 sub translate
+
+    /cw d_output_w cols div def
+    /nrows d_output_h ymarg 2 mul sub lineheight div cvi def
+
+    % for each column
+    0 1 cols 1 sub {
+      cw mul /xp exch def
+
+      % for each rows
+      0 1 nrows 1 sub {
+        /rn exch def
+        rn lineheight mul neg /yp exch def
+        rn nlines idiv 2 mod 0 eq {
+	  % Draw highlight bar.  4 is just a magic indentation.
+	  xp 4 add yp cw 8 sub lineheight neg Box fill
+	} if
+      } for
+    } for
+
+  grestore
+} def
+
+% Line highlight bar.
+/line_highlight {	% x y width height gray -> -
+  gsave
+    /gray exch def
+    Box gray setgray fill
+  grestore
+} def
+
+% Column separator lines.
+/column_lines {
+  gsave
+    .1 setlinewidth
+    0 d_footer_h translate
+    /cw d_output_w cols div def
+    1 1 cols 1 sub {
+      cw mul 0 moveto
+      0 d_output_h rlineto stroke
+    } for
+  grestore
+} def
+
+% Column borders.
+/column_borders {
+  gsave
+    .1 setlinewidth
+    0 d_footer_h moveto
+    0 d_output_h rlineto
+    d_output_w 0 rlineto
+    0 d_output_h neg rlineto
+    closepath stroke
+  grestore
+} def
+
+% Do the actual underlay drawing
+/draw_underlay {
+  ul_style 0 eq {
+    ul_str true charpath stroke
+  } {
+    ul_str show
+  } ifelse
+} def
+
+% Underlay
+/underlay {	% - -> -
+  gsave
+    0 d_page_h translate
+    d_page_h neg d_page_w atan rotate
+
+    ul_gray setgray
+    ul_font setfont
+    /dw d_page_h dup mul d_page_w dup mul add sqrt def
+    ul_str stringwidth pop dw exch sub 2 div ul_h_ptsize -2 div moveto
+    draw_underlay
+  grestore
+} def
+
+/user_underlay {	% - -> -
+  gsave
+    ul_x ul_y translate
+    ul_angle rotate
+    ul_gray setgray
+    ul_font setfont
+    0 0 ul_h_ptsize 2 div sub moveto
+    draw_underlay
+  grestore
+} def
+
+% Page prefeed
+/page_prefeed {		% bool -> -
+  statusdict /prefeed known {
+    statusdict exch /prefeed exch put
+  } {
+    pop
+  } ifelse
+} def
+
+% Wrapped line markers
+/wrapped_line_mark {	% x y charwith charheight type -> -
+  /type exch def
+  /h exch def
+  /w exch def
+  /y exch def
+  /x exch def
+
+  type 2 eq {
+    % Black boxes (like TeX does)
+    gsave
+      0 setlinewidth
+      x w 4 div add y M
+      0 h rlineto w 2 div 0 rlineto 0 h neg rlineto
+      closepath fill
+    grestore
+  } {
+    type 3 eq {
+      % Small arrows
+      gsave
+        .2 setlinewidth
+        x w 2 div add y h 2 div add M
+        w 4 div 0 rlineto
+        x w 4 div add y lineto stroke
+
+        x w 4 div add w 8 div add y h 4 div add M
+        x w 4 div add y lineto
+	w 4 div h 8 div rlineto stroke
+      grestore
+    } {
+      % do nothing
+    } ifelse
+  } ifelse
+} def
+
+% EPSF import.
+
+/BeginEPSF {
+  /b4_Inc_state save def    		% Save state for cleanup
+  /dict_count countdictstack def	% Count objects on dict stack
+  /op_count count 1 sub def		% Count objects on operand stack
+  userdict begin
+  /showpage { } def
+  0 setgray 0 setlinecap
+  1 setlinewidth 0 setlinejoin
+  10 setmiterlimit [ ] 0 setdash newpath
+  /languagelevel where {
+    pop languagelevel
+    1 ne {
+      false setstrokeadjust false setoverprint
+    } if
+  } if
+} bind def
+
+/EndEPSF {
+  count op_count sub { pos } repeat	% Clean up stacks
+  countdictstack dict_count sub { end } repeat
+  b4_Inc_state restore
+} bind def
+
+% Check PostScript language level.
+/languagelevel where {
+  pop /gs_languagelevel languagelevel def
+} {
+  /gs_languagelevel 1 def
+} ifelse
+%%EndResource
+%%BeginResource: procset Enscript-Encoding-88591 1.6.5 90
+/encoding_vector [
+/.notdef      	/.notdef      	/.notdef      	/.notdef      	
+/.notdef      	/.notdef      	/.notdef      	/.notdef      	
+/.notdef      	/.notdef      	/.notdef      	/.notdef      	
+/.notdef      	/.notdef      	/.notdef      	/.notdef      	
+/.notdef      	/.notdef      	/.notdef      	/.notdef      	
+/.notdef      	/.notdef      	/.notdef      	/.notdef      	
+/.notdef      	/.notdef      	/.notdef      	/.notdef      	
+/.notdef      	/.notdef      	/.notdef      	/.notdef      	
+/space        	/exclam       	/quotedbl     	/numbersign   	
+/dollar       	/percent      	/ampersand    	/quoteright   	
+/parenleft    	/parenright   	/asterisk     	/plus         	
+/comma        	/hyphen       	/period       	/slash        	
+/zero         	/one          	/two          	/three        	
+/four         	/five         	/six          	/seven        	
+/eight        	/nine         	/colon        	/semicolon    	
+/less         	/equal        	/greater      	/question     	
+/at           	/A            	/B            	/C            	
+/D            	/E            	/F            	/G            	
+/H            	/I            	/J            	/K            	
+/L            	/M            	/N            	/O            	
+/P            	/Q            	/R            	/S            	
+/T            	/U            	/V            	/W            	
+/X            	/Y            	/Z            	/bracketleft  	
+/backslash    	/bracketright 	/asciicircum  	/underscore   	
+/quoteleft    	/a            	/b            	/c            	
+/d            	/e            	/f            	/g            	
+/h            	/i            	/j            	/k            	
+/l            	/m            	/n            	/o            	
+/p            	/q            	/r            	/s            	
+/t            	/u            	/v            	/w            	
+/x            	/y            	/z            	/braceleft    	
+/bar          	/braceright   	/tilde        	/.notdef      	
+/.notdef      	/.notdef      	/.notdef      	/.notdef      	
+/.notdef      	/.notdef      	/.notdef      	/.notdef      	
+/.notdef      	/.notdef      	/.notdef      	/.notdef      	
+/.notdef      	/.notdef      	/.notdef      	/.notdef      	
+/.notdef      	/.notdef      	/.notdef      	/.notdef      	
+/.notdef      	/.notdef      	/.notdef      	/.notdef      	
+/.notdef      	/.notdef      	/.notdef      	/.notdef      	
+/.notdef      	/.notdef      	/.notdef      	/.notdef      	
+/space        	/exclamdown   	/cent         	/sterling     	
+/currency     	/yen          	/brokenbar    	/section      	
+/dieresis     	/copyright    	/ordfeminine  	/guillemotleft	
+/logicalnot   	/hyphen       	/registered   	/macron       	
+/degree       	/plusminus    	/twosuperior  	/threesuperior	
+/acute        	/mu           	/paragraph    	/bullet       	
+/cedilla      	/onesuperior  	/ordmasculine 	/guillemotright	
+/onequarter   	/onehalf      	/threequarters	/questiondown 	
+/Agrave       	/Aacute       	/Acircumflex  	/Atilde       	
+/Adieresis    	/Aring        	/AE           	/Ccedilla     	
+/Egrave       	/Eacute       	/Ecircumflex  	/Edieresis    	
+/Igrave       	/Iacute       	/Icircumflex  	/Idieresis    	
+/Eth          	/Ntilde       	/Ograve       	/Oacute       	
+/Ocircumflex  	/Otilde       	/Odieresis    	/multiply     	
+/Oslash       	/Ugrave       	/Uacute       	/Ucircumflex  	
+/Udieresis    	/Yacute       	/Thorn        	/germandbls   	
+/agrave       	/aacute       	/acircumflex  	/atilde       	
+/adieresis    	/aring        	/ae           	/ccedilla     	
+/egrave       	/eacute       	/ecircumflex  	/edieresis    	
+/igrave       	/iacute       	/icircumflex  	/idieresis    	
+/eth          	/ntilde       	/ograve       	/oacute       	
+/ocircumflex  	/otilde       	/odieresis    	/divide       	
+/oslash       	/ugrave       	/uacute       	/ucircumflex  	
+/udieresis    	/yacute       	/thorn        	/ydieresis    	
+] def
+%%EndResource
+%%EndProlog
+%%BeginSetup
+%%IncludeResource: font Courier-Bold
+%%IncludeResource: font Courier
+/HFpt_w 10 def
+/HFpt_h 10 def
+/Courier-Bold /HF-gs-font MF
+/HF /HF-gs-font findfont [HFpt_w 0 0 HFpt_h 0 0] makefont def
+/Courier /F-gs-font MF
+/F-gs-font 10 10 SF
+/#copies 1 def
+% Pagedevice definitions:
+gs_languagelevel 1 gt {
+  <<
+    /PageSize [612 792] 
+  >> setpagedevice
+} if
+%%BeginResource: procset Enscript-Header-simple 1.6.5 90
+
+/do_header {	% print default simple header
+  gsave
+    d_header_x d_header_y HFpt_h 3 div add translate
+
+    HF setfont
+    user_header_p {
+      5 0 moveto user_header_left_str show
+
+      d_header_w user_header_center_str stringwidth pop sub 2 div
+      0 moveto user_header_center_str show
+
+      d_header_w user_header_right_str stringwidth pop sub 5 sub
+      0 moveto user_header_right_str show
+    } {
+      5 0 moveto fname show
+      45 0 rmoveto fmodstr show
+      45 0 rmoveto pagenumstr show
+    } ifelse
+
+  grestore
+} def
+%%EndResource
+/d_page_w 576 def
+/d_page_h 720 def
+/d_header_x 0 def
+/d_header_y 705 def
+/d_header_w 576 def
+/d_header_h 15 def
+/d_footer_x 0 def
+/d_footer_y 0 def
+/d_footer_w 576 def
+/d_footer_h 0 def
+/d_output_w 576 def
+/d_output_h 705 def
+/cols 1 def
+%%EndSetup
+%%Page: (1) 1
+%%BeginPageSetup
+_S
+18 36 translate
+/pagenum 1 def
+/fname (lab3-tables.sql) def
+/fdir (.) def
+/ftail (lab3-tables.sql) def
+% User defined strings:
+/fmodstr (Sat Oct 05 23:03:27 2019) def
+/pagenumstr (1) def
+/user_header_p false def
+/user_footer_p false def
+%%EndPageSetup
+do_header
+5 692 M
+(-- MySQL Script generated ) s
+/Courier-Bold 10 10 SUF
+161 692 M
+(by) s
+/F-gs-font 10 10 SF
+173 692 M
+( MySQL Workbench) s
+5 681 M
+(-- Sat 05 Oct 2019 10:53:34 PM CDT) s
+5 670 M
+(-- Model: New Model    Version: 1.0) s
+5 659 M
+(-- MySQL Workbench Forward Engineering) s
+5 637 M
+(-- Henry Post, hpost@hawk.iit.edu) s
+5 626 M
+(-- ITMD422 ) s
+/Courier-Bold 10 10 SUF
+71 626 M
+(at) s
+/F-gs-font 10 10 SF
+83 626 M
+( IIT) s
+/Courier-Bold 10 10 SUF
+5 604 M
+(SET) s
+/F-gs-font 10 10 SF
+23 604 M
+( @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;) s
+/Courier-Bold 10 10 SUF
+5 593 M
+(SET) s
+/F-gs-font 10 10 SF
+23 593 M
+( @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;) s
+/Courier-Bold 10 10 SUF
+5 582 M
+(SET) s
+/F-gs-font 10 10 SF
+23 582 M
+( @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE=) s
+/Courier-Bold 10 10 SUF
+239 582 M
+('ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE) s
+5 571 M
+(,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION') s
+/F-gs-font 10 10 SF
+389 571 M
+(;) s
+5 549 M
+(-- -----------------------------------------------------) s
+5 538 M
+(-- ) s
+/Courier-Bold 10 10 SUF
+23 538 M
+(Schema) s
+/F-gs-font 10 10 SF
+59 538 M
+( default_schema) s
+5 527 M
+(-- -----------------------------------------------------) s
+5 516 M
+(-- -----------------------------------------------------) s
+5 505 M
+(-- ) s
+/Courier-Bold 10 10 SUF
+23 505 M
+(Schema) s
+/F-gs-font 10 10 SF
+59 505 M
+( mydb) s
+5 494 M
+(-- -----------------------------------------------------) s
+/Courier-Bold 10 10 SUF
+5 483 M
+(DROP) s
+/F-gs-font 10 10 SF
+29 483 M
+( ) s
+/Courier-Bold 10 10 SUF
+35 483 M
+(SCHEMA) s
+/F-gs-font 10 10 SF
+71 483 M
+( ) s
+/Courier-Bold 10 10 SUF
+77 483 M
+(IF) s
+/F-gs-font 10 10 SF
+89 483 M
+( ) s
+/Courier-Bold 10 10 SUF
+95 483 M
+(EXISTS) s
+/F-gs-font 10 10 SF
+131 483 M
+( `mydb` ;) s
+5 461 M
+(-- -----------------------------------------------------) s
+5 450 M
+(-- ) s
+/Courier-Bold 10 10 SUF
+23 450 M
+(Schema) s
+/F-gs-font 10 10 SF
+59 450 M
+( mydb) s
+5 439 M
+(-- -----------------------------------------------------) s
+/Courier-Bold 10 10 SUF
+5 428 M
+(CREATE) s
+/F-gs-font 10 10 SF
+41 428 M
+( ) s
+/Courier-Bold 10 10 SUF
+47 428 M
+(SCHEMA) s
+/F-gs-font 10 10 SF
+83 428 M
+( ) s
+/Courier-Bold 10 10 SUF
+89 428 M
+(IF) s
+/F-gs-font 10 10 SF
+101 428 M
+( ) s
+/Courier-Bold 10 10 SUF
+107 428 M
+(NOT) s
+/F-gs-font 10 10 SF
+125 428 M
+( ) s
+/Courier-Bold 10 10 SUF
+131 428 M
+(EXISTS) s
+/F-gs-font 10 10 SF
+167 428 M
+( `mydb` ) s
+/Courier-Bold 10 10 SUF
+215 428 M
+(DEFAULT) s
+/F-gs-font 10 10 SF
+257 428 M
+( ) s
+/Courier-Bold 10 10 SUF
+263 428 M
+(CHARACTER) s
+/F-gs-font 10 10 SF
+317 428 M
+( ) s
+/Courier-Bold 10 10 SUF
+323 428 M
+(SET) s
+/F-gs-font 10 10 SF
+341 428 M
+( utf8 ;) s
+/Courier-Bold 10 10 SUF
+5 417 M
+(USE) s
+/F-gs-font 10 10 SF
+23 417 M
+( `mydb` ;) s
+5 395 M
+(-- -----------------------------------------------------) s
+5 384 M
+(-- ) s
+/Courier-Bold 10 10 SUF
+23 384 M
+(Table) s
+/F-gs-font 10 10 SF
+53 384 M
+( `rentalCard`) s
+5 373 M
+(-- -----------------------------------------------------) s
+/Courier-Bold 10 10 SUF
+5 362 M
+(DROP) s
+/F-gs-font 10 10 SF
+29 362 M
+( ) s
+/Courier-Bold 10 10 SUF
+35 362 M
+(TABLE) s
+/F-gs-font 10 10 SF
+65 362 M
+( ) s
+/Courier-Bold 10 10 SUF
+71 362 M
+(IF) s
+/F-gs-font 10 10 SF
+83 362 M
+( ) s
+/Courier-Bold 10 10 SUF
+89 362 M
+(EXISTS) s
+/F-gs-font 10 10 SF
+125 362 M
+( `rentalCard` ;) s
+/Courier-Bold 10 10 SUF
+5 340 M
+(CREATE) s
+/F-gs-font 10 10 SF
+41 340 M
+( ) s
+/Courier-Bold 10 10 SUF
+47 340 M
+(TABLE) s
+/F-gs-font 10 10 SF
+77 340 M
+( ) s
+/Courier-Bold 10 10 SUF
+83 340 M
+(IF) s
+/F-gs-font 10 10 SF
+95 340 M
+( ) s
+/Courier-Bold 10 10 SUF
+101 340 M
+(NOT) s
+/F-gs-font 10 10 SF
+119 340 M
+( ) s
+/Courier-Bold 10 10 SUF
+125 340 M
+(EXISTS) s
+/F-gs-font 10 10 SF
+161 340 M
+( `rentalCard` \() s
+5 329 M
+(  `id` ) s
+/Courier-Bold 10 10 SUF
+47 329 M
+(INT) s
+/F-gs-font 10 10 SF
+65 329 M
+( ) s
+/Courier-Bold 10 10 SUF
+71 329 M
+(NOT) s
+/F-gs-font 10 10 SF
+89 329 M
+( ) s
+/Courier-Bold 10 10 SUF
+95 329 M
+(NULL) s
+/F-gs-font 10 10 SF
+119 329 M
+(,) s
+5 318 M
+(  `dateSignedUp` ) s
+/Courier-Bold 10 10 SUF
+107 318 M
+(DATETIME) s
+/F-gs-font 10 10 SF
+155 318 M
+( ) s
+/Courier-Bold 10 10 SUF
+161 318 M
+(NOT) s
+/F-gs-font 10 10 SF
+179 318 M
+( ) s
+/Courier-Bold 10 10 SUF
+185 318 M
+(NULL) s
+/F-gs-font 10 10 SF
+209 318 M
+(,) s
+5 307 M
+(  `credit` ) s
+/Courier-Bold 10 10 SUF
+71 307 M
+(DOUBLE) s
+/F-gs-font 10 10 SF
+107 307 M
+( ) s
+/Courier-Bold 10 10 SUF
+113 307 M
+(NOT) s
+/F-gs-font 10 10 SF
+131 307 M
+( ) s
+/Courier-Bold 10 10 SUF
+137 307 M
+(NULL) s
+/F-gs-font 10 10 SF
+161 307 M
+( ) s
+/Courier-Bold 10 10 SUF
+167 307 M
+(DEFAULT) s
+/F-gs-font 10 10 SF
+209 307 M
+( 0.0,) s
+5 296 M
+(  ) s
+/Courier-Bold 10 10 SUF
+17 296 M
+(PRIMARY) s
+/F-gs-font 10 10 SF
+59 296 M
+( ) s
+/Courier-Bold 10 10 SUF
+65 296 M
+(KEY) s
+/F-gs-font 10 10 SF
+83 296 M
+( \(`id`\)\)) s
+5 285 M
+(ENGINE = InnoDB) s
+5 274 M
+(COMMENT = ) s
+/Courier-Bold 10 10 SUF
+65 274 M
+('This table tracks cards that can be used to rent movies.') s
+/F-gs-font 10 10 SF
+413 274 M
+(;) s
+5 241 M
+(-- -----------------------------------------------------) s
+5 230 M
+(-- ) s
+/Courier-Bold 10 10 SUF
+23 230 M
+(Table) s
+/F-gs-font 10 10 SF
+53 230 M
+( `movieStore`) s
+5 219 M
+(-- -----------------------------------------------------) s
+/Courier-Bold 10 10 SUF
+5 208 M
+(DROP) s
+/F-gs-font 10 10 SF
+29 208 M
+( ) s
+/Courier-Bold 10 10 SUF
+35 208 M
+(TABLE) s
+/F-gs-font 10 10 SF
+65 208 M
+( ) s
+/Courier-Bold 10 10 SUF
+71 208 M
+(IF) s
+/F-gs-font 10 10 SF
+83 208 M
+( ) s
+/Courier-Bold 10 10 SUF
+89 208 M
+(EXISTS) s
+/F-gs-font 10 10 SF
+125 208 M
+( `movieStore` ;) s
+/Courier-Bold 10 10 SUF
+5 186 M
+(CREATE) s
+/F-gs-font 10 10 SF
+41 186 M
+( ) s
+/Courier-Bold 10 10 SUF
+47 186 M
+(TABLE) s
+/F-gs-font 10 10 SF
+77 186 M
+( ) s
+/Courier-Bold 10 10 SUF
+83 186 M
+(IF) s
+/F-gs-font 10 10 SF
+95 186 M
+( ) s
+/Courier-Bold 10 10 SUF
+101 186 M
+(NOT) s
+/F-gs-font 10 10 SF
+119 186 M
+( ) s
+/Courier-Bold 10 10 SUF
+125 186 M
+(EXISTS) s
+/F-gs-font 10 10 SF
+161 186 M
+( `movieStore` \() s
+5 175 M
+(  `id` ) s
+/Courier-Bold 10 10 SUF
+47 175 M
+(INT) s
+/F-gs-font 10 10 SF
+65 175 M
+( ) s
+/Courier-Bold 10 10 SUF
+71 175 M
+(NOT) s
+/F-gs-font 10 10 SF
+89 175 M
+( ) s
+/Courier-Bold 10 10 SUF
+95 175 M
+(NULL) s
+/F-gs-font 10 10 SF
+119 175 M
+(,) s
+5 164 M
+(  `name` ) s
+/Courier-Bold 10 10 SUF
+59 164 M
+(VARCHAR) s
+/F-gs-font 10 10 SF
+101 164 M
+(\(45\) ) s
+/Courier-Bold 10 10 SUF
+131 164 M
+(NULL) s
+/F-gs-font 10 10 SF
+155 164 M
+( ) s
+/Courier-Bold 10 10 SUF
+161 164 M
+(DEFAULT) s
+/F-gs-font 10 10 SF
+203 164 M
+( ) s
+/Courier-Bold 10 10 SUF
+209 164 M
+(NULL) s
+/F-gs-font 10 10 SF
+233 164 M
+(,) s
+5 153 M
+(  `address` ) s
+/Courier-Bold 10 10 SUF
+77 153 M
+(VARCHAR) s
+/F-gs-font 10 10 SF
+119 153 M
+(\(45\) ) s
+/Courier-Bold 10 10 SUF
+149 153 M
+(NULL) s
+/F-gs-font 10 10 SF
+173 153 M
+( ) s
+/Courier-Bold 10 10 SUF
+179 153 M
+(DEFAULT) s
+/F-gs-font 10 10 SF
+221 153 M
+( ) s
+/Courier-Bold 10 10 SUF
+227 153 M
+(NULL) s
+/F-gs-font 10 10 SF
+251 153 M
+(,) s
+5 142 M
+(  ) s
+/Courier-Bold 10 10 SUF
+17 142 M
+(PRIMARY) s
+/F-gs-font 10 10 SF
+59 142 M
+( ) s
+/Courier-Bold 10 10 SUF
+65 142 M
+(KEY) s
+/F-gs-font 10 10 SF
+83 142 M
+( \(`id`\)\)) s
+5 131 M
+(ENGINE = InnoDB) s
+5 120 M
+(COMMENT = ) s
+/Courier-Bold 10 10 SUF
+65 120 M
+('This table represents a single movie store at one address.') s
+/F-gs-font 10 10 SF
+425 120 M
+(;) s
+5 87 M
+(-- -----------------------------------------------------) s
+5 76 M
+(-- ) s
+/Courier-Bold 10 10 SUF
+23 76 M
+(Table) s
+/F-gs-font 10 10 SF
+53 76 M
+( `genre`) s
+5 65 M
+(-- -----------------------------------------------------) s
+/Courier-Bold 10 10 SUF
+5 54 M
+(DROP) s
+/F-gs-font 10 10 SF
+29 54 M
+( ) s
+/Courier-Bold 10 10 SUF
+35 54 M
+(TABLE) s
+/F-gs-font 10 10 SF
+65 54 M
+( ) s
+/Courier-Bold 10 10 SUF
+71 54 M
+(IF) s
+/F-gs-font 10 10 SF
+83 54 M
+( ) s
+/Courier-Bold 10 10 SUF
+89 54 M
+(EXISTS) s
+/F-gs-font 10 10 SF
+125 54 M
+( `genre` ;) s
+/Courier-Bold 10 10 SUF
+5 32 M
+(CREATE) s
+/F-gs-font 10 10 SF
+41 32 M
+( ) s
+/Courier-Bold 10 10 SUF
+47 32 M
+(TABLE) s
+/F-gs-font 10 10 SF
+77 32 M
+( ) s
+/Courier-Bold 10 10 SUF
+83 32 M
+(IF) s
+/F-gs-font 10 10 SF
+95 32 M
+( ) s
+/Courier-Bold 10 10 SUF
+101 32 M
+(NOT) s
+/F-gs-font 10 10 SF
+119 32 M
+( ) s
+/Courier-Bold 10 10 SUF
+125 32 M
+(EXISTS) s
+/F-gs-font 10 10 SF
+161 32 M
+( `genre` \() s
+5 21 M
+(  `id` ) s
+/Courier-Bold 10 10 SUF
+47 21 M
+(INT) s
+/F-gs-font 10 10 SF
+65 21 M
+( ) s
+/Courier-Bold 10 10 SUF
+71 21 M
+(NOT) s
+/F-gs-font 10 10 SF
+89 21 M
+( ) s
+/Courier-Bold 10 10 SUF
+95 21 M
+(NULL) s
+/F-gs-font 10 10 SF
+119 21 M
+(,) s
+5 10 M
+(  `name` ) s
+/Courier-Bold 10 10 SUF
+59 10 M
+(VARCHAR) s
+/F-gs-font 10 10 SF
+101 10 M
+(\(45\) ) s
+/Courier-Bold 10 10 SUF
+131 10 M
+(NOT) s
+/F-gs-font 10 10 SF
+149 10 M
+( ) s
+/Courier-Bold 10 10 SUF
+155 10 M
+(NULL) s
+/F-gs-font 10 10 SF
+179 10 M
+(,) s
+_R
+S
+%%Page: (2) 2
+%%BeginPageSetup
+_S
+18 36 translate
+/pagenum 2 def
+/fname (lab3-tables.sql) def
+/fdir (.) def
+/ftail (lab3-tables.sql) def
+% User defined strings:
+/fmodstr (Sat Oct 05 23:03:27 2019) def
+/pagenumstr (2) def
+/user_header_p false def
+/user_footer_p false def
+%%EndPageSetup
+do_header
+5 692 M
+(  ) s
+/Courier-Bold 10 10 SUF
+17 692 M
+(PRIMARY) s
+/F-gs-font 10 10 SF
+59 692 M
+( ) s
+/Courier-Bold 10 10 SUF
+65 692 M
+(KEY) s
+/F-gs-font 10 10 SF
+83 692 M
+( \(`id`\)\)) s
+5 681 M
+(ENGINE = InnoDB) s
+5 670 M
+(COMMENT = ) s
+/Courier-Bold 10 10 SUF
+65 670 M
+('This table represents a movie genre.') s
+/F-gs-font 10 10 SF
+293 670 M
+(;) s
+5 637 M
+(-- -----------------------------------------------------) s
+5 626 M
+(-- ) s
+/Courier-Bold 10 10 SUF
+23 626 M
+(Table) s
+/F-gs-font 10 10 SF
+53 626 M
+( `customer`) s
+5 615 M
+(-- -----------------------------------------------------) s
+/Courier-Bold 10 10 SUF
+5 604 M
+(DROP) s
+/F-gs-font 10 10 SF
+29 604 M
+( ) s
+/Courier-Bold 10 10 SUF
+35 604 M
+(TABLE) s
+/F-gs-font 10 10 SF
+65 604 M
+( ) s
+/Courier-Bold 10 10 SUF
+71 604 M
+(IF) s
+/F-gs-font 10 10 SF
+83 604 M
+( ) s
+/Courier-Bold 10 10 SUF
+89 604 M
+(EXISTS) s
+/F-gs-font 10 10 SF
+125 604 M
+( `customer` ;) s
+/Courier-Bold 10 10 SUF
+5 582 M
+(CREATE) s
+/F-gs-font 10 10 SF
+41 582 M
+( ) s
+/Courier-Bold 10 10 SUF
+47 582 M
+(TABLE) s
+/F-gs-font 10 10 SF
+77 582 M
+( ) s
+/Courier-Bold 10 10 SUF
+83 582 M
+(IF) s
+/F-gs-font 10 10 SF
+95 582 M
+( ) s
+/Courier-Bold 10 10 SUF
+101 582 M
+(NOT) s
+/F-gs-font 10 10 SF
+119 582 M
+( ) s
+/Courier-Bold 10 10 SUF
+125 582 M
+(EXISTS) s
+/F-gs-font 10 10 SF
+161 582 M
+( `customer` \() s
+5 571 M
+(  `id` ) s
+/Courier-Bold 10 10 SUF
+47 571 M
+(INT) s
+/F-gs-font 10 10 SF
+65 571 M
+( ) s
+/Courier-Bold 10 10 SUF
+71 571 M
+(NOT) s
+/F-gs-font 10 10 SF
+89 571 M
+( ) s
+/Courier-Bold 10 10 SUF
+95 571 M
+(NULL) s
+/F-gs-font 10 10 SF
+119 571 M
+(,) s
+5 560 M
+(  `rentalCard_id` ) s
+/Courier-Bold 10 10 SUF
+113 560 M
+(INT) s
+/F-gs-font 10 10 SF
+131 560 M
+( ) s
+/Courier-Bold 10 10 SUF
+137 560 M
+(NULL) s
+/F-gs-font 10 10 SF
+161 560 M
+( ) s
+/Courier-Bold 10 10 SUF
+167 560 M
+(DEFAULT) s
+/F-gs-font 10 10 SF
+209 560 M
+( ) s
+/Courier-Bold 10 10 SUF
+215 560 M
+(NULL) s
+/F-gs-font 10 10 SF
+239 560 M
+(,) s
+5 549 M
+(  `preferredMovieStore_id` ) s
+/Courier-Bold 10 10 SUF
+167 549 M
+(INT) s
+/F-gs-font 10 10 SF
+185 549 M
+( ) s
+/Courier-Bold 10 10 SUF
+191 549 M
+(NULL) s
+/F-gs-font 10 10 SF
+215 549 M
+( ) s
+/Courier-Bold 10 10 SUF
+221 549 M
+(DEFAULT) s
+/F-gs-font 10 10 SF
+263 549 M
+( ) s
+/Courier-Bold 10 10 SUF
+269 549 M
+(NULL) s
+/F-gs-font 10 10 SF
+293 549 M
+(,) s
+5 538 M
+(  `fullname` ) s
+/Courier-Bold 10 10 SUF
+83 538 M
+(VARCHAR) s
+/F-gs-font 10 10 SF
+125 538 M
+(\(45\) ) s
+/Courier-Bold 10 10 SUF
+155 538 M
+(NOT) s
+/F-gs-font 10 10 SF
+173 538 M
+( ) s
+/Courier-Bold 10 10 SUF
+179 538 M
+(NULL) s
+/F-gs-font 10 10 SF
+203 538 M
+(,) s
+5 527 M
+(  `address` ) s
+/Courier-Bold 10 10 SUF
+77 527 M
+(VARCHAR) s
+/F-gs-font 10 10 SF
+119 527 M
+(\(45\) ) s
+/Courier-Bold 10 10 SUF
+149 527 M
+(NOT) s
+/F-gs-font 10 10 SF
+167 527 M
+( ) s
+/Courier-Bold 10 10 SUF
+173 527 M
+(NULL) s
+/F-gs-font 10 10 SF
+197 527 M
+(,) s
+5 516 M
+(  `preferred_genre_id_1` ) s
+/Courier-Bold 10 10 SUF
+155 516 M
+(INT) s
+/F-gs-font 10 10 SF
+173 516 M
+( ) s
+/Courier-Bold 10 10 SUF
+179 516 M
+(NOT) s
+/F-gs-font 10 10 SF
+197 516 M
+( ) s
+/Courier-Bold 10 10 SUF
+203 516 M
+(NULL) s
+/F-gs-font 10 10 SF
+227 516 M
+(,) s
+5 505 M
+(  `preferred_genre_id_2` ) s
+/Courier-Bold 10 10 SUF
+155 505 M
+(INT) s
+/F-gs-font 10 10 SF
+173 505 M
+( ) s
+/Courier-Bold 10 10 SUF
+179 505 M
+(NOT) s
+/F-gs-font 10 10 SF
+197 505 M
+( ) s
+/Courier-Bold 10 10 SUF
+203 505 M
+(NULL) s
+/F-gs-font 10 10 SF
+227 505 M
+(,) s
+5 494 M
+(  ) s
+/Courier-Bold 10 10 SUF
+17 494 M
+(PRIMARY) s
+/F-gs-font 10 10 SF
+59 494 M
+( ) s
+/Courier-Bold 10 10 SUF
+65 494 M
+(KEY) s
+/F-gs-font 10 10 SF
+83 494 M
+( \(`id`, `rentalCard_id`, `preferred_genre_id_1`, `preferred_genre_id_2`\),) s
+5 483 M
+(  ) s
+/Courier-Bold 10 10 SUF
+17 483 M
+(INDEX) s
+/F-gs-font 10 10 SF
+47 483 M
+( `fk_customer_rentalCard1_idx` \(`rentalCard_id` ) s
+/Courier-Bold 10 10 SUF
+335 483 M
+(ASC) s
+/F-gs-font 10 10 SF
+353 483 M
+(\) VISIBLE,) s
+5 472 M
+(  ) s
+/Courier-Bold 10 10 SUF
+17 472 M
+(INDEX) s
+/F-gs-font 10 10 SF
+47 472 M
+( `fk_customer_movieStore1_idx` \(`preferredMovieStore_id` ) s
+/Courier-Bold 10 10 SUF
+389 472 M
+(ASC) s
+/F-gs-font 10 10 SF
+407 472 M
+(\) VISIBLE,) s
+5 461 M
+(  ) s
+/Courier-Bold 10 10 SUF
+17 461 M
+(INDEX) s
+/F-gs-font 10 10 SF
+47 461 M
+( `fk_customer_genre1_idx` \(`preferred_genre_id_1` ) s
+/Courier-Bold 10 10 SUF
+347 461 M
+(ASC) s
+/F-gs-font 10 10 SF
+365 461 M
+(\) VISIBLE,) s
+5 450 M
+(  ) s
+/Courier-Bold 10 10 SUF
+17 450 M
+(INDEX) s
+/F-gs-font 10 10 SF
+47 450 M
+( `fk_customer_genre2_idx` \(`preferred_genre_id_2` ) s
+/Courier-Bold 10 10 SUF
+347 450 M
+(ASC) s
+/F-gs-font 10 10 SF
+365 450 M
+(\) VISIBLE,) s
+5 439 M
+(  ) s
+/Courier-Bold 10 10 SUF
+17 439 M
+(CONSTRAINT) s
+/F-gs-font 10 10 SF
+77 439 M
+( `fk_customer_rentalCard1`) s
+5 428 M
+(    ) s
+/Courier-Bold 10 10 SUF
+29 428 M
+(FOREIGN) s
+/F-gs-font 10 10 SF
+71 428 M
+( ) s
+/Courier-Bold 10 10 SUF
+77 428 M
+(KEY) s
+/F-gs-font 10 10 SF
+95 428 M
+( \(`rentalCard_id`\)) s
+5 417 M
+(    ) s
+/Courier-Bold 10 10 SUF
+29 417 M
+(REFERENCES) s
+/F-gs-font 10 10 SF
+89 417 M
+( `rentalCard` \(`id`\)) s
+5 406 M
+(    ) s
+/Courier-Bold 10 10 SUF
+29 406 M
+(ON) s
+/F-gs-font 10 10 SF
+41 406 M
+( ) s
+/Courier-Bold 10 10 SUF
+47 406 M
+(DELETE) s
+/F-gs-font 10 10 SF
+83 406 M
+( NO ACTION) s
+5 395 M
+(    ) s
+/Courier-Bold 10 10 SUF
+29 395 M
+(ON) s
+/F-gs-font 10 10 SF
+41 395 M
+( ) s
+/Courier-Bold 10 10 SUF
+47 395 M
+(UPDATE) s
+/F-gs-font 10 10 SF
+83 395 M
+( NO ACTION,) s
+5 384 M
+(  ) s
+/Courier-Bold 10 10 SUF
+17 384 M
+(CONSTRAINT) s
+/F-gs-font 10 10 SF
+77 384 M
+( `fk_customer_movieStore1`) s
+5 373 M
+(    ) s
+/Courier-Bold 10 10 SUF
+29 373 M
+(FOREIGN) s
+/F-gs-font 10 10 SF
+71 373 M
+( ) s
+/Courier-Bold 10 10 SUF
+77 373 M
+(KEY) s
+/F-gs-font 10 10 SF
+95 373 M
+( \(`preferredMovieStore_id`\)) s
+5 362 M
+(    ) s
+/Courier-Bold 10 10 SUF
+29 362 M
+(REFERENCES) s
+/F-gs-font 10 10 SF
+89 362 M
+( `movieStore` \(`id`\)) s
+5 351 M
+(    ) s
+/Courier-Bold 10 10 SUF
+29 351 M
+(ON) s
+/F-gs-font 10 10 SF
+41 351 M
+( ) s
+/Courier-Bold 10 10 SUF
+47 351 M
+(DELETE) s
+/F-gs-font 10 10 SF
+83 351 M
+( NO ACTION) s
+5 340 M
+(    ) s
+/Courier-Bold 10 10 SUF
+29 340 M
+(ON) s
+/F-gs-font 10 10 SF
+41 340 M
+( ) s
+/Courier-Bold 10 10 SUF
+47 340 M
+(UPDATE) s
+/F-gs-font 10 10 SF
+83 340 M
+( NO ACTION,) s
+5 329 M
+(  ) s
+/Courier-Bold 10 10 SUF
+17 329 M
+(CONSTRAINT) s
+/F-gs-font 10 10 SF
+77 329 M
+( `fk_customer_genre1`) s
+5 318 M
+(    ) s
+/Courier-Bold 10 10 SUF
+29 318 M
+(FOREIGN) s
+/F-gs-font 10 10 SF
+71 318 M
+( ) s
+/Courier-Bold 10 10 SUF
+77 318 M
+(KEY) s
+/F-gs-font 10 10 SF
+95 318 M
+( \(`preferred_genre_id_1`\)) s
+5 307 M
+(    ) s
+/Courier-Bold 10 10 SUF
+29 307 M
+(REFERENCES) s
+/F-gs-font 10 10 SF
+89 307 M
+( `genre` \(`id`\)) s
+5 296 M
+(    ) s
+/Courier-Bold 10 10 SUF
+29 296 M
+(ON) s
+/F-gs-font 10 10 SF
+41 296 M
+( ) s
+/Courier-Bold 10 10 SUF
+47 296 M
+(DELETE) s
+/F-gs-font 10 10 SF
+83 296 M
+( NO ACTION) s
+5 285 M
+(    ) s
+/Courier-Bold 10 10 SUF
+29 285 M
+(ON) s
+/F-gs-font 10 10 SF
+41 285 M
+( ) s
+/Courier-Bold 10 10 SUF
+47 285 M
+(UPDATE) s
+/F-gs-font 10 10 SF
+83 285 M
+( NO ACTION,) s
+5 274 M
+(  ) s
+/Courier-Bold 10 10 SUF
+17 274 M
+(CONSTRAINT) s
+/F-gs-font 10 10 SF
+77 274 M
+( `fk_customer_genre2`) s
+5 263 M
+(    ) s
+/Courier-Bold 10 10 SUF
+29 263 M
+(FOREIGN) s
+/F-gs-font 10 10 SF
+71 263 M
+( ) s
+/Courier-Bold 10 10 SUF
+77 263 M
+(KEY) s
+/F-gs-font 10 10 SF
+95 263 M
+( \(`preferred_genre_id_2`\)) s
+5 252 M
+(    ) s
+/Courier-Bold 10 10 SUF
+29 252 M
+(REFERENCES) s
+/F-gs-font 10 10 SF
+89 252 M
+( `genre` \(`id`\)) s
+5 241 M
+(    ) s
+/Courier-Bold 10 10 SUF
+29 241 M
+(ON) s
+/F-gs-font 10 10 SF
+41 241 M
+( ) s
+/Courier-Bold 10 10 SUF
+47 241 M
+(DELETE) s
+/F-gs-font 10 10 SF
+83 241 M
+( NO ACTION) s
+5 230 M
+(    ) s
+/Courier-Bold 10 10 SUF
+29 230 M
+(ON) s
+/F-gs-font 10 10 SF
+41 230 M
+( ) s
+/Courier-Bold 10 10 SUF
+47 230 M
+(UPDATE) s
+/F-gs-font 10 10 SF
+83 230 M
+( NO ACTION\)) s
+5 219 M
+(ENGINE = INNODB) s
+5 208 M
+(COMMENT = ) s
+/Courier-Bold 10 10 SUF
+65 208 M
+('This table represents a single customer.') s
+/F-gs-font 10 10 SF
+317 208 M
+(;) s
+5 175 M
+(-- -----------------------------------------------------) s
+5 164 M
+(-- ) s
+/Courier-Bold 10 10 SUF
+23 164 M
+(Table) s
+/F-gs-font 10 10 SF
+53 164 M
+( `movie`) s
+5 153 M
+(-- -----------------------------------------------------) s
+/Courier-Bold 10 10 SUF
+5 142 M
+(DROP) s
+/F-gs-font 10 10 SF
+29 142 M
+( ) s
+/Courier-Bold 10 10 SUF
+35 142 M
+(TABLE) s
+/F-gs-font 10 10 SF
+65 142 M
+( ) s
+/Courier-Bold 10 10 SUF
+71 142 M
+(IF) s
+/F-gs-font 10 10 SF
+83 142 M
+( ) s
+/Courier-Bold 10 10 SUF
+89 142 M
+(EXISTS) s
+/F-gs-font 10 10 SF
+125 142 M
+( `movie` ;) s
+/Courier-Bold 10 10 SUF
+5 120 M
+(CREATE) s
+/F-gs-font 10 10 SF
+41 120 M
+( ) s
+/Courier-Bold 10 10 SUF
+47 120 M
+(TABLE) s
+/F-gs-font 10 10 SF
+77 120 M
+( ) s
+/Courier-Bold 10 10 SUF
+83 120 M
+(IF) s
+/F-gs-font 10 10 SF
+95 120 M
+( ) s
+/Courier-Bold 10 10 SUF
+101 120 M
+(NOT) s
+/F-gs-font 10 10 SF
+119 120 M
+( ) s
+/Courier-Bold 10 10 SUF
+125 120 M
+(EXISTS) s
+/F-gs-font 10 10 SF
+161 120 M
+( `movie` \() s
+5 109 M
+(  `id` ) s
+/Courier-Bold 10 10 SUF
+47 109 M
+(INT) s
+/F-gs-font 10 10 SF
+65 109 M
+( ) s
+/Courier-Bold 10 10 SUF
+71 109 M
+(NOT) s
+/F-gs-font 10 10 SF
+89 109 M
+( ) s
+/Courier-Bold 10 10 SUF
+95 109 M
+(NULL) s
+/F-gs-font 10 10 SF
+119 109 M
+(,) s
+5 98 M
+(  `name` ) s
+/Courier-Bold 10 10 SUF
+59 98 M
+(VARCHAR) s
+/F-gs-font 10 10 SF
+101 98 M
+(\(45\) ) s
+/Courier-Bold 10 10 SUF
+131 98 M
+(NOT) s
+/F-gs-font 10 10 SF
+149 98 M
+( ) s
+/Courier-Bold 10 10 SUF
+155 98 M
+(NULL) s
+/F-gs-font 10 10 SF
+179 98 M
+(,) s
+5 87 M
+(  `genre_id` ) s
+/Courier-Bold 10 10 SUF
+83 87 M
+(INT) s
+/F-gs-font 10 10 SF
+101 87 M
+( ) s
+/Courier-Bold 10 10 SUF
+107 87 M
+(NOT) s
+/F-gs-font 10 10 SF
+125 87 M
+( ) s
+/Courier-Bold 10 10 SUF
+131 87 M
+(NULL) s
+/F-gs-font 10 10 SF
+155 87 M
+(,) s
+5 76 M
+(  `price` ) s
+/Courier-Bold 10 10 SUF
+65 76 M
+(DOUBLE) s
+/F-gs-font 10 10 SF
+101 76 M
+( ) s
+/Courier-Bold 10 10 SUF
+107 76 M
+(NOT) s
+/F-gs-font 10 10 SF
+125 76 M
+( ) s
+/Courier-Bold 10 10 SUF
+131 76 M
+(NULL) s
+/F-gs-font 10 10 SF
+155 76 M
+(,) s
+5 65 M
+(  ) s
+/Courier-Bold 10 10 SUF
+17 65 M
+(PRIMARY) s
+/F-gs-font 10 10 SF
+59 65 M
+( ) s
+/Courier-Bold 10 10 SUF
+65 65 M
+(KEY) s
+/F-gs-font 10 10 SF
+83 65 M
+( \(`id`, `genre_id`\),) s
+5 54 M
+(  ) s
+/Courier-Bold 10 10 SUF
+17 54 M
+(INDEX) s
+/F-gs-font 10 10 SF
+47 54 M
+( `fk_movie_genre1_idx` \(`genre_id` ) s
+/Courier-Bold 10 10 SUF
+257 54 M
+(ASC) s
+/F-gs-font 10 10 SF
+275 54 M
+(\) VISIBLE,) s
+5 43 M
+(  ) s
+/Courier-Bold 10 10 SUF
+17 43 M
+(CONSTRAINT) s
+/F-gs-font 10 10 SF
+77 43 M
+( `fk_movie_genre1`) s
+5 32 M
+(    ) s
+/Courier-Bold 10 10 SUF
+29 32 M
+(FOREIGN) s
+/F-gs-font 10 10 SF
+71 32 M
+( ) s
+/Courier-Bold 10 10 SUF
+77 32 M
+(KEY) s
+/F-gs-font 10 10 SF
+95 32 M
+( \(`genre_id`\)) s
+5 21 M
+(    ) s
+/Courier-Bold 10 10 SUF
+29 21 M
+(REFERENCES) s
+/F-gs-font 10 10 SF
+89 21 M
+( `genre` \(`id`\)) s
+5 10 M
+(    ) s
+/Courier-Bold 10 10 SUF
+29 10 M
+(ON) s
+/F-gs-font 10 10 SF
+41 10 M
+( ) s
+/Courier-Bold 10 10 SUF
+47 10 M
+(DELETE) s
+/F-gs-font 10 10 SF
+83 10 M
+( NO ACTION) s
+_R
+S
+%%Page: (3) 3
+%%BeginPageSetup
+_S
+18 36 translate
+/pagenum 3 def
+/fname (lab3-tables.sql) def
+/fdir (.) def
+/ftail (lab3-tables.sql) def
+% User defined strings:
+/fmodstr (Sat Oct 05 23:03:27 2019) def
+/pagenumstr (3) def
+/user_header_p false def
+/user_footer_p false def
+%%EndPageSetup
+do_header
+5 692 M
+(    ) s
+/Courier-Bold 10 10 SUF
+29 692 M
+(ON) s
+/F-gs-font 10 10 SF
+41 692 M
+( ) s
+/Courier-Bold 10 10 SUF
+47 692 M
+(UPDATE) s
+/F-gs-font 10 10 SF
+83 692 M
+( NO ACTION\)) s
+5 681 M
+(ENGINE = InnoDB;) s
+5 648 M
+(-- -----------------------------------------------------) s
+5 637 M
+(-- ) s
+/Courier-Bold 10 10 SUF
+23 637 M
+(Table) s
+/F-gs-font 10 10 SF
+53 637 M
+( `movieRentalEvent`) s
+5 626 M
+(-- -----------------------------------------------------) s
+/Courier-Bold 10 10 SUF
+5 615 M
+(DROP) s
+/F-gs-font 10 10 SF
+29 615 M
+( ) s
+/Courier-Bold 10 10 SUF
+35 615 M
+(TABLE) s
+/F-gs-font 10 10 SF
+65 615 M
+( ) s
+/Courier-Bold 10 10 SUF
+71 615 M
+(IF) s
+/F-gs-font 10 10 SF
+83 615 M
+( ) s
+/Courier-Bold 10 10 SUF
+89 615 M
+(EXISTS) s
+/F-gs-font 10 10 SF
+125 615 M
+( `movieRentalEvent` ;) s
+/Courier-Bold 10 10 SUF
+5 593 M
+(CREATE) s
+/F-gs-font 10 10 SF
+41 593 M
+( ) s
+/Courier-Bold 10 10 SUF
+47 593 M
+(TABLE) s
+/F-gs-font 10 10 SF
+77 593 M
+( ) s
+/Courier-Bold 10 10 SUF
+83 593 M
+(IF) s
+/F-gs-font 10 10 SF
+95 593 M
+( ) s
+/Courier-Bold 10 10 SUF
+101 593 M
+(NOT) s
+/F-gs-font 10 10 SF
+119 593 M
+( ) s
+/Courier-Bold 10 10 SUF
+125 593 M
+(EXISTS) s
+/F-gs-font 10 10 SF
+161 593 M
+( `movieRentalEvent` \() s
+5 582 M
+(  `id` ) s
+/Courier-Bold 10 10 SUF
+47 582 M
+(INT) s
+/F-gs-font 10 10 SF
+65 582 M
+( ) s
+/Courier-Bold 10 10 SUF
+71 582 M
+(NOT) s
+/F-gs-font 10 10 SF
+89 582 M
+( ) s
+/Courier-Bold 10 10 SUF
+95 582 M
+(NULL) s
+/F-gs-font 10 10 SF
+119 582 M
+(,) s
+5 571 M
+(  `movieStore_id` ) s
+/Courier-Bold 10 10 SUF
+113 571 M
+(INT) s
+/F-gs-font 10 10 SF
+131 571 M
+( ) s
+/Courier-Bold 10 10 SUF
+137 571 M
+(NOT) s
+/F-gs-font 10 10 SF
+155 571 M
+( ) s
+/Courier-Bold 10 10 SUF
+161 571 M
+(NULL) s
+/F-gs-font 10 10 SF
+185 571 M
+(,) s
+5 560 M
+(  `movie_id` ) s
+/Courier-Bold 10 10 SUF
+83 560 M
+(INT) s
+/F-gs-font 10 10 SF
+101 560 M
+( ) s
+/Courier-Bold 10 10 SUF
+107 560 M
+(NOT) s
+/F-gs-font 10 10 SF
+125 560 M
+( ) s
+/Courier-Bold 10 10 SUF
+131 560 M
+(NULL) s
+/F-gs-font 10 10 SF
+155 560 M
+(,) s
+5 549 M
+(  `rentalCard_id` ) s
+/Courier-Bold 10 10 SUF
+113 549 M
+(INT) s
+/F-gs-font 10 10 SF
+131 549 M
+( ) s
+/Courier-Bold 10 10 SUF
+137 549 M
+(NOT) s
+/F-gs-font 10 10 SF
+155 549 M
+( ) s
+/Courier-Bold 10 10 SUF
+161 549 M
+(NULL) s
+/F-gs-font 10 10 SF
+185 549 M
+(,) s
+5 538 M
+(  `dateRented` ) s
+/Courier-Bold 10 10 SUF
+95 538 M
+(DATETIME) s
+/F-gs-font 10 10 SF
+143 538 M
+( ) s
+/Courier-Bold 10 10 SUF
+149 538 M
+(NOT) s
+/F-gs-font 10 10 SF
+167 538 M
+( ) s
+/Courier-Bold 10 10 SUF
+173 538 M
+(NULL) s
+/F-gs-font 10 10 SF
+197 538 M
+(,) s
+5 527 M
+(  `dateReturned` ) s
+/Courier-Bold 10 10 SUF
+107 527 M
+(DATETIME) s
+/F-gs-font 10 10 SF
+155 527 M
+( ) s
+/Courier-Bold 10 10 SUF
+161 527 M
+(NULL) s
+/F-gs-font 10 10 SF
+185 527 M
+( ) s
+/Courier-Bold 10 10 SUF
+191 527 M
+(DEFAULT) s
+/F-gs-font 10 10 SF
+233 527 M
+( ) s
+/Courier-Bold 10 10 SUF
+239 527 M
+(NULL) s
+/F-gs-font 10 10 SF
+263 527 M
+(,) s
+5 516 M
+(  `deadline` ) s
+/Courier-Bold 10 10 SUF
+83 516 M
+(DATETIME) s
+/F-gs-font 10 10 SF
+131 516 M
+( ) s
+/Courier-Bold 10 10 SUF
+137 516 M
+(NOT) s
+/F-gs-font 10 10 SF
+155 516 M
+( ) s
+/Courier-Bold 10 10 SUF
+161 516 M
+(NULL) s
+/F-gs-font 10 10 SF
+185 516 M
+(,) s
+5 505 M
+(  `rentalPrice` ) s
+/Courier-Bold 10 10 SUF
+101 505 M
+(DOUBLE) s
+/F-gs-font 10 10 SF
+137 505 M
+( ) s
+/Courier-Bold 10 10 SUF
+143 505 M
+(NOT) s
+/F-gs-font 10 10 SF
+161 505 M
+( ) s
+/Courier-Bold 10 10 SUF
+167 505 M
+(NULL) s
+/F-gs-font 10 10 SF
+191 505 M
+(,) s
+5 494 M
+(  ) s
+/Courier-Bold 10 10 SUF
+17 494 M
+(PRIMARY) s
+/F-gs-font 10 10 SF
+59 494 M
+( ) s
+/Courier-Bold 10 10 SUF
+65 494 M
+(KEY) s
+/F-gs-font 10 10 SF
+83 494 M
+( \(`id`, `movieStore_id`, `movie_id`, `rentalCard_id`\),) s
+5 483 M
+(  ) s
+/Courier-Bold 10 10 SUF
+17 483 M
+(INDEX) s
+/F-gs-font 10 10 SF
+47 483 M
+( `fk_rentalEvent_movie_idx` \(`movie_id` ) s
+/Courier-Bold 10 10 SUF
+287 483 M
+(ASC) s
+/F-gs-font 10 10 SF
+305 483 M
+(\) VISIBLE,) s
+5 472 M
+(  ) s
+/Courier-Bold 10 10 SUF
+17 472 M
+(INDEX) s
+/F-gs-font 10 10 SF
+47 472 M
+( `fk_rentalEvent_rentalCard1_idx` \(`rentalCard_id` ) s
+/Courier-Bold 10 10 SUF
+353 472 M
+(ASC) s
+/F-gs-font 10 10 SF
+371 472 M
+(\) VISIBLE,) s
+5 461 M
+(  ) s
+/Courier-Bold 10 10 SUF
+17 461 M
+(INDEX) s
+/F-gs-font 10 10 SF
+47 461 M
+( `fk_rentalEvent_movieStore1_idx` \(`movieStore_id` ) s
+/Courier-Bold 10 10 SUF
+353 461 M
+(ASC) s
+/F-gs-font 10 10 SF
+371 461 M
+(\) VISIBLE,) s
+5 450 M
+(  ) s
+/Courier-Bold 10 10 SUF
+17 450 M
+(CONSTRAINT) s
+/F-gs-font 10 10 SF
+77 450 M
+( `fk_rentalEvent_movie`) s
+5 439 M
+(    ) s
+/Courier-Bold 10 10 SUF
+29 439 M
+(FOREIGN) s
+/F-gs-font 10 10 SF
+71 439 M
+( ) s
+/Courier-Bold 10 10 SUF
+77 439 M
+(KEY) s
+/F-gs-font 10 10 SF
+95 439 M
+( \(`movie_id`\)) s
+5 428 M
+(    ) s
+/Courier-Bold 10 10 SUF
+29 428 M
+(REFERENCES) s
+/F-gs-font 10 10 SF
+89 428 M
+( `movie` \(`id`\)) s
+5 417 M
+(    ) s
+/Courier-Bold 10 10 SUF
+29 417 M
+(ON) s
+/F-gs-font 10 10 SF
+41 417 M
+( ) s
+/Courier-Bold 10 10 SUF
+47 417 M
+(DELETE) s
+/F-gs-font 10 10 SF
+83 417 M
+( NO ACTION) s
+5 406 M
+(    ) s
+/Courier-Bold 10 10 SUF
+29 406 M
+(ON) s
+/F-gs-font 10 10 SF
+41 406 M
+( ) s
+/Courier-Bold 10 10 SUF
+47 406 M
+(UPDATE) s
+/F-gs-font 10 10 SF
+83 406 M
+( NO ACTION,) s
+5 395 M
+(  ) s
+/Courier-Bold 10 10 SUF
+17 395 M
+(CONSTRAINT) s
+/F-gs-font 10 10 SF
+77 395 M
+( `fk_rentalEvent_rentalCard1`) s
+5 384 M
+(    ) s
+/Courier-Bold 10 10 SUF
+29 384 M
+(FOREIGN) s
+/F-gs-font 10 10 SF
+71 384 M
+( ) s
+/Courier-Bold 10 10 SUF
+77 384 M
+(KEY) s
+/F-gs-font 10 10 SF
+95 384 M
+( \(`rentalCard_id`\)) s
+5 373 M
+(    ) s
+/Courier-Bold 10 10 SUF
+29 373 M
+(REFERENCES) s
+/F-gs-font 10 10 SF
+89 373 M
+( `rentalCard` \(`id`\)) s
+5 362 M
+(    ) s
+/Courier-Bold 10 10 SUF
+29 362 M
+(ON) s
+/F-gs-font 10 10 SF
+41 362 M
+( ) s
+/Courier-Bold 10 10 SUF
+47 362 M
+(DELETE) s
+/F-gs-font 10 10 SF
+83 362 M
+( NO ACTION) s
+5 351 M
+(    ) s
+/Courier-Bold 10 10 SUF
+29 351 M
+(ON) s
+/F-gs-font 10 10 SF
+41 351 M
+( ) s
+/Courier-Bold 10 10 SUF
+47 351 M
+(UPDATE) s
+/F-gs-font 10 10 SF
+83 351 M
+( NO ACTION,) s
+5 340 M
+(  ) s
+/Courier-Bold 10 10 SUF
+17 340 M
+(CONSTRAINT) s
+/F-gs-font 10 10 SF
+77 340 M
+( `fk_rentalEvent_movieStore1`) s
+5 329 M
+(    ) s
+/Courier-Bold 10 10 SUF
+29 329 M
+(FOREIGN) s
+/F-gs-font 10 10 SF
+71 329 M
+( ) s
+/Courier-Bold 10 10 SUF
+77 329 M
+(KEY) s
+/F-gs-font 10 10 SF
+95 329 M
+( \(`movieStore_id`\)) s
+5 318 M
+(    ) s
+/Courier-Bold 10 10 SUF
+29 318 M
+(REFERENCES) s
+/F-gs-font 10 10 SF
+89 318 M
+( `movieStore` \(`id`\)) s
+5 307 M
+(    ) s
+/Courier-Bold 10 10 SUF
+29 307 M
+(ON) s
+/F-gs-font 10 10 SF
+41 307 M
+( ) s
+/Courier-Bold 10 10 SUF
+47 307 M
+(DELETE) s
+/F-gs-font 10 10 SF
+83 307 M
+( NO ACTION) s
+5 296 M
+(    ) s
+/Courier-Bold 10 10 SUF
+29 296 M
+(ON) s
+/F-gs-font 10 10 SF
+41 296 M
+( ) s
+/Courier-Bold 10 10 SUF
+47 296 M
+(UPDATE) s
+/F-gs-font 10 10 SF
+83 296 M
+( NO ACTION\)) s
+5 285 M
+(ENGINE = InnoDB) s
+5 274 M
+(COMMENT = ) s
+/Courier-Bold 10 10 SUF
+65 274 M
+('This table represents a single rental of a single movie occurring under a single ca) s
+5 263 M
+(rd.') s
+/F-gs-font 10 10 SF
+29 263 M
+(;) s
+5 230 M
+(-- -----------------------------------------------------) s
+5 219 M
+(-- ) s
+/Courier-Bold 10 10 SUF
+23 219 M
+(Table) s
+/F-gs-font 10 10 SF
+53 219 M
+( `product`) s
+5 208 M
+(-- -----------------------------------------------------) s
+/Courier-Bold 10 10 SUF
+5 197 M
+(DROP) s
+/F-gs-font 10 10 SF
+29 197 M
+( ) s
+/Courier-Bold 10 10 SUF
+35 197 M
+(TABLE) s
+/F-gs-font 10 10 SF
+65 197 M
+( ) s
+/Courier-Bold 10 10 SUF
+71 197 M
+(IF) s
+/F-gs-font 10 10 SF
+83 197 M
+( ) s
+/Courier-Bold 10 10 SUF
+89 197 M
+(EXISTS) s
+/F-gs-font 10 10 SF
+125 197 M
+( `product` ;) s
+/Courier-Bold 10 10 SUF
+5 175 M
+(CREATE) s
+/F-gs-font 10 10 SF
+41 175 M
+( ) s
+/Courier-Bold 10 10 SUF
+47 175 M
+(TABLE) s
+/F-gs-font 10 10 SF
+77 175 M
+( ) s
+/Courier-Bold 10 10 SUF
+83 175 M
+(IF) s
+/F-gs-font 10 10 SF
+95 175 M
+( ) s
+/Courier-Bold 10 10 SUF
+101 175 M
+(NOT) s
+/F-gs-font 10 10 SF
+119 175 M
+( ) s
+/Courier-Bold 10 10 SUF
+125 175 M
+(EXISTS) s
+/F-gs-font 10 10 SF
+161 175 M
+( `product` \() s
+5 164 M
+(  `id` ) s
+/Courier-Bold 10 10 SUF
+47 164 M
+(INT) s
+/F-gs-font 10 10 SF
+65 164 M
+( ) s
+/Courier-Bold 10 10 SUF
+71 164 M
+(NOT) s
+/F-gs-font 10 10 SF
+89 164 M
+( ) s
+/Courier-Bold 10 10 SUF
+95 164 M
+(NULL) s
+/F-gs-font 10 10 SF
+119 164 M
+(,) s
+5 153 M
+(  `name` ) s
+/Courier-Bold 10 10 SUF
+59 153 M
+(VARCHAR) s
+/F-gs-font 10 10 SF
+101 153 M
+(\(45\) ) s
+/Courier-Bold 10 10 SUF
+131 153 M
+(NOT) s
+/F-gs-font 10 10 SF
+149 153 M
+( ) s
+/Courier-Bold 10 10 SUF
+155 153 M
+(NULL) s
+/F-gs-font 10 10 SF
+179 153 M
+(,) s
+5 142 M
+(  `price` ) s
+/Courier-Bold 10 10 SUF
+65 142 M
+(DOUBLE) s
+/F-gs-font 10 10 SF
+101 142 M
+( ) s
+/Courier-Bold 10 10 SUF
+107 142 M
+(NOT) s
+/F-gs-font 10 10 SF
+125 142 M
+( ) s
+/Courier-Bold 10 10 SUF
+131 142 M
+(NULL) s
+/F-gs-font 10 10 SF
+155 142 M
+(,) s
+5 131 M
+(  ) s
+/Courier-Bold 10 10 SUF
+17 131 M
+(PRIMARY) s
+/F-gs-font 10 10 SF
+59 131 M
+( ) s
+/Courier-Bold 10 10 SUF
+65 131 M
+(KEY) s
+/F-gs-font 10 10 SF
+83 131 M
+( \(`id`\)\)) s
+5 120 M
+(ENGINE = InnoDB) s
+5 109 M
+(COMMENT = ) s
+/Courier-Bold 10 10 SUF
+65 109 M
+('This table represents a single product with a name and a price.') s
+/F-gs-font 10 10 SF
+455 109 M
+(;) s
+5 76 M
+(-- -----------------------------------------------------) s
+5 65 M
+(-- ) s
+/Courier-Bold 10 10 SUF
+23 65 M
+(Table) s
+/F-gs-font 10 10 SF
+53 65 M
+( `productPurchaseEvent`) s
+5 54 M
+(-- -----------------------------------------------------) s
+/Courier-Bold 10 10 SUF
+5 43 M
+(DROP) s
+/F-gs-font 10 10 SF
+29 43 M
+( ) s
+/Courier-Bold 10 10 SUF
+35 43 M
+(TABLE) s
+/F-gs-font 10 10 SF
+65 43 M
+( ) s
+/Courier-Bold 10 10 SUF
+71 43 M
+(IF) s
+/F-gs-font 10 10 SF
+83 43 M
+( ) s
+/Courier-Bold 10 10 SUF
+89 43 M
+(EXISTS) s
+/F-gs-font 10 10 SF
+125 43 M
+( `productPurchaseEvent` ;) s
+/Courier-Bold 10 10 SUF
+5 21 M
+(CREATE) s
+/F-gs-font 10 10 SF
+41 21 M
+( ) s
+/Courier-Bold 10 10 SUF
+47 21 M
+(TABLE) s
+/F-gs-font 10 10 SF
+77 21 M
+( ) s
+/Courier-Bold 10 10 SUF
+83 21 M
+(IF) s
+/F-gs-font 10 10 SF
+95 21 M
+( ) s
+/Courier-Bold 10 10 SUF
+101 21 M
+(NOT) s
+/F-gs-font 10 10 SF
+119 21 M
+( ) s
+/Courier-Bold 10 10 SUF
+125 21 M
+(EXISTS) s
+/F-gs-font 10 10 SF
+161 21 M
+( `productPurchaseEvent` \() s
+5 10 M
+(  `id` ) s
+/Courier-Bold 10 10 SUF
+47 10 M
+(INT) s
+/F-gs-font 10 10 SF
+65 10 M
+( ) s
+/Courier-Bold 10 10 SUF
+71 10 M
+(NOT) s
+/F-gs-font 10 10 SF
+89 10 M
+( ) s
+/Courier-Bold 10 10 SUF
+95 10 M
+(NULL) s
+/F-gs-font 10 10 SF
+119 10 M
+(,) s
+_R
+S
+%%Page: (4) 4
+%%BeginPageSetup
+_S
+18 36 translate
+/pagenum 4 def
+/fname (lab3-tables.sql) def
+/fdir (.) def
+/ftail (lab3-tables.sql) def
+% User defined strings:
+/fmodstr (Sat Oct 05 23:03:27 2019) def
+/pagenumstr (4) def
+/user_header_p false def
+/user_footer_p false def
+%%EndPageSetup
+do_header
+5 692 M
+(  `movieStore_id` ) s
+/Courier-Bold 10 10 SUF
+113 692 M
+(INT) s
+/F-gs-font 10 10 SF
+131 692 M
+( ) s
+/Courier-Bold 10 10 SUF
+137 692 M
+(NOT) s
+/F-gs-font 10 10 SF
+155 692 M
+( ) s
+/Courier-Bold 10 10 SUF
+161 692 M
+(NULL) s
+/F-gs-font 10 10 SF
+185 692 M
+(,) s
+5 681 M
+(  `rentalCard_id` ) s
+/Courier-Bold 10 10 SUF
+113 681 M
+(INT) s
+/F-gs-font 10 10 SF
+131 681 M
+( ) s
+/Courier-Bold 10 10 SUF
+137 681 M
+(NOT) s
+/F-gs-font 10 10 SF
+155 681 M
+( ) s
+/Courier-Bold 10 10 SUF
+161 681 M
+(NULL) s
+/F-gs-font 10 10 SF
+185 681 M
+(,) s
+5 670 M
+(  `product_id` ) s
+/Courier-Bold 10 10 SUF
+95 670 M
+(INT) s
+/F-gs-font 10 10 SF
+113 670 M
+( ) s
+/Courier-Bold 10 10 SUF
+119 670 M
+(NOT) s
+/F-gs-font 10 10 SF
+137 670 M
+( ) s
+/Courier-Bold 10 10 SUF
+143 670 M
+(NULL) s
+/F-gs-font 10 10 SF
+167 670 M
+(,) s
+5 659 M
+(  `datePurchased` ) s
+/Courier-Bold 10 10 SUF
+113 659 M
+(DATETIME) s
+/F-gs-font 10 10 SF
+161 659 M
+( ) s
+/Courier-Bold 10 10 SUF
+167 659 M
+(NOT) s
+/F-gs-font 10 10 SF
+185 659 M
+( ) s
+/Courier-Bold 10 10 SUF
+191 659 M
+(NULL) s
+/F-gs-font 10 10 SF
+215 659 M
+(,) s
+5 648 M
+(  `itemsPurchased` ) s
+/Courier-Bold 10 10 SUF
+119 648 M
+(INT) s
+/F-gs-font 10 10 SF
+137 648 M
+( ) s
+/Courier-Bold 10 10 SUF
+143 648 M
+(NOT) s
+/F-gs-font 10 10 SF
+161 648 M
+( ) s
+/Courier-Bold 10 10 SUF
+167 648 M
+(NULL) s
+/F-gs-font 10 10 SF
+191 648 M
+(,) s
+5 637 M
+(  `totalCost` ) s
+/Courier-Bold 10 10 SUF
+89 637 M
+(FLOAT) s
+/F-gs-font 10 10 SF
+119 637 M
+( ) s
+/Courier-Bold 10 10 SUF
+125 637 M
+(NOT) s
+/F-gs-font 10 10 SF
+143 637 M
+( ) s
+/Courier-Bold 10 10 SUF
+149 637 M
+(NULL) s
+/F-gs-font 10 10 SF
+173 637 M
+(,) s
+5 626 M
+(  ) s
+/Courier-Bold 10 10 SUF
+17 626 M
+(PRIMARY) s
+/F-gs-font 10 10 SF
+59 626 M
+( ) s
+/Courier-Bold 10 10 SUF
+65 626 M
+(KEY) s
+/F-gs-font 10 10 SF
+83 626 M
+( \(`id`, `movieStore_id`, `rentalCard_id`, `product_id`\),) s
+5 615 M
+(  ) s
+/Courier-Bold 10 10 SUF
+17 615 M
+(INDEX) s
+/F-gs-font 10 10 SF
+47 615 M
+( `fk_productPurchaseEvent_movieStore1_idx` \(`movieStore_id` ) s
+/Courier-Bold 10 10 SUF
+407 615 M
+(ASC) s
+/F-gs-font 10 10 SF
+425 615 M
+(\) VISIBLE,) s
+5 604 M
+(  ) s
+/Courier-Bold 10 10 SUF
+17 604 M
+(INDEX) s
+/F-gs-font 10 10 SF
+47 604 M
+( `fk_productPurchaseEvent_rentalCard1_idx` \(`rentalCard_id` ) s
+/Courier-Bold 10 10 SUF
+407 604 M
+(ASC) s
+/F-gs-font 10 10 SF
+425 604 M
+(\) VISIBLE,) s
+5 593 M
+(  ) s
+/Courier-Bold 10 10 SUF
+17 593 M
+(INDEX) s
+/F-gs-font 10 10 SF
+47 593 M
+( `fk_productPurchaseEvent_product1_idx` \(`product_id` ) s
+/Courier-Bold 10 10 SUF
+371 593 M
+(ASC) s
+/F-gs-font 10 10 SF
+389 593 M
+(\) VISIBLE,) s
+5 582 M
+(  ) s
+/Courier-Bold 10 10 SUF
+17 582 M
+(CONSTRAINT) s
+/F-gs-font 10 10 SF
+77 582 M
+( `fk_productPurchaseEvent_movieStore1`) s
+5 571 M
+(    ) s
+/Courier-Bold 10 10 SUF
+29 571 M
+(FOREIGN) s
+/F-gs-font 10 10 SF
+71 571 M
+( ) s
+/Courier-Bold 10 10 SUF
+77 571 M
+(KEY) s
+/F-gs-font 10 10 SF
+95 571 M
+( \(`movieStore_id`\)) s
+5 560 M
+(    ) s
+/Courier-Bold 10 10 SUF
+29 560 M
+(REFERENCES) s
+/F-gs-font 10 10 SF
+89 560 M
+( `movieStore` \(`id`\)) s
+5 549 M
+(    ) s
+/Courier-Bold 10 10 SUF
+29 549 M
+(ON) s
+/F-gs-font 10 10 SF
+41 549 M
+( ) s
+/Courier-Bold 10 10 SUF
+47 549 M
+(DELETE) s
+/F-gs-font 10 10 SF
+83 549 M
+( NO ACTION) s
+5 538 M
+(    ) s
+/Courier-Bold 10 10 SUF
+29 538 M
+(ON) s
+/F-gs-font 10 10 SF
+41 538 M
+( ) s
+/Courier-Bold 10 10 SUF
+47 538 M
+(UPDATE) s
+/F-gs-font 10 10 SF
+83 538 M
+( NO ACTION,) s
+5 527 M
+(  ) s
+/Courier-Bold 10 10 SUF
+17 527 M
+(CONSTRAINT) s
+/F-gs-font 10 10 SF
+77 527 M
+( `fk_productPurchaseEvent_rentalCard1`) s
+5 516 M
+(    ) s
+/Courier-Bold 10 10 SUF
+29 516 M
+(FOREIGN) s
+/F-gs-font 10 10 SF
+71 516 M
+( ) s
+/Courier-Bold 10 10 SUF
+77 516 M
+(KEY) s
+/F-gs-font 10 10 SF
+95 516 M
+( \(`rentalCard_id`\)) s
+5 505 M
+(    ) s
+/Courier-Bold 10 10 SUF
+29 505 M
+(REFERENCES) s
+/F-gs-font 10 10 SF
+89 505 M
+( `rentalCard` \(`id`\)) s
+5 494 M
+(    ) s
+/Courier-Bold 10 10 SUF
+29 494 M
+(ON) s
+/F-gs-font 10 10 SF
+41 494 M
+( ) s
+/Courier-Bold 10 10 SUF
+47 494 M
+(DELETE) s
+/F-gs-font 10 10 SF
+83 494 M
+( NO ACTION) s
+5 483 M
+(    ) s
+/Courier-Bold 10 10 SUF
+29 483 M
+(ON) s
+/F-gs-font 10 10 SF
+41 483 M
+( ) s
+/Courier-Bold 10 10 SUF
+47 483 M
+(UPDATE) s
+/F-gs-font 10 10 SF
+83 483 M
+( NO ACTION,) s
+5 472 M
+(  ) s
+/Courier-Bold 10 10 SUF
+17 472 M
+(CONSTRAINT) s
+/F-gs-font 10 10 SF
+77 472 M
+( `fk_productPurchaseEvent_product1`) s
+5 461 M
+(    ) s
+/Courier-Bold 10 10 SUF
+29 461 M
+(FOREIGN) s
+/F-gs-font 10 10 SF
+71 461 M
+( ) s
+/Courier-Bold 10 10 SUF
+77 461 M
+(KEY) s
+/F-gs-font 10 10 SF
+95 461 M
+( \(`product_id`\)) s
+5 450 M
+(    ) s
+/Courier-Bold 10 10 SUF
+29 450 M
+(REFERENCES) s
+/F-gs-font 10 10 SF
+89 450 M
+( `product` \(`id`\)) s
+5 439 M
+(    ) s
+/Courier-Bold 10 10 SUF
+29 439 M
+(ON) s
+/F-gs-font 10 10 SF
+41 439 M
+( ) s
+/Courier-Bold 10 10 SUF
+47 439 M
+(DELETE) s
+/F-gs-font 10 10 SF
+83 439 M
+( NO ACTION) s
+5 428 M
+(    ) s
+/Courier-Bold 10 10 SUF
+29 428 M
+(ON) s
+/F-gs-font 10 10 SF
+41 428 M
+( ) s
+/Courier-Bold 10 10 SUF
+47 428 M
+(UPDATE) s
+/F-gs-font 10 10 SF
+83 428 M
+( NO ACTION\)) s
+5 417 M
+(ENGINE = InnoDB) s
+5 406 M
+(COMMENT = ) s
+/Courier-Bold 10 10 SUF
+65 406 M
+('This table represents the purchase of one or more products of the same type by one ) s
+5 395 M
+(cardholder at one store.') s
+/F-gs-font 10 10 SF
+155 395 M
+(;) s
+/Courier-Bold 10 10 SUF
+5 362 M
+(SET) s
+/F-gs-font 10 10 SF
+23 362 M
+( SQL_MODE=@OLD_SQL_MODE;) s
+/Courier-Bold 10 10 SUF
+5 351 M
+(SET) s
+/F-gs-font 10 10 SF
+23 351 M
+( FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;) s
+/Courier-Bold 10 10 SUF
+5 340 M
+(SET) s
+/F-gs-font 10 10 SF
+23 340 M
+( UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;) s
+5 318 M
+(-- -----------------------------------------------------) s
+5 307 M
+(-- Data ) s
+/Courier-Bold 10 10 SUF
+53 307 M
+(for) s
+/F-gs-font 10 10 SF
+71 307 M
+( ) s
+/Courier-Bold 10 10 SUF
+77 307 M
+(table) s
+/F-gs-font 10 10 SF
+107 307 M
+( `rentalCard`) s
+5 296 M
+(-- -----------------------------------------------------) s
+5 285 M
+(START ) s
+/Courier-Bold 10 10 SUF
+41 285 M
+(TRANSACTION) s
+/F-gs-font 10 10 SF
+107 285 M
+(;) s
+/Courier-Bold 10 10 SUF
+5 274 M
+(USE) s
+/F-gs-font 10 10 SF
+23 274 M
+( `mydb`;) s
+/Courier-Bold 10 10 SUF
+5 263 M
+(INSERT) s
+/F-gs-font 10 10 SF
+41 263 M
+( ) s
+/Courier-Bold 10 10 SUF
+47 263 M
+(INTO) s
+/F-gs-font 10 10 SF
+71 263 M
+( `rentalCard` \(`id`, `dateSignedUp`, `credit`\) ) s
+/Courier-Bold 10 10 SUF
+353 263 M
+(VALUES) s
+/F-gs-font 10 10 SF
+389 263 M
+( \(1, ) s
+/Courier-Bold 10 10 SUF
+419 263 M
+('08-01-2019') s
+/F-gs-font 10 10 SF
+491 263 M
+(, 15\);) s
+/Courier-Bold 10 10 SUF
+5 252 M
+(INSERT) s
+/F-gs-font 10 10 SF
+41 252 M
+( ) s
+/Courier-Bold 10 10 SUF
+47 252 M
+(INTO) s
+/F-gs-font 10 10 SF
+71 252 M
+( `rentalCard` \(`id`, `dateSignedUp`, `credit`\) ) s
+/Courier-Bold 10 10 SUF
+353 252 M
+(VALUES) s
+/F-gs-font 10 10 SF
+389 252 M
+( \(2, ) s
+/Courier-Bold 10 10 SUF
+419 252 M
+('05-23-2003') s
+/F-gs-font 10 10 SF
+491 252 M
+(, 50\);) s
+/Courier-Bold 10 10 SUF
+5 241 M
+(INSERT) s
+/F-gs-font 10 10 SF
+41 241 M
+( ) s
+/Courier-Bold 10 10 SUF
+47 241 M
+(INTO) s
+/F-gs-font 10 10 SF
+71 241 M
+( `rentalCard` \(`id`, `dateSignedUp`, `credit`\) ) s
+/Courier-Bold 10 10 SUF
+353 241 M
+(VALUES) s
+/F-gs-font 10 10 SF
+389 241 M
+( \(3, ) s
+/Courier-Bold 10 10 SUF
+419 241 M
+('03-05-1990') s
+/F-gs-font 10 10 SF
+491 241 M
+(, 156\);) s
+/Courier-Bold 10 10 SUF
+5 230 M
+(INSERT) s
+/F-gs-font 10 10 SF
+41 230 M
+( ) s
+/Courier-Bold 10 10 SUF
+47 230 M
+(INTO) s
+/F-gs-font 10 10 SF
+71 230 M
+( `rentalCard` \(`id`, `dateSignedUp`, `credit`\) ) s
+/Courier-Bold 10 10 SUF
+353 230 M
+(VALUES) s
+/F-gs-font 10 10 SF
+389 230 M
+( \(4, ) s
+/Courier-Bold 10 10 SUF
+419 230 M
+('01-05-2012') s
+/F-gs-font 10 10 SF
+491 230 M
+(, 30\);) s
+/Courier-Bold 10 10 SUF
+5 219 M
+(INSERT) s
+/F-gs-font 10 10 SF
+41 219 M
+( ) s
+/Courier-Bold 10 10 SUF
+47 219 M
+(INTO) s
+/F-gs-font 10 10 SF
+71 219 M
+( `rentalCard` \(`id`, `dateSignedUp`, `credit`\) ) s
+/Courier-Bold 10 10 SUF
+353 219 M
+(VALUES) s
+/F-gs-font 10 10 SF
+389 219 M
+( \(5, ) s
+/Courier-Bold 10 10 SUF
+419 219 M
+('11-17-2007') s
+/F-gs-font 10 10 SF
+491 219 M
+(, 58\);) s
+/Courier-Bold 10 10 SUF
+5 197 M
+(COMMIT) s
+/F-gs-font 10 10 SF
+41 197 M
+(;) s
+5 164 M
+(-- -----------------------------------------------------) s
+5 153 M
+(-- Data ) s
+/Courier-Bold 10 10 SUF
+53 153 M
+(for) s
+/F-gs-font 10 10 SF
+71 153 M
+( ) s
+/Courier-Bold 10 10 SUF
+77 153 M
+(table) s
+/F-gs-font 10 10 SF
+107 153 M
+( `movieStore`) s
+5 142 M
+(-- -----------------------------------------------------) s
+5 131 M
+(START ) s
+/Courier-Bold 10 10 SUF
+41 131 M
+(TRANSACTION) s
+/F-gs-font 10 10 SF
+107 131 M
+(;) s
+/Courier-Bold 10 10 SUF
+5 120 M
+(USE) s
+/F-gs-font 10 10 SF
+23 120 M
+( `mydb`;) s
+/Courier-Bold 10 10 SUF
+5 109 M
+(INSERT) s
+/F-gs-font 10 10 SF
+41 109 M
+( ) s
+/Courier-Bold 10 10 SUF
+47 109 M
+(INTO) s
+/F-gs-font 10 10 SF
+71 109 M
+( `movieStore` \(`id`, `name`, `address`\) ) s
+/Courier-Bold 10 10 SUF
+311 109 M
+(VALUES) s
+/F-gs-font 10 10 SF
+347 109 M
+( \(1, ) s
+/Courier-Bold 10 10 SUF
+377 109 M
+('Blockbuster Video') s
+/F-gs-font 10 10 SF
+491 109 M
+(, ) s
+/Courier-Bold 10 10 SUF
+503 109 M
+('123 Exampl) s
+5 98 M
+(e Street') s
+/F-gs-font 10 10 SF
+59 98 M
+(\);) s
+/Courier-Bold 10 10 SUF
+5 87 M
+(INSERT) s
+/F-gs-font 10 10 SF
+41 87 M
+( ) s
+/Courier-Bold 10 10 SUF
+47 87 M
+(INTO) s
+/F-gs-font 10 10 SF
+71 87 M
+( `movieStore` \(`id`, `name`, `address`\) ) s
+/Courier-Bold 10 10 SUF
+311 87 M
+(VALUES) s
+/F-gs-font 10 10 SF
+347 87 M
+( \(2, ) s
+/Courier-Bold 10 10 SUF
+377 87 M
+('Cool Videos Deluxe') s
+/F-gs-font 10 10 SF
+497 87 M
+(, ) s
+/Courier-Bold 10 10 SUF
+509 87 M
+('3455 Awes) s
+5 76 M
+(ome Ct') s
+/F-gs-font 10 10 SF
+47 76 M
+(\);) s
+/Courier-Bold 10 10 SUF
+5 65 M
+(INSERT) s
+/F-gs-font 10 10 SF
+41 65 M
+( ) s
+/Courier-Bold 10 10 SUF
+47 65 M
+(INTO) s
+/F-gs-font 10 10 SF
+71 65 M
+( `movieStore` \(`id`, `name`, `address`\) ) s
+/Courier-Bold 10 10 SUF
+311 65 M
+(VALUES) s
+/F-gs-font 10 10 SF
+347 65 M
+( \(3, ) s
+/Courier-Bold 10 10 SUF
+377 65 M
+('Target') s
+/F-gs-font 10 10 SF
+425 65 M
+(, ) s
+/Courier-Bold 10 10 SUF
+437 65 M
+('567 Target Ave') s
+/F-gs-font 10 10 SF
+533 65 M
+(\);) s
+/Courier-Bold 10 10 SUF
+5 54 M
+(INSERT) s
+/F-gs-font 10 10 SF
+41 54 M
+( ) s
+/Courier-Bold 10 10 SUF
+47 54 M
+(INTO) s
+/F-gs-font 10 10 SF
+71 54 M
+( `movieStore` \(`id`, `name`, `address`\) ) s
+/Courier-Bold 10 10 SUF
+311 54 M
+(VALUES) s
+/F-gs-font 10 10 SF
+347 54 M
+( \(4, ) s
+/Courier-Bold 10 10 SUF
+377 54 M
+('One Stop Movie Shop') s
+/F-gs-font 10 10 SF
+503 54 M
+(, ) s
+/Courier-Bold 10 10 SUF
+515 54 M
+('111 Movi) s
+5 43 M
+(e Ave') s
+/F-gs-font 10 10 SF
+41 43 M
+(\);) s
+/Courier-Bold 10 10 SUF
+5 32 M
+(INSERT) s
+/F-gs-font 10 10 SF
+41 32 M
+( ) s
+/Courier-Bold 10 10 SUF
+47 32 M
+(INTO) s
+/F-gs-font 10 10 SF
+71 32 M
+( `movieStore` \(`id`, `name`, `address`\) ) s
+/Courier-Bold 10 10 SUF
+311 32 M
+(VALUES) s
+/F-gs-font 10 10 SF
+347 32 M
+( \(5, ) s
+/Courier-Bold 10 10 SUF
+377 32 M
+('Indie Movies') s
+/F-gs-font 10 10 SF
+461 32 M
+(, ) s
+/Courier-Bold 10 10 SUF
+473 32 M
+('0 Null Ave') s
+/F-gs-font 10 10 SF
+545 32 M
+(\);) s
+/Courier-Bold 10 10 SUF
+5 10 M
+(COMMIT) s
+/F-gs-font 10 10 SF
+41 10 M
+(;) s
+_R
+S
+%%Page: (5) 5
+%%BeginPageSetup
+_S
+18 36 translate
+/pagenum 5 def
+/fname (lab3-tables.sql) def
+/fdir (.) def
+/ftail (lab3-tables.sql) def
+% User defined strings:
+/fmodstr (Sat Oct 05 23:03:27 2019) def
+/pagenumstr (5) def
+/user_header_p false def
+/user_footer_p false def
+%%EndPageSetup
+do_header
+5 670 M
+(-- -----------------------------------------------------) s
+5 659 M
+(-- Data ) s
+/Courier-Bold 10 10 SUF
+53 659 M
+(for) s
+/F-gs-font 10 10 SF
+71 659 M
+( ) s
+/Courier-Bold 10 10 SUF
+77 659 M
+(table) s
+/F-gs-font 10 10 SF
+107 659 M
+( `genre`) s
+5 648 M
+(-- -----------------------------------------------------) s
+5 637 M
+(START ) s
+/Courier-Bold 10 10 SUF
+41 637 M
+(TRANSACTION) s
+/F-gs-font 10 10 SF
+107 637 M
+(;) s
+/Courier-Bold 10 10 SUF
+5 626 M
+(USE) s
+/F-gs-font 10 10 SF
+23 626 M
+( `mydb`;) s
+/Courier-Bold 10 10 SUF
+5 615 M
+(INSERT) s
+/F-gs-font 10 10 SF
+41 615 M
+( ) s
+/Courier-Bold 10 10 SUF
+47 615 M
+(INTO) s
+/F-gs-font 10 10 SF
+71 615 M
+( `genre` \(`id`, `name`\) ) s
+/Courier-Bold 10 10 SUF
+215 615 M
+(VALUES) s
+/F-gs-font 10 10 SF
+251 615 M
+( \(1, ) s
+/Courier-Bold 10 10 SUF
+281 615 M
+('Action') s
+/F-gs-font 10 10 SF
+329 615 M
+(\);) s
+/Courier-Bold 10 10 SUF
+5 604 M
+(INSERT) s
+/F-gs-font 10 10 SF
+41 604 M
+( ) s
+/Courier-Bold 10 10 SUF
+47 604 M
+(INTO) s
+/F-gs-font 10 10 SF
+71 604 M
+( `genre` \(`id`, `name`\) ) s
+/Courier-Bold 10 10 SUF
+215 604 M
+(VALUES) s
+/F-gs-font 10 10 SF
+251 604 M
+( \(2, ) s
+/Courier-Bold 10 10 SUF
+281 604 M
+('Adventure') s
+/F-gs-font 10 10 SF
+347 604 M
+(\);) s
+/Courier-Bold 10 10 SUF
+5 593 M
+(INSERT) s
+/F-gs-font 10 10 SF
+41 593 M
+( ) s
+/Courier-Bold 10 10 SUF
+47 593 M
+(INTO) s
+/F-gs-font 10 10 SF
+71 593 M
+( `genre` \(`id`, `name`\) ) s
+/Courier-Bold 10 10 SUF
+215 593 M
+(VALUES) s
+/F-gs-font 10 10 SF
+251 593 M
+( \(3, ) s
+/Courier-Bold 10 10 SUF
+281 593 M
+('Horror') s
+/F-gs-font 10 10 SF
+329 593 M
+(\);) s
+/Courier-Bold 10 10 SUF
+5 582 M
+(INSERT) s
+/F-gs-font 10 10 SF
+41 582 M
+( ) s
+/Courier-Bold 10 10 SUF
+47 582 M
+(INTO) s
+/F-gs-font 10 10 SF
+71 582 M
+( `genre` \(`id`, `name`\) ) s
+/Courier-Bold 10 10 SUF
+215 582 M
+(VALUES) s
+/F-gs-font 10 10 SF
+251 582 M
+( \(4, ) s
+/Courier-Bold 10 10 SUF
+281 582 M
+('Pirate') s
+/F-gs-font 10 10 SF
+329 582 M
+(\);) s
+/Courier-Bold 10 10 SUF
+5 571 M
+(INSERT) s
+/F-gs-font 10 10 SF
+41 571 M
+( ) s
+/Courier-Bold 10 10 SUF
+47 571 M
+(INTO) s
+/F-gs-font 10 10 SF
+71 571 M
+( `genre` \(`id`, `name`\) ) s
+/Courier-Bold 10 10 SUF
+215 571 M
+(VALUES) s
+/F-gs-font 10 10 SF
+251 571 M
+( \(5, ) s
+/Courier-Bold 10 10 SUF
+281 571 M
+('Thriller') s
+/F-gs-font 10 10 SF
+341 571 M
+(\);) s
+/Courier-Bold 10 10 SUF
+5 560 M
+(INSERT) s
+/F-gs-font 10 10 SF
+41 560 M
+( ) s
+/Courier-Bold 10 10 SUF
+47 560 M
+(INTO) s
+/F-gs-font 10 10 SF
+71 560 M
+( `genre` \(`id`, `name`\) ) s
+/Courier-Bold 10 10 SUF
+215 560 M
+(VALUES) s
+/F-gs-font 10 10 SF
+251 560 M
+( \(6, ) s
+/Courier-Bold 10 10 SUF
+281 560 M
+('Superhero') s
+/F-gs-font 10 10 SF
+347 560 M
+(\);) s
+/Courier-Bold 10 10 SUF
+5 538 M
+(COMMIT) s
+/F-gs-font 10 10 SF
+41 538 M
+(;) s
+5 505 M
+(-- -----------------------------------------------------) s
+5 494 M
+(-- Data ) s
+/Courier-Bold 10 10 SUF
+53 494 M
+(for) s
+/F-gs-font 10 10 SF
+71 494 M
+( ) s
+/Courier-Bold 10 10 SUF
+77 494 M
+(table) s
+/F-gs-font 10 10 SF
+107 494 M
+( `customer`) s
+5 483 M
+(-- -----------------------------------------------------) s
+5 472 M
+(START ) s
+/Courier-Bold 10 10 SUF
+41 472 M
+(TRANSACTION) s
+/F-gs-font 10 10 SF
+107 472 M
+(;) s
+/Courier-Bold 10 10 SUF
+5 461 M
+(USE) s
+/F-gs-font 10 10 SF
+23 461 M
+( `mydb`;) s
+/Courier-Bold 10 10 SUF
+5 450 M
+(INSERT) s
+/F-gs-font 10 10 SF
+41 450 M
+( ) s
+/Courier-Bold 10 10 SUF
+47 450 M
+(INTO) s
+/F-gs-font 10 10 SF
+71 450 M
+( `customer` \(`id`, `rentalCard_id`, `preferredMovieStore_id`, `fullname`, `address`) s
+5 439 M
+(, `preferred_genre_id_1`, `preferred_genre_id_2`\) ) s
+/Courier-Bold 10 10 SUF
+305 439 M
+(VALUES) s
+/F-gs-font 10 10 SF
+341 439 M
+( \(1, 1, 1, ) s
+/Courier-Bold 10 10 SUF
+407 439 M
+('Henry Post') s
+/F-gs-font 10 10 SF
+479 439 M
+(, ) s
+/Courier-Bold 10 10 SUF
+491 439 M
+('1234 MyHouse) s
+5 428 M
+( Ave') s
+/F-gs-font 10 10 SF
+35 428 M
+(, 6, 1\);) s
+/Courier-Bold 10 10 SUF
+5 417 M
+(INSERT) s
+/F-gs-font 10 10 SF
+41 417 M
+( ) s
+/Courier-Bold 10 10 SUF
+47 417 M
+(INTO) s
+/F-gs-font 10 10 SF
+71 417 M
+( `customer` \(`id`, `rentalCard_id`, `preferredMovieStore_id`, `fullname`, `address`) s
+5 406 M
+(, `preferred_genre_id_1`, `preferred_genre_id_2`\) ) s
+/Courier-Bold 10 10 SUF
+305 406 M
+(VALUES) s
+/F-gs-font 10 10 SF
+341 406 M
+( \(2, 2, 1, ) s
+/Courier-Bold 10 10 SUF
+407 406 M
+('Luke Papademas') s
+/F-gs-font 10 10 SF
+503 406 M
+(, ) s
+/Courier-Bold 10 10 SUF
+515 406 M
+('77 Java ) s
+5 395 M
+(Way') s
+/F-gs-font 10 10 SF
+29 395 M
+(, 1, 5\);) s
+/Courier-Bold 10 10 SUF
+5 384 M
+(INSERT) s
+/F-gs-font 10 10 SF
+41 384 M
+( ) s
+/Courier-Bold 10 10 SUF
+47 384 M
+(INTO) s
+/F-gs-font 10 10 SF
+71 384 M
+( `customer` \(`id`, `rentalCard_id`, `preferredMovieStore_id`, `fullname`, `address`) s
+5 373 M
+(, `preferred_genre_id_1`, `preferred_genre_id_2`\) ) s
+/Courier-Bold 10 10 SUF
+305 373 M
+(VALUES) s
+/F-gs-font 10 10 SF
+341 373 M
+( \(3, 3, 3, ) s
+/Courier-Bold 10 10 SUF
+407 373 M
+('Jack Black') s
+/F-gs-font 10 10 SF
+479 373 M
+(, ) s
+/Courier-Bold 10 10 SUF
+491 373 M
+('45 Pirate Av) s
+5 362 M
+(e') s
+/F-gs-font 10 10 SF
+17 362 M
+(, 4, 1\);) s
+/Courier-Bold 10 10 SUF
+5 351 M
+(INSERT) s
+/F-gs-font 10 10 SF
+41 351 M
+( ) s
+/Courier-Bold 10 10 SUF
+47 351 M
+(INTO) s
+/F-gs-font 10 10 SF
+71 351 M
+( `customer` \(`id`, `rentalCard_id`, `preferredMovieStore_id`, `fullname`, `address`) s
+5 340 M
+(, `preferred_genre_id_1`, `preferred_genre_id_2`\) ) s
+/Courier-Bold 10 10 SUF
+305 340 M
+(VALUES) s
+/F-gs-font 10 10 SF
+341 340 M
+( \(4, 4, 2, ) s
+/Courier-Bold 10 10 SUF
+407 340 M
+('Wonder Woman') s
+/F-gs-font 10 10 SF
+491 340 M
+(, ) s
+/Courier-Bold 10 10 SUF
+503 340 M
+('22 Cosmic ) s
+5 329 M
+(Ct') s
+/F-gs-font 10 10 SF
+23 329 M
+(, 6, 5\);) s
+/Courier-Bold 10 10 SUF
+5 318 M
+(INSERT) s
+/F-gs-font 10 10 SF
+41 318 M
+( ) s
+/Courier-Bold 10 10 SUF
+47 318 M
+(INTO) s
+/F-gs-font 10 10 SF
+71 318 M
+( `customer` \(`id`, `rentalCard_id`, `preferredMovieStore_id`, `fullname`, `address`) s
+5 307 M
+(, `preferred_genre_id_1`, `preferred_genre_id_2`\) ) s
+/Courier-Bold 10 10 SUF
+305 307 M
+(VALUES) s
+/F-gs-font 10 10 SF
+341 307 M
+( \(5, 5, 5, ) s
+/Courier-Bold 10 10 SUF
+407 307 M
+('Spiderman') s
+/F-gs-font 10 10 SF
+473 307 M
+(, ) s
+/Courier-Bold 10 10 SUF
+485 307 M
+('Spider Lair, ) s
+5 296 M
+(NY') s
+/F-gs-font 10 10 SF
+23 296 M
+(, 3, 6\);) s
+/Courier-Bold 10 10 SUF
+5 274 M
+(COMMIT) s
+/F-gs-font 10 10 SF
+41 274 M
+(;) s
+5 241 M
+(-- -----------------------------------------------------) s
+5 230 M
+(-- Data ) s
+/Courier-Bold 10 10 SUF
+53 230 M
+(for) s
+/F-gs-font 10 10 SF
+71 230 M
+( ) s
+/Courier-Bold 10 10 SUF
+77 230 M
+(table) s
+/F-gs-font 10 10 SF
+107 230 M
+( `movie`) s
+5 219 M
+(-- -----------------------------------------------------) s
+5 208 M
+(START ) s
+/Courier-Bold 10 10 SUF
+41 208 M
+(TRANSACTION) s
+/F-gs-font 10 10 SF
+107 208 M
+(;) s
+/Courier-Bold 10 10 SUF
+5 197 M
+(USE) s
+/F-gs-font 10 10 SF
+23 197 M
+( `mydb`;) s
+/Courier-Bold 10 10 SUF
+5 186 M
+(INSERT) s
+/F-gs-font 10 10 SF
+41 186 M
+( ) s
+/Courier-Bold 10 10 SUF
+47 186 M
+(INTO) s
+/F-gs-font 10 10 SF
+71 186 M
+( `movie` \(`id`, `name`, `genre_id`, `price`\) ) s
+/Courier-Bold 10 10 SUF
+341 186 M
+(VALUES) s
+/F-gs-font 10 10 SF
+377 186 M
+( \(1, ) s
+/Courier-Bold 10 10 SUF
+407 186 M
+('Pirates of the Carribean') s
+/F-gs-font 10 10 SF
+563 186 M
+(,) s
+5 175 M
+( 1, 7\);) s
+/Courier-Bold 10 10 SUF
+5 164 M
+(INSERT) s
+/F-gs-font 10 10 SF
+41 164 M
+( ) s
+/Courier-Bold 10 10 SUF
+47 164 M
+(INTO) s
+/F-gs-font 10 10 SF
+71 164 M
+( `movie` \(`id`, `name`, `genre_id`, `price`\) ) s
+/Courier-Bold 10 10 SUF
+341 164 M
+(VALUES) s
+/F-gs-font 10 10 SF
+377 164 M
+( \(2, ) s
+/Courier-Bold 10 10 SUF
+407 164 M
+('Ad Astra') s
+/F-gs-font 10 10 SF
+467 164 M
+(, 2, 15\);) s
+/Courier-Bold 10 10 SUF
+5 153 M
+(INSERT) s
+/F-gs-font 10 10 SF
+41 153 M
+( ) s
+/Courier-Bold 10 10 SUF
+47 153 M
+(INTO) s
+/F-gs-font 10 10 SF
+71 153 M
+( `movie` \(`id`, `name`, `genre_id`, `price`\) ) s
+/Courier-Bold 10 10 SUF
+341 153 M
+(VALUES) s
+/F-gs-font 10 10 SF
+377 153 M
+( \(3, ) s
+/Courier-Bold 10 10 SUF
+407 153 M
+('Joker') s
+/F-gs-font 10 10 SF
+449 153 M
+(, 5, 20\);) s
+/Courier-Bold 10 10 SUF
+5 142 M
+(INSERT) s
+/F-gs-font 10 10 SF
+41 142 M
+( ) s
+/Courier-Bold 10 10 SUF
+47 142 M
+(INTO) s
+/F-gs-font 10 10 SF
+71 142 M
+( `movie` \(`id`, `name`, `genre_id`, `price`\) ) s
+/Courier-Bold 10 10 SUF
+341 142 M
+(VALUES) s
+/F-gs-font 10 10 SF
+377 142 M
+( \(4, ) s
+/Courier-Bold 10 10 SUF
+407 142 M
+('Wonder Woman') s
+/F-gs-font 10 10 SF
+491 142 M
+(, 6, 10\);) s
+/Courier-Bold 10 10 SUF
+5 131 M
+(INSERT) s
+/F-gs-font 10 10 SF
+41 131 M
+( ) s
+/Courier-Bold 10 10 SUF
+47 131 M
+(INTO) s
+/F-gs-font 10 10 SF
+71 131 M
+( `movie` \(`id`, `name`, `genre_id`, `price`\) ) s
+/Courier-Bold 10 10 SUF
+341 131 M
+(VALUES) s
+/F-gs-font 10 10 SF
+377 131 M
+( \(5, ) s
+/Courier-Bold 10 10 SUF
+407 131 M
+('Wonder Woman 2') s
+/F-gs-font 10 10 SF
+503 131 M
+(, 6, 20\);) s
+/Courier-Bold 10 10 SUF
+5 120 M
+(INSERT) s
+/F-gs-font 10 10 SF
+41 120 M
+( ) s
+/Courier-Bold 10 10 SUF
+47 120 M
+(INTO) s
+/F-gs-font 10 10 SF
+71 120 M
+( `movie` \(`id`, `name`, `genre_id`, `price`\) ) s
+/Courier-Bold 10 10 SUF
+341 120 M
+(VALUES) s
+/F-gs-font 10 10 SF
+377 120 M
+( \(6, ) s
+/Courier-Bold 10 10 SUF
+407 120 M
+('Rambo') s
+/F-gs-font 10 10 SF
+449 120 M
+(, 1, 7\);) s
+/Courier-Bold 10 10 SUF
+5 98 M
+(COMMIT) s
+/F-gs-font 10 10 SF
+41 98 M
+(;) s
+5 65 M
+(-- -----------------------------------------------------) s
+5 54 M
+(-- Data ) s
+/Courier-Bold 10 10 SUF
+53 54 M
+(for) s
+/F-gs-font 10 10 SF
+71 54 M
+( ) s
+/Courier-Bold 10 10 SUF
+77 54 M
+(table) s
+/F-gs-font 10 10 SF
+107 54 M
+( `movieRentalEvent`) s
+5 43 M
+(-- -----------------------------------------------------) s
+5 32 M
+(START ) s
+/Courier-Bold 10 10 SUF
+41 32 M
+(TRANSACTION) s
+/F-gs-font 10 10 SF
+107 32 M
+(;) s
+/Courier-Bold 10 10 SUF
+5 21 M
+(USE) s
+/F-gs-font 10 10 SF
+23 21 M
+( `mydb`;) s
+/Courier-Bold 10 10 SUF
+5 10 M
+(INSERT) s
+/F-gs-font 10 10 SF
+41 10 M
+( ) s
+/Courier-Bold 10 10 SUF
+47 10 M
+(INTO) s
+/F-gs-font 10 10 SF
+71 10 M
+( `movieRentalEvent` \(`id`, `movieStore_id`, `movie_id`, `rentalCard_id`, `dateRente) s
+_R
+S
+%%Page: (6) 6
+%%BeginPageSetup
+_S
+18 36 translate
+/pagenum 6 def
+/fname (lab3-tables.sql) def
+/fdir (.) def
+/ftail (lab3-tables.sql) def
+% User defined strings:
+/fmodstr (Sat Oct 05 23:03:27 2019) def
+/pagenumstr (6) def
+/user_header_p false def
+/user_footer_p false def
+%%EndPageSetup
+do_header
+5 692 M
+(d`, `dateReturned`, `deadline`, `rentalPrice`\) ) s
+/Courier-Bold 10 10 SUF
+287 692 M
+(VALUES) s
+/F-gs-font 10 10 SF
+323 692 M
+( \(1, 1, 3, 1, ) s
+/Courier-Bold 10 10 SUF
+407 692 M
+('10-05-2019') s
+/F-gs-font 10 10 SF
+479 692 M
+(, ) s
+/Courier-Bold 10 10 SUF
+491 692 M
+(NULL) s
+/F-gs-font 10 10 SF
+515 692 M
+(, ) s
+/Courier-Bold 10 10 SUF
+527 692 M
+('10-20-) s
+5 681 M
+(2019') s
+/F-gs-font 10 10 SF
+35 681 M
+(, 20\);) s
+/Courier-Bold 10 10 SUF
+5 670 M
+(INSERT) s
+/F-gs-font 10 10 SF
+41 670 M
+( ) s
+/Courier-Bold 10 10 SUF
+47 670 M
+(INTO) s
+/F-gs-font 10 10 SF
+71 670 M
+( `movieRentalEvent` \(`id`, `movieStore_id`, `movie_id`, `rentalCard_id`, `dateRente) s
+5 659 M
+(d`, `dateReturned`, `deadline`, `rentalPrice`\) ) s
+/Courier-Bold 10 10 SUF
+287 659 M
+(VALUES) s
+/F-gs-font 10 10 SF
+323 659 M
+( \(2, 1, 5, 2, ) s
+/Courier-Bold 10 10 SUF
+407 659 M
+('10-01-2019') s
+/F-gs-font 10 10 SF
+479 659 M
+(, ) s
+/Courier-Bold 10 10 SUF
+491 659 M
+(NULL) s
+/F-gs-font 10 10 SF
+515 659 M
+(, ) s
+/Courier-Bold 10 10 SUF
+527 659 M
+('10-19-) s
+5 648 M
+(2019') s
+/F-gs-font 10 10 SF
+35 648 M
+(, 20\);) s
+/Courier-Bold 10 10 SUF
+5 637 M
+(INSERT) s
+/F-gs-font 10 10 SF
+41 637 M
+( ) s
+/Courier-Bold 10 10 SUF
+47 637 M
+(INTO) s
+/F-gs-font 10 10 SF
+71 637 M
+( `movieRentalEvent` \(`id`, `movieStore_id`, `movie_id`, `rentalCard_id`, `dateRente) s
+5 626 M
+(d`, `dateReturned`, `deadline`, `rentalPrice`\) ) s
+/Courier-Bold 10 10 SUF
+287 626 M
+(VALUES) s
+/F-gs-font 10 10 SF
+323 626 M
+( \(3, 2, 1, 3, ) s
+/Courier-Bold 10 10 SUF
+407 626 M
+('09-02-2018') s
+/F-gs-font 10 10 SF
+479 626 M
+(, ) s
+/Courier-Bold 10 10 SUF
+491 626 M
+(NULL) s
+/F-gs-font 10 10 SF
+515 626 M
+(, ) s
+/Courier-Bold 10 10 SUF
+527 626 M
+('09-10-) s
+5 615 M
+(2018') s
+/F-gs-font 10 10 SF
+35 615 M
+(, 15\);) s
+/Courier-Bold 10 10 SUF
+5 604 M
+(INSERT) s
+/F-gs-font 10 10 SF
+41 604 M
+( ) s
+/Courier-Bold 10 10 SUF
+47 604 M
+(INTO) s
+/F-gs-font 10 10 SF
+71 604 M
+( `movieRentalEvent` \(`id`, `movieStore_id`, `movie_id`, `rentalCard_id`, `dateRente) s
+5 593 M
+(d`, `dateReturned`, `deadline`, `rentalPrice`\) ) s
+/Courier-Bold 10 10 SUF
+287 593 M
+(VALUES) s
+/F-gs-font 10 10 SF
+323 593 M
+( \(4, 1, 1, 3, ) s
+/Courier-Bold 10 10 SUF
+407 593 M
+('09-02-2019') s
+/F-gs-font 10 10 SF
+479 593 M
+(, ) s
+/Courier-Bold 10 10 SUF
+491 593 M
+(NULL) s
+/F-gs-font 10 10 SF
+515 593 M
+(, ) s
+/Courier-Bold 10 10 SUF
+527 593 M
+('09-10-) s
+5 582 M
+(2019') s
+/F-gs-font 10 10 SF
+35 582 M
+(, 15\);) s
+/Courier-Bold 10 10 SUF
+5 571 M
+(INSERT) s
+/F-gs-font 10 10 SF
+41 571 M
+( ) s
+/Courier-Bold 10 10 SUF
+47 571 M
+(INTO) s
+/F-gs-font 10 10 SF
+71 571 M
+( `movieRentalEvent` \(`id`, `movieStore_id`, `movie_id`, `rentalCard_id`, `dateRente) s
+5 560 M
+(d`, `dateReturned`, `deadline`, `rentalPrice`\) ) s
+/Courier-Bold 10 10 SUF
+287 560 M
+(VALUES) s
+/F-gs-font 10 10 SF
+323 560 M
+( \(5, 4, 6, 2, ) s
+/Courier-Bold 10 10 SUF
+407 560 M
+('07-10-2019') s
+/F-gs-font 10 10 SF
+479 560 M
+(, ) s
+/Courier-Bold 10 10 SUF
+491 560 M
+(NULL) s
+/F-gs-font 10 10 SF
+515 560 M
+(, ) s
+/Courier-Bold 10 10 SUF
+527 560 M
+('07-17-) s
+5 549 M
+(2019') s
+/F-gs-font 10 10 SF
+35 549 M
+(, 7\);) s
+/Courier-Bold 10 10 SUF
+5 527 M
+(COMMIT) s
+/F-gs-font 10 10 SF
+41 527 M
+(;) s
+5 494 M
+(-- -----------------------------------------------------) s
+5 483 M
+(-- Data ) s
+/Courier-Bold 10 10 SUF
+53 483 M
+(for) s
+/F-gs-font 10 10 SF
+71 483 M
+( ) s
+/Courier-Bold 10 10 SUF
+77 483 M
+(table) s
+/F-gs-font 10 10 SF
+107 483 M
+( `product`) s
+5 472 M
+(-- -----------------------------------------------------) s
+5 461 M
+(START ) s
+/Courier-Bold 10 10 SUF
+41 461 M
+(TRANSACTION) s
+/F-gs-font 10 10 SF
+107 461 M
+(;) s
+/Courier-Bold 10 10 SUF
+5 450 M
+(USE) s
+/F-gs-font 10 10 SF
+23 450 M
+( `mydb`;) s
+/Courier-Bold 10 10 SUF
+5 439 M
+(INSERT) s
+/F-gs-font 10 10 SF
+41 439 M
+( ) s
+/Courier-Bold 10 10 SUF
+47 439 M
+(INTO) s
+/F-gs-font 10 10 SF
+71 439 M
+( `product` \(`id`, `name`, `price`\) ) s
+/Courier-Bold 10 10 SUF
+281 439 M
+(VALUES) s
+/F-gs-font 10 10 SF
+317 439 M
+( \(1, ) s
+/Courier-Bold 10 10 SUF
+347 439 M
+('Small Popcorn') s
+/F-gs-font 10 10 SF
+437 439 M
+(, 3\);) s
+/Courier-Bold 10 10 SUF
+5 428 M
+(INSERT) s
+/F-gs-font 10 10 SF
+41 428 M
+( ) s
+/Courier-Bold 10 10 SUF
+47 428 M
+(INTO) s
+/F-gs-font 10 10 SF
+71 428 M
+( `product` \(`id`, `name`, `price`\) ) s
+/Courier-Bold 10 10 SUF
+281 428 M
+(VALUES) s
+/F-gs-font 10 10 SF
+317 428 M
+( \(2, ) s
+/Courier-Bold 10 10 SUF
+347 428 M
+('Medium Popcorn') s
+/F-gs-font 10 10 SF
+443 428 M
+(, 4\);) s
+/Courier-Bold 10 10 SUF
+5 417 M
+(INSERT) s
+/F-gs-font 10 10 SF
+41 417 M
+( ) s
+/Courier-Bold 10 10 SUF
+47 417 M
+(INTO) s
+/F-gs-font 10 10 SF
+71 417 M
+( `product` \(`id`, `name`, `price`\) ) s
+/Courier-Bold 10 10 SUF
+281 417 M
+(VALUES) s
+/F-gs-font 10 10 SF
+317 417 M
+( \(3, ) s
+/Courier-Bold 10 10 SUF
+347 417 M
+('Large Popcorn') s
+/F-gs-font 10 10 SF
+437 417 M
+(, 5\);) s
+/Courier-Bold 10 10 SUF
+5 406 M
+(INSERT) s
+/F-gs-font 10 10 SF
+41 406 M
+( ) s
+/Courier-Bold 10 10 SUF
+47 406 M
+(INTO) s
+/F-gs-font 10 10 SF
+71 406 M
+( `product` \(`id`, `name`, `price`\) ) s
+/Courier-Bold 10 10 SUF
+281 406 M
+(VALUES) s
+/F-gs-font 10 10 SF
+317 406 M
+( \(4, ) s
+/Courier-Bold 10 10 SUF
+347 406 M
+('Small Drink') s
+/F-gs-font 10 10 SF
+425 406 M
+(, 2\);) s
+/Courier-Bold 10 10 SUF
+5 395 M
+(INSERT) s
+/F-gs-font 10 10 SF
+41 395 M
+( ) s
+/Courier-Bold 10 10 SUF
+47 395 M
+(INTO) s
+/F-gs-font 10 10 SF
+71 395 M
+( `product` \(`id`, `name`, `price`\) ) s
+/Courier-Bold 10 10 SUF
+281 395 M
+(VALUES) s
+/F-gs-font 10 10 SF
+317 395 M
+( \(5, ) s
+/Courier-Bold 10 10 SUF
+347 395 M
+('Medium Drink') s
+/F-gs-font 10 10 SF
+431 395 M
+(, 3\);) s
+/Courier-Bold 10 10 SUF
+5 384 M
+(INSERT) s
+/F-gs-font 10 10 SF
+41 384 M
+( ) s
+/Courier-Bold 10 10 SUF
+47 384 M
+(INTO) s
+/F-gs-font 10 10 SF
+71 384 M
+( `product` \(`id`, `name`, `price`\) ) s
+/Courier-Bold 10 10 SUF
+281 384 M
+(VALUES) s
+/F-gs-font 10 10 SF
+317 384 M
+( \(6, ) s
+/Courier-Bold 10 10 SUF
+347 384 M
+('Large Drink') s
+/F-gs-font 10 10 SF
+425 384 M
+(, 4\);) s
+/Courier-Bold 10 10 SUF
+5 373 M
+(INSERT) s
+/F-gs-font 10 10 SF
+41 373 M
+( ) s
+/Courier-Bold 10 10 SUF
+47 373 M
+(INTO) s
+/F-gs-font 10 10 SF
+71 373 M
+( `product` \(`id`, `name`, `price`\) ) s
+/Courier-Bold 10 10 SUF
+281 373 M
+(VALUES) s
+/F-gs-font 10 10 SF
+317 373 M
+( \(7, ) s
+/Courier-Bold 10 10 SUF
+347 373 M
+('Water Bottle') s
+/F-gs-font 10 10 SF
+431 373 M
+(, 3\);) s
+/Courier-Bold 10 10 SUF
+5 362 M
+(INSERT) s
+/F-gs-font 10 10 SF
+41 362 M
+( ) s
+/Courier-Bold 10 10 SUF
+47 362 M
+(INTO) s
+/F-gs-font 10 10 SF
+71 362 M
+( `product` \(`id`, `name`, `price`\) ) s
+/Courier-Bold 10 10 SUF
+281 362 M
+(VALUES) s
+/F-gs-font 10 10 SF
+317 362 M
+( \(8, ) s
+/Courier-Bold 10 10 SUF
+347 362 M
+('M&Ms') s
+/F-gs-font 10 10 SF
+383 362 M
+(, 4\);) s
+/Courier-Bold 10 10 SUF
+5 351 M
+(INSERT) s
+/F-gs-font 10 10 SF
+41 351 M
+( ) s
+/Courier-Bold 10 10 SUF
+47 351 M
+(INTO) s
+/F-gs-font 10 10 SF
+71 351 M
+( `product` \(`id`, `name`, `price`\) ) s
+/Courier-Bold 10 10 SUF
+281 351 M
+(VALUES) s
+/F-gs-font 10 10 SF
+317 351 M
+( \(9, ) s
+/Courier-Bold 10 10 SUF
+347 351 M
+('Milk Duds') s
+/F-gs-font 10 10 SF
+413 351 M
+(, 4\);) s
+/Courier-Bold 10 10 SUF
+5 340 M
+(INSERT) s
+/F-gs-font 10 10 SF
+41 340 M
+( ) s
+/Courier-Bold 10 10 SUF
+47 340 M
+(INTO) s
+/F-gs-font 10 10 SF
+71 340 M
+( `product` \(`id`, `name`, `price`\) ) s
+/Courier-Bold 10 10 SUF
+281 340 M
+(VALUES) s
+/F-gs-font 10 10 SF
+317 340 M
+( \(10, ) s
+/Courier-Bold 10 10 SUF
+353 340 M
+('Beer') s
+/F-gs-font 10 10 SF
+389 340 M
+(, 5\);) s
+/Courier-Bold 10 10 SUF
+5 329 M
+(INSERT) s
+/F-gs-font 10 10 SF
+41 329 M
+( ) s
+/Courier-Bold 10 10 SUF
+47 329 M
+(INTO) s
+/F-gs-font 10 10 SF
+71 329 M
+( `product` \(`id`, `name`, `price`\) ) s
+/Courier-Bold 10 10 SUF
+281 329 M
+(VALUES) s
+/F-gs-font 10 10 SF
+317 329 M
+( \(11, ) s
+/Courier-Bold 10 10 SUF
+353 329 M
+('Wine') s
+/F-gs-font 10 10 SF
+389 329 M
+(, 7\);) s
+/Courier-Bold 10 10 SUF
+5 318 M
+(INSERT) s
+/F-gs-font 10 10 SF
+41 318 M
+( ) s
+/Courier-Bold 10 10 SUF
+47 318 M
+(INTO) s
+/F-gs-font 10 10 SF
+71 318 M
+( `product` \(`id`, `name`, `price`\) ) s
+/Courier-Bold 10 10 SUF
+281 318 M
+(VALUES) s
+/F-gs-font 10 10 SF
+317 318 M
+( \(12, ) s
+/Courier-Bold 10 10 SUF
+353 318 M
+('Hotdog') s
+/F-gs-font 10 10 SF
+401 318 M
+(, 5\);) s
+/Courier-Bold 10 10 SUF
+5 307 M
+(INSERT) s
+/F-gs-font 10 10 SF
+41 307 M
+( ) s
+/Courier-Bold 10 10 SUF
+47 307 M
+(INTO) s
+/F-gs-font 10 10 SF
+71 307 M
+( `product` \(`id`, `name`, `price`\) ) s
+/Courier-Bold 10 10 SUF
+281 307 M
+(VALUES) s
+/F-gs-font 10 10 SF
+317 307 M
+( \(13, ) s
+/Courier-Bold 10 10 SUF
+353 307 M
+('Burger') s
+/F-gs-font 10 10 SF
+401 307 M
+(, 6\);) s
+/Courier-Bold 10 10 SUF
+5 285 M
+(COMMIT) s
+/F-gs-font 10 10 SF
+41 285 M
+(;) s
+5 252 M
+(-- -----------------------------------------------------) s
+5 241 M
+(-- Data ) s
+/Courier-Bold 10 10 SUF
+53 241 M
+(for) s
+/F-gs-font 10 10 SF
+71 241 M
+( ) s
+/Courier-Bold 10 10 SUF
+77 241 M
+(table) s
+/F-gs-font 10 10 SF
+107 241 M
+( `productPurchaseEvent`) s
+5 230 M
+(-- -----------------------------------------------------) s
+5 219 M
+(START ) s
+/Courier-Bold 10 10 SUF
+41 219 M
+(TRANSACTION) s
+/F-gs-font 10 10 SF
+107 219 M
+(;) s
+/Courier-Bold 10 10 SUF
+5 208 M
+(USE) s
+/F-gs-font 10 10 SF
+23 208 M
+( `mydb`;) s
+/Courier-Bold 10 10 SUF
+5 197 M
+(INSERT) s
+/F-gs-font 10 10 SF
+41 197 M
+( ) s
+/Courier-Bold 10 10 SUF
+47 197 M
+(INTO) s
+/F-gs-font 10 10 SF
+71 197 M
+( `productPurchaseEvent` \(`id`, `movieStore_id`, `rentalCard_id`, `product_id`, `dat) s
+5 186 M
+(ePurchased`, `itemsPurchased`, `totalCost`\) ) s
+/Courier-Bold 10 10 SUF
+269 186 M
+(VALUES) s
+/F-gs-font 10 10 SF
+305 186 M
+( \(1, 1, 1, 2, ) s
+/Courier-Bold 10 10 SUF
+389 186 M
+('10-05-2019') s
+/F-gs-font 10 10 SF
+461 186 M
+(, 1, 3\);) s
+/Courier-Bold 10 10 SUF
+5 175 M
+(INSERT) s
+/F-gs-font 10 10 SF
+41 175 M
+( ) s
+/Courier-Bold 10 10 SUF
+47 175 M
+(INTO) s
+/F-gs-font 10 10 SF
+71 175 M
+( `productPurchaseEvent` \(`id`, `movieStore_id`, `rentalCard_id`, `product_id`, `dat) s
+5 164 M
+(ePurchased`, `itemsPurchased`, `totalCost`\) ) s
+/Courier-Bold 10 10 SUF
+269 164 M
+(VALUES) s
+/F-gs-font 10 10 SF
+305 164 M
+( \(2, 1, 1, 4, ) s
+/Courier-Bold 10 10 SUF
+389 164 M
+('10-05-2019') s
+/F-gs-font 10 10 SF
+461 164 M
+(, 1, 2\);) s
+/Courier-Bold 10 10 SUF
+5 153 M
+(INSERT) s
+/F-gs-font 10 10 SF
+41 153 M
+( ) s
+/Courier-Bold 10 10 SUF
+47 153 M
+(INTO) s
+/F-gs-font 10 10 SF
+71 153 M
+( `productPurchaseEvent` \(`id`, `movieStore_id`, `rentalCard_id`, `product_id`, `dat) s
+5 142 M
+(ePurchased`, `itemsPurchased`, `totalCost`\) ) s
+/Courier-Bold 10 10 SUF
+269 142 M
+(VALUES) s
+/F-gs-font 10 10 SF
+305 142 M
+( \(3, 1, 1, 4, ) s
+/Courier-Bold 10 10 SUF
+389 142 M
+('10-05-2019') s
+/F-gs-font 10 10 SF
+461 142 M
+(, 1, 5\);) s
+/Courier-Bold 10 10 SUF
+5 120 M
+(INSERT) s
+/F-gs-font 10 10 SF
+41 120 M
+( ) s
+/Courier-Bold 10 10 SUF
+47 120 M
+(INTO) s
+/F-gs-font 10 10 SF
+71 120 M
+( `productPurchaseEvent` \(`id`, `movieStore_id`, `rentalCard_id`, `product_id`, `dat) s
+5 109 M
+(ePurchased`, `itemsPurchased`, `totalCost`\) ) s
+/Courier-Bold 10 10 SUF
+269 109 M
+(VALUES) s
+/F-gs-font 10 10 SF
+305 109 M
+( \(4, 2, 1, 4, ) s
+/Courier-Bold 10 10 SUF
+389 109 M
+('09-02-2018') s
+/F-gs-font 10 10 SF
+461 109 M
+(, 1, 2\);) s
+/Courier-Bold 10 10 SUF
+5 98 M
+(INSERT) s
+/F-gs-font 10 10 SF
+41 98 M
+( ) s
+/Courier-Bold 10 10 SUF
+47 98 M
+(INTO) s
+/F-gs-font 10 10 SF
+71 98 M
+( `productPurchaseEvent` \(`id`, `movieStore_id`, `rentalCard_id`, `product_id`, `dat) s
+5 87 M
+(ePurchased`, `itemsPurchased`, `totalCost`\) ) s
+/Courier-Bold 10 10 SUF
+269 87 M
+(VALUES) s
+/F-gs-font 10 10 SF
+305 87 M
+( \(5, 2, 1, 4, ) s
+/Courier-Bold 10 10 SUF
+389 87 M
+('09-02-2018') s
+/F-gs-font 10 10 SF
+461 87 M
+(, 1, 2\);) s
+/Courier-Bold 10 10 SUF
+5 65 M
+(COMMIT) s
+/F-gs-font 10 10 SF
+41 65 M
+(;) s
+_R
+S
+%%Trailer
+%%Pages: 6
+%%DocumentNeededResources: font Courier-Bold Courier 
+%%EOF
