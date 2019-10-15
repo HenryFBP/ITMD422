@@ -23,17 +23,28 @@ FROM Employee
 /*
  Construct a query that lists all employees that have access to the supply closet or the executive lounge.
  */
--- TODO
+SELECT personTypeID
+FROM PersonLocationAccess
+WHERE locationTypeID = (SELECT locationTypeID FROM LocationType WHERE typeName = 'Supply Closet')
+;
 
 /*
  Determine the count of all the employees that are of the intern type.
  */
--- TODO
+SELECT *
+FROM Employee
+WHERE personTypeID =
+      (SELECT typeID
+       from PersonType
+       where typeName = 'Collegiate Interns'
+      );
 
 /*
  List all employees that have an " L " or an " N " as the first letter in their last name.
  */
--- TODO
+SELECT *
+FROM Employee
+WHERE UPPER(Employee.lastName) REGEXP '^[LN]'
 
 /*
  Design a database report that shows the distribution of the employees according to employee class.
