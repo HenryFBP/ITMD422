@@ -59,32 +59,39 @@ VALUES (0, 'Executive Lounge'),
        (3, 'Employee Lounge'),
        (4, 'Server Room');
 
+INSERT INTO `Employee`(employeeID, lastName, dateJoined, personTypeID)
+VALUES (101, 'Pappas', DATE('2008-03-08'), 0),
+       (102, 'George', DATE('2012-12-21'), 3),
+       (103, 'Chang', DATE('2003-05-05'), 2),
+       (105, 'Emerson', DATE('2001-07-12'), 3),
+       (106, 'Little', DATE('2000-10-15'), 4),
+       (107, 'Rodriguez', DATE('2004-03-20'), 2),
+       (108, 'Nicholas', DATE('2018-07-12'), 1),
+       (999, 'Davidson', DATE('2000-08-03'), 6),
+       (1000, 'Post', DATE('2019-01-05'), 5);
+
 INSERT INTO `PersonLocationAccess`(personTypeID, locationTypeID)
 VALUES (0, 0),
-       (0, 1),
+       (0, 1), -- Managers can access Exec Lounge (0), washroom (1).
+
        (1, 0),
        (1, 2),
-       (1, 3),
+       (1, 3), -- Admin Assist can access Exec Lounge (0), Supply Closet (2), and Employee Lounge (3)
+
        (2, 3),
-       (2, 4),
+       (2, 4), -- IT can access Lounge (3) and server room (4)
+
        (3, 2),
-       (3, 3),
+       (3, 3), -- etc
+
        (4, 3),
+
        (5, 0),
        (5, 1),
        (5, 2),
        (5, 3),
        (5, 4),
+
        (6, 0),
        (6, 1),
        (6, 3);
-
-INSERT INTO `Employee`(employeeID, lastName, dateJoined, personTypeID)
-VALUES (101, 'Pappas', DATE('2008-03-08'), 0),
-       (102, 'George', DATE('2012-12-21'), 3),
-       (103, 'Chang', DATE('2003-05-05'), 2),
-       (999, 'Davidson', DATE('2000-08-03'), 6),
-       (105, 'Emerson', DATE('2001-07-12'), 3),
-       (106, 'Little', DATE('2000-10-15'), 4),
-       (107, 'Rodriguez', DATE('2004-03-20'), 2)
-;
