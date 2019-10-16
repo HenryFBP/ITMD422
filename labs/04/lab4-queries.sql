@@ -23,10 +23,10 @@ FROM Employee
 /*
  Construct a query that lists all employees that have access to the supply closet or the executive lounge.
  */
-SELECT personTypeID
+SELECT DISTINCT personTypeID
 FROM PersonLocationAccess
-WHERE locationTypeID = (SELECT locationTypeID FROM LocationType WHERE typeName = 'Supply Closet')
-;
+WHERE ((locationTypeID = (select typeID from LocationType where typeName LIKE 'Executive Lounge'))
+    OR (locationTypeID = (select typeID from LocationType where typeName LIKE 'Supply Closet')));
 
 /*
  Determine the count of all the employees that are of the intern type.
