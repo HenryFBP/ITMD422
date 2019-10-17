@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 
-enscript -Esql --color=yes -o lab3-queries.out.pdf lab3-queries.sql
+cupsfilter lab3-queries.sql > lab3-queries.out.pdf
 
-enscript -Esql --color=yes -o lab3-tables.out.pdf lab3-tables.sql
+cupsfilter lab3-tables.sql > lab3-tables.out.pdf
