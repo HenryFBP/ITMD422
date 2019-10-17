@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 
-enscript -Esql --color=yes -o lab4-queries.out.pdf lab4-queries.sql
+cupsfilter lab4-queries.sql > lab4-queries.out.pdf
 
-enscript -Esql --color=yes -o lab4-tables.out.pdf lab4-tables.sql
+cupsfilter lab4-tables.sql > lab4-tables.out.pdf
